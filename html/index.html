@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400%7CUbuntu:300,400,500,600,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+  </head>
+  <body>
+    <div class="ie-panel"> <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="preloader-item">
+          <svg width="40" height="40" viewbox="0 0 40 40">
+            <polygon class="rect" points="0 0 0 40 40 40 40 0"></polygon>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header jumbotron-creative">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-143x26.png" alt="" srcset="images/logo-default-286x52.png 2x"/><img class="brand-logo-light" src="images/logo-inverse-143x26.png" alt="" srcset="images/logo-inverse-286x52.png 2x"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <div class="rd-navbar-nav-wrap">
+                    <!-- RD Navbar Nav-->
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#">我想求职</a>
+                        <!-- RD Navbar Dropdown-->
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">工作列表</a></li>
+
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">商家列表</a></li>
+
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-details.html">工作细节</a></li>
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">生成建立</a></li>
+                        </ul>
+                      </li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#">我要招聘</a>
+                        <!-- RD Navbar Dropdown-->
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post-a-job.html">发布工作</a></li>
+                        </ul>
+                      </li>
+
+                        <!-- RD Navbar Megamenu-->
+
+
+                    </ul>
+                  </div>
+                </div>
+                <div class="rd-navbar-aside">
+                  <div class="rd-navbar-aside-item">
+                    <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register"><span class="icon mdi mdi-account"></span>注册</button>
+                    <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
+                      <h5 class="rd-navbar-popup-title">注册</h5>
+                      <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                        <div class="form-wrap">
+                          <input class="form-input" id="rd-navbar-register-name" type="text" name="username" data-constraints="@Required"/>
+                          <label class="form-label" for="rd-navbar-register-name">账号</label>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="form-input" id="rd-navbar-register-email" type="email" name="email" data-constraints="@Email @Required"/>
+                          <label class="form-label" for="rd-navbar-register-email">邮箱</label>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="form-input" id="rd-navbar-register-password" type="password" name="password" data-constraints="@Required"/>
+                          <label class="form-label" for="rd-navbar-register-password">密码</label>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="form-input" id="rd-navbar-register-password-confirm" type="password" name="password-confirm" data-constraints="@Required"/>
+                          <label class="form-label" for="rd-navbar-register-password-confirm">确认密码</label>
+                        </div>
+                        <div class="form-wrap">
+                          <button class="button button-block button-primary" type="submit">注册账号</button>
+                        </div>
+                        <div class="form-wrap form-wrap-ally">
+                          <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">其它方式登录</span></div>
+                        </div>
+                        <div class="form-wrap form-wrap-ally">
+                          <div class="button-group"><a class="button button-facebook button-icon button-icon-only button-winona" href="#" aria-label="Facebook"><span class="icon mdi mdi mdi-facebook"></span></a><a class="button button-twitter button-icon button-icon-only button-winona" href="#" aria-label="Twitter"><span class="icon mdi mdi-twitter"></span></a><a class="button button-google button-icon button-icon-only button-winona" href="#" aria-label="Google+"><span class="icon mdi mdi-google"></span></a></div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="rd-navbar-aside-item">
+                    <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login"><span class="icon mdi mdi-import"></span>登录</button>
+                    <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
+                      <h5 class="rd-navbar-popup-title">登录</h5>
+                      <form class="rd-form form-compact">
+                        <div class="form-wrap">
+                          <input class="form-input" id="rd-navbar-login-email" type="email" name="email" data-constraints="@Email @Required"/>
+                          <label class="form-label" for="rd-navbar-login-email">邮箱</label>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="form-input" id="rd-navbar-login-password" type="password" name="password" data-constraints="@Required"/>
+                          <label class="form-label" for="rd-navbar-login-password">密码</label>
+                        </div>
+                        <div class="form-wrap">
+                          <button class="button button-block button-primary" type="submit">登录</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="jumbotron-creative-inner">
+          <div class="container">
+            <div class="jumbotron-creative-main">
+              <h2 class="jumbotron-creative-title">Start Building Your Own Career Now</h2>
+              <div class="form-layout-search-outer">
+                <form class="form-layout-search form-lg">
+                  <div class="form-wrap form-wrap-icon">
+                    <input class="form-input" id="form-keywords" type="text" name="keywords" data-constraints="@Required">
+                    <label class="form-label" for="form-keywords">关键字</label><span class="icon fl-bigmug-line-circular224"></span>
+                  </div>
+                  <div class="form-wrap form-wrap-icon form-wrap-select">
+                    <!-- Select 2-->
+                    <select class="form-input select" id="form-region" data-placeholder="All Regions" name="region" data-minimum-results-for-search="Infinity" data-constraints="@Selected">
+                      <option label="All Regions"></option>
+                      <option value="1">Mississauga</option>
+                      <option value="3">Oakville</option>
+                      <option value="2">Toronto</option>
+                      <option value="3">Markham</option>
+                      <option value="3">North York</option>
+
+                    </select><span class="icon fl-bigmug-line-big104"></span>
+                  </div>
+                  <div class="form-wrap form-wrap-button form-wrap-button-icon-only">
+                    <button class="button button-lg button-primary button-icon-only" type="submit" aria-label="search"><span class="icon icon-4 fl-bigmug-line-search74"></span></button>
+                  </div>
+                </form>
+              </div>
+              <p class="big text-gray-800">开始寻找你的工作</p>
+            </div>
+          </div>
+          <div class="jc-decoration">
+            <div class="jc-decoration-item jc-decoration-item-1">
+              <svg version="1.1" x="0px" y="0px" viewbox="0 0 1446 970" width="1446" height="970" preserveAspectRatio="none">
+                <path d="M-0.000,33.000 C-0.000,33.000 80.000,54.000 113.000,83.000 C146.000,112.000 147.000,152.000 183.000,174.000 C219.000,196.000 288.000,172.000 334.000,193.000 C380.000,214.000 379.000,282.000 427.000,317.000 C475.000,352.000 548.000,336.000 588.000,371.000 C628.000,406.000 614.000,483.000 647.000,513.000 C680.000,543.000 786.000,537.000 841.000,587.000 C896.000,637.000 885.000,739.000 932.000,776.000 C979.000,813.000 1026.000,796.000 1069.000,817.000 C1112.000,838.000 1135.000,865.000 1189.000,893.000 C1243.000,921.000 1433.000,970.000 1433.000,970.000 L1446.000,0.000 L-0.000,33.000 Z"></path>
+              </svg>
+            </div>
+            <div class="jc-decoration-item jc-decoration-item-2">
+              <svg version="1.1" x="0px" y="0px" viewbox="0 0 1446 970" width="1446" height="970" preserveAspectRatio="none">
+                <path d="M-0.000,33.000 C-0.000,33.000 80.000,54.000 113.000,83.000 C146.000,112.000 147.000,152.000 183.000,174.000 C219.000,196.000 288.000,172.000 334.000,193.000 C380.000,214.000 379.000,282.000 427.000,317.000 C475.000,352.000 548.000,336.000 588.000,371.000 C628.000,406.000 614.000,483.000 647.000,513.000 C680.000,543.000 786.000,537.000 841.000,587.000 C896.000,637.000 885.000,739.000 932.000,776.000 C979.000,813.000 1026.000,796.000 1069.000,817.000 C1112.000,838.000 1135.000,865.000 1189.000,893.000 C1243.000,921.000 1433.000,970.000 1433.000,970.000 L1446.000,0.000 L-0.000,33.000 Z"></path>
+              </svg>
+            </div><img class="jc-decoration-image" src="images/home-1-748x528.png" alt=""/>
+          </div>
+        </div>
+      </header>
+      <!-- Welcome to JobsFactory-->
+
+      <!-- Popular Categories-->
+      <section class="section section-md bg-default text-center">
+        <div class="container container-fullwidth">
+          <h3>Popular Categories</h3>
+          <!-- Owl Carousel-->
+          <div class="owl-carousel owl-carousel-stretch" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="3" data-xl-items="5" data-xxl-items="6" data-dots="true" data-nav="false" data-stage-padding="1" data-loop="false" data-margin="26" data-md-margin="20" data-lg-margin="26" data-autoplay="false" data-autoplay-timeout="3500" data-mouse-drag="false"><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon mercury-icon-calc"></div>
+                <p class="box-creative-title">会计 & 理财</p>
+                <p>Accounting & Finance</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon mercury-icon-partners"></div>
+                <p class="box-creative-title">销售 & 市场</p>
+                <p>Sales & Marketing</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon mercury-icon-globe"></div>
+                <p class="box-creative-title">IT 计算机</p>
+                <p>Information Technology</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon mercury-icon-cup"></div>
+                <p class="box-creative-title">食品</p>
+                <p>Food Service</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon mercury-icon-presentation-2"></div>
+                <p class="box-creative-title">设计 & 艺术 </p>
+                <p>>Design & Art</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon thin-icon-love"></div>
+                <p class="box-creative-title">超市</p>
+                <p>Supermarket</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon thin-icon-car"></div>
+                <p class="box-creative-title">汽车 & 改装</p>
+                <p>Automotive</p>
+              </div>
+              <div class="box-creative-dummy"></div></a><a class="box-creative" href="job-listing-full.html">
+              <div class="box-creative-inner">
+                <div class="icon box-creative-icon mercury-icon-house"></div>
+                <p class="box-creative-title">奶茶 & 餐厅</p>
+                <p>Restaurant</p>
+              </div>
+              <div class="box-creative-dummy"></div></a></div>
+        </div>
+      </section>
+      <!-- Recent Jobs-->
+      <section class="section section-md bg-gray-100">
+        <div class="container">
+          <div class="row row-40">
+            <div class="col-12 text-center">
+              <h3>最近更新</h3>
+            </div>
+            <div class="col-12">
+              <div class="table-job-offers-outer">
+                <table class="table-job-offers table-responsive">
+                  <tr>
+                    <td class="table-job-offers-date"><span>1 hour ago</span></td>
+                    <td class="table-job-offers-main">
+                      <!-- Company Light-->
+                      <article class="company-light">
+                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-1-45x45.png" alt=""/>
+                        </figure>
+                        <div class="company-light-main">
+                          <h5 class="company-light-title"><a href="job-details.html">Senior UX Designer</a></h5>
+                          <p class="text-color-default">StarArt</p>
+                        </div>
+                      </article>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$25–$35 \ hour</span></div>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>New York, NY, USA</span></div>
+                    </td>
+                    <td class="table-job-offers-badge"><span class="badge">Full Time</span></td>
+                  </tr>
+                  <tr>
+                    <td class="table-job-offers-date"><span>1 day ago</span></td>
+                    <td class="table-job-offers-main">
+                      <!-- Company Light-->
+                      <article class="company-light">
+                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-2-38x49.png" alt=""/>
+                        </figure>
+                        <div class="company-light-main">
+                          <h5 class="company-light-title"><a href="job-details.html">Marketing Director</a></h5>
+                          <p class="text-color-default">UpBook</p>
+                        </div>
+                      </article>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$45–$53 \ hour</span></div>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Saint-Etienne, France</span></div>
+                    </td>
+                    <td class="table-job-offers-badge"><span class="badge badge-secondary">Part Time</span></td>
+                  </tr>
+                  <tr>
+                    <td class="table-job-offers-date"><span>1 day ago</span></td>
+                    <td class="table-job-offers-main">
+                      <!-- Company Light-->
+                      <article class="company-light">
+                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-3-46x52.png" alt=""/>
+                        </figure>
+                        <div class="company-light-main">
+                          <h5 class="company-light-title"><a href="job-details.html">Front End Developer</a></h5>
+                          <p class="text-color-default">MediaLab</p>
+                        </div>
+                      </article>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$25–$43 \ hour</span></div>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Derry, United Kingdom</span></div>
+                    </td>
+                    <td class="table-job-offers-badge"><span class="badge badge-tertiary">Freelance</span></td>
+                  </tr>
+                  <tr>
+                    <td class="table-job-offers-date"><span>1 day ago</span></td>
+                    <td class="table-job-offers-main">
+                      <!-- Company Light-->
+                      <article class="company-light">
+                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-4-50x49.png" alt=""/>
+                        </figure>
+                        <div class="company-light-main">
+                          <h5 class="company-light-title"><a href="job-details.html">Social Media Executive</a></h5>
+                          <p class="text-color-default">Creator</p>
+                        </div>
+                      </article>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$15–$43 \ hour</span></div>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Los Angeles, CA, USA</span></div>
+                    </td>
+                    <td class="table-job-offers-badge"><span class="badge">Full Time</span></td>
+                  </tr>
+                  <tr>
+                    <td class="table-job-offers-date"><span>1 day ago</span></td>
+                    <td class="table-job-offers-main">
+                      <!-- Company Light-->
+                      <article class="company-light">
+                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-5-48x44.png" alt=""/>
+                        </figure>
+                        <div class="company-light-main">
+                          <h5 class="company-light-title"><a href="job-details.html">Restaurant Dishwasher</a></h5>
+                          <p class="text-color-default">Camping</p>
+                        </div>
+                      </article>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$10–$20 \ hour</span></div>
+                    </td>
+                    <td class="table-job-offers-meta">
+                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Stockholm, Sweden</span></div>
+                    </td>
+                    <td class="table-job-offers-badge"><span class="badge badge-secondary">Part Time</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="col-12 text-center"><a class="button button-lg button-primary-outline" href="job-listing-full.html">Show More Jobs</a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success Stories-->
+
+      <!-- Pricing-->
+
+      <section class="section parallax-container section-md bg-primary bg-overlay-1 text-center" data-parallax-img="images/parallax-2.jpg">
+        <div class="parallax-content">
+          <div class="container container-fullwidth">
+            <h3>Companies We've Helped</h3>
+            <!-- Owl Carousel-->
+            <div class="owl-carousel owl-carousel-stretch" data-autoplay="true" data-autoplay-timeout="4000" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="3" data-xl-items="5" data-xxl-items="6" data-dots="true" data-nav="false" data-stage-padding="2" data-loop="false" data-margin="30" data-mouse-drag="false"><a class="link-corporate" href="#"><img src="images/brand-1-inverse-183x44.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-2-inverse-118x82.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-3-inverse-137x39.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-4-inverse-133x77.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-5-inverse-153x30.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-6-inverse-90x68.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-7-inverse-112x43.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-8-inverse-126x22.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-9-inverse-158x33.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-10-inverse-137x37.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-11-inverse-84x59.png" alt=""/></a><a class="link-corporate" href="#"><img src="images/brand-12-inverse-116x51.png" alt=""/></a></div>
+          </div>
+        </div>
+      </section>
+      <!-- Steps-->
+      <section class="section section-md bg-default text-center">
+        <div class="container">
+          <h3>Just 3 Easy Steps to New Capabilities</h3>
+          <ul class="list-linked">
+            <li class="ll-item">
+              <div class="icon ll-item-icon thin-icon-email-search">
+                <svg class="ll-item-icon-inner" version="1.2" baseProfile="tiny" viewbox="-1 -1 102 102">
+                  <circle cx="50" cy="50" r="50" fill="none" vector-effect="non-scaling-stroke"></circle>
+                </svg>
+              </div>
+              <div class="ll-item-main">
+                <h5 class="ll-item-title"><a href="job-listing.html">Browse Jobs</a></h5>
+                <p>Easy search by category</p>
+              </div>
+            </li>
+            <li class="ll-item">
+              <div class="icon ll-item-icon mercury-icon-target-2">
+                <svg class="ll-item-icon-inner" version="1.2" baseProfile="tiny" viewbox="-1 -1 102 102">
+                  <circle cx="50" cy="50" r="50" fill="none" vector-effect="non-scaling-stroke"></circle>
+                </svg>
+              </div>
+              <div class="ll-item-main">
+                <h5 class="ll-item-title"><a href="job-details.html">Find Your Vacancy</a></h5>
+                <p>Choose a suitable job</p>
+              </div>
+            </li>
+            <li class="ll-item">
+              <div class="icon ll-item-icon ll-item-icon-sm mercury-icon-e-mail-o">
+                <svg class="ll-item-icon-inner" version="1.2" baseProfile="tiny" viewbox="-1 -1 102 102">
+                  <circle cx="50" cy="50" r="50" fill="none" vector-effect="non-scaling-stroke"></circle>
+                </svg>
+              </div>
+              <div class="ll-item-main">
+                <h5 class="ll-item-title"><a href="submit-resume.html">Submit Resume</a></h5>
+                <p>Get a personal job offer</p>
+              </div>
+            </li>
+            <li class="ll-item">
+              <div class="icon ll-item-icon mercury-icon-touch">
+                <svg class="ll-item-icon-inner" version="1.2" baseProfile="tiny" viewbox="-1 -1 102 102">
+                  <circle cx="50" cy="50" r="50" fill="none" vector-effect="non-scaling-stroke"></circle>
+                </svg>
+              </div>
+              <div class="ll-item-main"><a class="button button-sm button-primary-outline" href="job-listing.html">Start Now</a></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Latest Posts-->
+      <section class="section section-md bg-gray-100">
+        <div class="container">
+          <h3 class="text-center">Latest Posts</h3>
+          <div class="row row-30 row-xl-70">
+            <div class="col-12 col-lg-4">
+              <!-- Post Minimal-->
+              <article class="post-minimal"><a class="post-minimal-media" href="blog-post.html"><img class="post-minimal-image" src="images/blog-1-369x253.jpg" alt=""/></a>
+                <div class="post-minimal-main">
+                  <h5 class="post-minimal-title"><a href="blog-post.html">8 Surprising Predictions About the Future of Work</a></h5>
+                  <p>There’s no denying that the landscape of work is changing. More and more companies are adopting flexible work policies</p>
+                  <time class="post-minimal-time" datetime="2018">November 23, 2018</time>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 col-lg-4">
+              <!-- Post Minimal-->
+              <article class="post-minimal"><a class="post-minimal-media" href="blog-post.html"><img class="post-minimal-image" src="images/blog-2-369x253.jpg" alt=""/></a>
+                <div class="post-minimal-main">
+                  <h5 class="post-minimal-title"><a href="blog-post.html">Job Search Success: Finding a Business Development Job</a></h5>
+                  <p>Business development professionals are at the heart of all sorts of organizations, from startups to multinational corporations.</p>
+                  <time class="post-minimal-time" datetime="2018">November 23, 2018</time>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 col-lg-4">
+              <!-- Post Minimal-->
+              <article class="post-minimal"><a class="post-minimal-media" href="blog-post.html"><img class="post-minimal-image" src="images/blog-3-369x253.jpg" alt=""/></a>
+                <div class="post-minimal-main">
+                  <h5 class="post-minimal-title"><a href="blog-post.html">How to Impress Your Future Employer</a></h5>
+                  <p>You’re committed to your job search, and you use every ounce of your free time you have to comb through listings, write cover</p>
+                  <time class="post-minimal-time" datetime="2018">November 23, 2018</time>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA-->
+      <section class="section section-md bg-default text-center">
+        <div class="container">
+          <h3>Get JobsFactory App for Your Mobile</h3>
+          <p class="offset-top-20px"><span style="max-width: 670px;">Searching for jobs has never been that easy. Now you can find job matched your career expectation, apply for jobs and receive feedback right on your mobile. Start your job search now!</span></p>
+          <div class="group"><a class="button button-primary button-fixed-size" href="#"><img src="images/google-play-download-138x35.png" alt=""/></a><a class="button button-primary button-fixed-size" href="#"><img src="images/appstore.svg" alt=""></a></div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <footer class="section footer-creative context-dark">
+        <div class="footer-creative-main">
+          <div class="container">
+            <div class="row row-50 justify-content-lg-between">
+              <div class="col-lg-5 col-xl-4">
+                <p class="footer-creative-title">Quick Links</p>
+                <div class="footer-creative-divider"></div>
+                <div class="row row-narrow row-15">
+                  <div class="col-6">
+                    <ul class="list-marked-1">
+                      <li><a href="job-listing-full.html">Browse Jobs</a></li>
+                      <li><a href="job-listing.html">Browse Categories</a></li>
+                      <li><a href="submit-resume.html">Submit Resume</a></li>
+                      <li><a href="companies.html">Companies</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-marked-1">
+                      <li><a href="post-a-job.html">Post a Job</a></li>
+                      <li><a href="candidates-grid.html">Find a Candidate</a></li>
+                      <li><a href="pricing-tables.html">Pricing Table</a></li>
+                      <li><a href="faq.html">FAQ </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 col-xl-3">
+                <p class="footer-creative-title">Recent News posts</p>
+                <div class="footer-creative-divider"></div>
+                <div class="post-line-group">
+                  <!-- Post Line--><a class="post-line" href="blog-post.html">
+                    <time class="post-line-time" datetime="2018"><span class="post-line-time-day">25</span><span class="post-line-time-month">April</span></time>
+                    <p class="post-line-text">Canada adds 12,500 jobs in modest July rebound</p></a>
+                  <!-- Post Line--><a class="post-line" href="blog-post.html">
+                    <time class="post-line-time" datetime="2018"><span class="post-line-time-day">14</span><span class="post-line-time-month">April</span></time>
+                    <p class="post-line-text">Outsourcing vs. In-House Digital Marketing</p></a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3">
+                <p class="footer-creative-title">Jobs in Popular cities</p>
+                <div class="footer-creative-divider"></div>
+                <div class="row row-narrow row-15">
+                  <div class="col-6">
+                    <ul class="list list-1 list-icons">
+                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>San Francisco</span></a></li>
+                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Washington</span></a></li>
+                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Sacramento</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list list-1 list-icons">
+                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>New York</span></a></li>
+                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Ontario</span></a></li>
+                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Chicago</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-creative-aside">
+          <div class="container">
+            <p class="rights"><span>JobsFactory</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span>UniCornTechs Inc.</span></span></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
