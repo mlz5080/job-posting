@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+
+      <script src="js/login.js"></script>
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
@@ -71,24 +78,22 @@
                     <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
                       <h5 class="rd-navbar-popup-title">注册</h5>
                       <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+
                         <div class="form-wrap">
-                          <input class="form-input" id="rd-navbar-register-name" type="text" name="username" data-constraints="@Required"/>
-                          <label class="form-label" for="rd-navbar-register-name">账号</label>
+                          <input class="form-input" type="email" id="email" placeholder="邮箱"><br/>
+
                         </div>
                         <div class="form-wrap">
-                          <input class="form-input" id="rd-navbar-register-email" type="email" name="email" data-constraints="@Email @Required"/>
-                          <label class="form-label" for="rd-navbar-register-email">邮箱</label>
+                          <input class="form-input" type="password" id="password" placeholder="密码"/><br/>
+
                         </div>
                         <div class="form-wrap">
-                          <input class="form-input" id="rd-navbar-register-password" type="password" name="password" data-constraints="@Required"/>
-                          <label class="form-label" for="rd-navbar-register-password">密码</label>
+                          <input class="form-input" type="password" id="passwordc" placeholder="确认密码"/>
+
                         </div>
                         <div class="form-wrap">
-                          <input class="form-input" id="rd-navbar-register-password-confirm" type="password" name="password-confirm" data-constraints="@Required"/>
-                          <label class="form-label" for="rd-navbar-register-password-confirm">确认密码</label>
-                        </div>
-                        <div class="form-wrap">
-                          <button class="button button-block button-primary" type="submit">注册账号</button>
+                          <button class="button button-block button-primary" onclick="javascript:signup()" name="button" id="signup" type="submit">注册账号</button>
+                          
                         </div>
                         <div class="form-wrap form-wrap-ally">
                           <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">其它方式登录</span></div>
@@ -458,66 +463,7 @@
       </section>
       <!-- Page Footer-->
       <footer class="section footer-creative context-dark">
-        <div class="footer-creative-main">
-          <div class="container">
-            <div class="row row-50 justify-content-lg-between">
-              <div class="col-lg-5 col-xl-4">
-                <p class="footer-creative-title">Quick Links</p>
-                <div class="footer-creative-divider"></div>
-                <div class="row row-narrow row-15">
-                  <div class="col-6">
-                    <ul class="list-marked-1">
-                      <li><a href="job-listing-full.html">Browse Jobs</a></li>
-                      <li><a href="job-listing.html">Browse Categories</a></li>
-                      <li><a href="submit-resume.html">Submit Resume</a></li>
-                      <li><a href="companies.html">Companies</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-6">
-                    <ul class="list-marked-1">
-                      <li><a href="post-a-job.html">Post a Job</a></li>
-                      <li><a href="candidates-grid.html">Find a Candidate</a></li>
-                      <li><a href="pricing-tables.html">Pricing Table</a></li>
-                      <li><a href="faq.html">FAQ </a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 col-xl-3">
-                <p class="footer-creative-title">Recent News posts</p>
-                <div class="footer-creative-divider"></div>
-                <div class="post-line-group">
-                  <!-- Post Line--><a class="post-line" href="blog-post.html">
-                    <time class="post-line-time" datetime="2018"><span class="post-line-time-day">25</span><span class="post-line-time-month">April</span></time>
-                    <p class="post-line-text">Canada adds 12,500 jobs in modest July rebound</p></a>
-                  <!-- Post Line--><a class="post-line" href="blog-post.html">
-                    <time class="post-line-time" datetime="2018"><span class="post-line-time-day">14</span><span class="post-line-time-month">April</span></time>
-                    <p class="post-line-text">Outsourcing vs. In-House Digital Marketing</p></a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-3">
-                <p class="footer-creative-title">Jobs in Popular cities</p>
-                <div class="footer-creative-divider"></div>
-                <div class="row row-narrow row-15">
-                  <div class="col-6">
-                    <ul class="list list-1 list-icons">
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>San Francisco</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Washington</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Sacramento</span></a></li>
-                    </ul>
-                  </div>
-                  <div class="col-6">
-                    <ul class="list list-1 list-icons">
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>New York</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Ontario</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Chicago</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
         <div class="footer-creative-aside">
           <div class="container">
             <p class="rights"><span>JobsFactory</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span>UniCornTechs Inc.</span></span></p>
@@ -528,5 +474,20 @@
     <div class="snackbars" id="form-output-global"></div>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+        authDomain: "html-6f08b.firebaseapp.com",
+        databaseURL: "https://html-6f08b.firebaseio.com",
+        projectId: "html-6f08b",
+        storageBucket: "html-6f08b.appspot.com",
+        messagingSenderId: "747984964911"
+      };
+      firebase.initializeApp(config);
+    </script>
+
   </body>
 </html>
