@@ -15,7 +15,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
 
-      <script src="js/login.js"></script>
+      
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
@@ -72,32 +72,35 @@
                     </ul>
                   </div>
                 </div>
-                <div class="rd-navbar-aside">
+                <div class="rd-navbar-aside" id="rd-navbar-aside">
                   <div class="rd-navbar-aside-item">
-                    <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register"><span class="icon mdi mdi-account"></span>注册</button>
+                    <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="logout-button" style="display: none"><span class="icon mdi mdi-account" onclick="javascript:Logout()"></span>Logout</button>
+                  </div>
+                  <div class="rd-navbar-aside-item">
+                    <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</button>
                     <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
                       <h5 class="rd-navbar-popup-title">注册</h5>
                       <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
 
                         <div class="form-wrap">
                           <input class="form-input" type="email" id="email" placeholder="邮箱"><br/>
-
                         </div>
+
                         <div class="form-wrap">
                           <input class="form-input" type="password" id="password" placeholder="密码"/><br/>
-
                         </div>
+
                         <div class="form-wrap">
                           <input class="form-input" type="password" id="passwordc" placeholder="确认密码"/>
-
                         </div>
+
                         <div class="form-wrap">
-                          <button class="button button-block button-primary" onclick="javascript:signup()" name="button" id="signup" type="submit">注册账号</button>
-                          
+                          <button class="button button-block button-primary" onclick="javascript:Signup()" name="button" id="signup">注册账号</button>
                         </div>
                         <div class="form-wrap form-wrap-ally">
                           <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">其它方式登录</span></div>
                         </div>
+
                         <div class="form-wrap form-wrap-ally">
                           <div class="button-group"><a class="button button-facebook button-icon button-icon-only button-winona" href="#" aria-label="Facebook"><span class="icon mdi mdi mdi-facebook"></span></a><a class="button button-twitter button-icon button-icon-only button-winona" href="#" aria-label="Twitter"><span class="icon mdi mdi-twitter"></span></a><a class="button button-google button-icon button-icon-only button-winona" href="#" aria-label="Google+"><span class="icon mdi mdi-google"></span></a></div>
                         </div>
@@ -105,7 +108,7 @@
                     </div>
                   </div>
                   <div class="rd-navbar-aside-item">
-                    <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login"><span class="icon mdi mdi-import"></span>登录</button>
+                    <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</button>
                     <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
                       <h5 class="rd-navbar-popup-title">登录</h5>
                       <form class="rd-form form-compact">
@@ -118,7 +121,7 @@
                           <label class="form-label" for="rd-navbar-login-password">密码</label>
                         </div>
                         <div class="form-wrap">
-                          <button class="button button-block button-primary" type="submit">登录</button>
+                          <button class="button button-block button-primary" onclick="javascript:Login()">登录</button>
                         </div>
                       </form>
                     </div>
@@ -488,6 +491,6 @@
       };
       firebase.initializeApp(config);
     </script>
-
+    <script src="js/login.js"></script>
   </body>
 </html>
