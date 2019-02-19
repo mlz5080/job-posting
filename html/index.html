@@ -15,7 +15,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
 
-      
+
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
@@ -111,7 +111,7 @@
                     <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</button>
                     <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
                       <h5 class="rd-navbar-popup-title">登录</h5>
-                      <form class="rd-form form-compact">
+                      <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
                         <div class="form-wrap">
                           <input class="form-input" id="rd-navbar-login-email" type="email" name="email" data-constraints="@Email @Required"/>
                           <label class="form-label" for="rd-navbar-login-email">邮箱</label>
@@ -474,7 +474,7 @@
         </div>
       </footer>
     </div>
-    <div class="snackbars" id="form-output-global"></div>
+
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
 
