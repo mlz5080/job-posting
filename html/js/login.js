@@ -45,8 +45,8 @@ function Signup()
 
 function Login(){
 
-	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
+	var email = document.getElementById('rd-navbar-login-email').value;
+	var password = document.getElementById('rd-navbar-login-password').value;
 
 	firebase.auth().signInWithEmailAndPassword(email, password).then(function (){
 		window.alert("Sign-in successfully!");
@@ -70,5 +70,3 @@ function Logout(){
 
 
 }
-
-
