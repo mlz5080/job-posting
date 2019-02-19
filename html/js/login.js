@@ -5,6 +5,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('register-button').style.display = "none";
     document.getElementById('login-button').style.display = "none";
     document.getElementById('logout-button').style.display = "block";
+    //document.getElementById('navbarforcan').style.display = "display";
+    //document.getElementById('navbarforemp').style.display = "display";
   }
   else{
   	console.log("Not login!")
@@ -18,6 +20,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('register-button').style.display = "block";
     document.getElementById('login-button').style.display = "block";
     document.getElementById('logout-button').style.display = "none";
+        //document.getElementById('navbarforcan').style.display = "none";
+      //  document.getElementById('navbarforemp').style.display = "none";
   }
   else{
   	console.log("Still login!")
