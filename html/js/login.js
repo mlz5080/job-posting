@@ -5,7 +5,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('register-button').style.display = "none";
     document.getElementById('login-button').style.display = "none";
     document.getElementById('logout-button').style.display = "block";
-    document.getElementsByClassName('rd-navbar-main-element').style.display = "block"
   }
   else{
   	console.log("Not login!")
@@ -19,7 +18,6 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('register-button').style.display = "block";
     document.getElementById('login-button').style.display = "block";
     document.getElementById('logout-button').style.display = "none";
-    document.getElementsByClassName('rd-navbar-main-element').style.display = "none"
   }
   else{
   	console.log("Still login!")
