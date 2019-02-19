@@ -67,7 +67,11 @@
                       </div>
                       <div class="rd-navbar-aside">
                         <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register"><span class="icon mdi mdi-account"></span>Sign Up</button>
+                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="logout-button" style="display: none" ><span class="icon mdi mdi-account" onclick="javascript:Logout()"></span>Logout</button>
+                       </div>
+
+                        <div class="rd-navbar-aside-item">
+                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>Sign Up</button>
                           <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
                             <h5 class="rd-navbar-popup-title">Sign Up</h5>
                             <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
@@ -100,7 +104,7 @@
                           </div>
                         </div>
                         <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login"><span class="icon mdi mdi-import"></span>Login</button>
+                          <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>Login</button>
                           <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
                             <h5 class="rd-navbar-popup-title">Login</h5>
                             <form class="rd-form form-compact">
@@ -307,5 +311,23 @@
     
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+        authDomain: "html-6f08b.firebaseapp.com",
+        databaseURL: "https://html-6f08b.firebaseio.com",
+        projectId: "html-6f08b",
+        storageBucket: "html-6f08b.appspot.com",
+        messagingSenderId: "747984964911"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="js/login.js"></script>
+
   </body>
 </html>
