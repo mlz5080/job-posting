@@ -107,24 +107,9 @@ function Update(){
 	writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb);
 }
 
-<<<<<<< HEAD
-function phoneLogin(){
-
-  var phoneNumber = document.getElementById('phone').value;
-var appVerifier = window.recaptchaVerifier;
-firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-    .then(function (confirmationResult) {
-      // SMS sent. Prompt user to type the code from the message, then sign the
-      // user in with confirmationResult.confirm(code).
-      window.confirmationResult = confirmationResult;
-    }).catch(function (error) {
-      // Error; SMS not sent
-      // ...
-    });
 
 
-}
-=======
+
 function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb) {
     var postData = {
         jobtitle: jobtitle,
@@ -144,4 +129,3 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,j
     updates['/user-posts/' + userId + '/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
   }
->>>>>>> 6b19a6749679416dc7390da84acbd56224e1bccb
