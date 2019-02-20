@@ -5,6 +5,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('register-button').style.display = "none";
     document.getElementById('login-button').style.display = "none";
     document.getElementById('logout-button').style.display = "block";
+    //document.getElementById('login-alert').style.display = "none";
     //document.getElementById('navbarforcan').style.display = "display";
     //document.getElementById('navbarforemp').style.display = "display";
   }
@@ -20,6 +21,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('register-button').style.display = "block";
     document.getElementById('login-button').style.display = "block";
     document.getElementById('logout-button').style.display = "none";
+    //document.getElementById('login-alert').style.display = "block";
         //document.getElementById('navbarforcan').style.display = "none";
       //  document.getElementById('navbarforemp').style.display = "none";
   }
@@ -27,6 +29,21 @@ firebase.auth().onAuthStateChanged(function(user) {
   	console.log("Still login!")
   }
 });
+
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(function() {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
 
 function Signup()
 {
@@ -71,10 +88,26 @@ function Logout(){
 	  // An error happened.
 	  alert("Error signning out, please contact your web admin");
 	});
-
-
 }
 
+function Update(){
+	var user = firebase.auth().currentUser
+	var jobtitle = document.getElementById('general-information-job-title').value;
+	var email = document.getElementById('general-information-email').value;
+	var jobtypeindex = document.getElementById('general-information-job-type');
+	var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
+	var location=document.getElementById('general-information-location').value;
+	var salary = document.getElementById('general-information-salary').value;
+	var jobcategoryindex = document.getElementById('general-information-job-category');
+	var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].text;
+	var requirement = document.getElementById('general-information-description').value;
+	var companyname = document.getElementById('company-details-name').value;
+	var companytag = document.getElementById('company-details-tagline').value;
+	var companyweb = document.getElementById('company-details-website').value;
+	writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb);
+}
+
+<<<<<<< HEAD
 function phoneLogin(){
 
   var phoneNumber = document.getElementById('phone').value;
@@ -91,3 +124,24 @@ firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
 
 
 }
+=======
+function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb) {
+    var postData = {
+        jobtitle: jobtitle,
+        contactemail: contactemail,
+        jobtype: jobtype,
+        location: location,
+        salary: salary,
+        jobcategory: jobcategory,
+        requirement: requirement,
+        companyname: companyname,
+        companytag: companytag,
+        companyweb: companyweb,
+    };
+    var newPostKey = firebase.database().ref().child('users-posts').push().key;
+    var updates={};
+    updates['/posts/' + newPostKey] = postData;
+    updates['/user-posts/' + userId + '/' + newPostKey] = postData;
+    return firebase.database().ref().update(updates);
+  }
+>>>>>>> 6b19a6749679416dc7390da84acbd56224e1bccb
