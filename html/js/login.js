@@ -80,28 +80,15 @@ function Update(){
 	var jobtitle = document.getElementById('general-information-job-title').value;
 	var email = document.getElementById('general-information-email').value;
 	var jobtypeindex = document.getElementById('general-information-job-type');
-	var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].value;
+	var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
 	var location=document.getElementById('general-information-location').value;
 	var salary = document.getElementById('general-information-salary').value;
 	var jobcategoryindex = document.getElementById('general-information-job-category');
-	var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].value;
+	var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].text;
 	var requirement = document.getElementById('general-information-description').value;
 	var companyname = document.getElementById('company-details-name').value;
 	var companytag = document.getElementById('company-details-tagline').value;
 	var companyweb = document.getElementById('company-details-website').value;
-	// window.alert(jobtitle)
-	// window.alert(email)
-	// window.alert(jobtype)
-	// window.alert(location)
-	// window.alert(salary)
-	// window.alert(jobcategory)
-	// window.alert(requirement)
-	// window.alert(companyname)
-	// window.alert(companytag)
-	// window.alert(companyweb)
-	// var data = document.getElementById('job-posting');
-	// data.style.color = "gold";
-	// window.alert(data);
 	writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb);
 }
 
