@@ -130,6 +130,7 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,j
     return firebase.database().ref().update(updates);
   }
 
+<<<<<<< HEAD
 
 
 
@@ -173,3 +174,13 @@ var a = firebase.database().ref('/posts');
 
 
           
+=======
+ function updateQuery(){
+  	var a = firebase.database().ref('/posts');
+  	a.on('value',function(snapshot){
+  		snapshot.forEach((child) => {
+    	console.log(child.val().jobtitle);
+  		});
+  	});
+  }
+>>>>>>> a4f0f2ec9ad4c2039efc0060bfd54d4bc53cbec3
