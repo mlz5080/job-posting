@@ -165,8 +165,6 @@ var a = firebase.database().ref('/posts');
   		});
   	});
 
-
-
        
  function updateQuery(){
   	var a = firebase.database().ref('/posts');
