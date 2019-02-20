@@ -129,3 +129,47 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,j
     updates['/user-posts/' + userId + '/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
   }
+
+
+
+
+
+
+
+var a = firebase.database().ref('/posts');
+
+  	a.on('value',function(snapshot){
+  		snapshot.forEach((child) => {
+    	console.log(child.val().jobtitle);
+      var x = child.val().jobtitle;
+      document.getElementById('position').innerHTML = child.val().jobtitle;
+  		});
+  	});
+
+    a.on('value',function(snapshot){
+  		snapshot.forEach((child) => {
+    	console.log(child.val().companyname);
+      var x = child.val().companyname;
+      document.getElementById('cname').innerHTML = child.val().companyname;
+  		});
+  	});
+
+    a.on('value',function(snapshot){
+  		snapshot.forEach((child) => {
+    	console.log(child.val().location);
+      var x = child.val().location;
+      document.getElementById('location').innerHTML = child.val().location;
+  		});
+  	});
+
+    a.on('value',function(snapshot){
+  		snapshot.forEach((child) => {
+    	console.log(child.val().jobtype);
+      var x = child.val().jobtype;
+      document.getElementById('type').innerHTML = child.val().jobtype;
+  		});
+  	});
+
+
+
+          
