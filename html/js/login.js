@@ -129,3 +129,12 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,j
     updates['/user-posts/' + userId + '/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
   }
+
+ function updateQuery(){
+  	var a = firebase.database().ref('/posts');
+  	a.on('value',function(snapshot){
+  		snapshot.forEach((child) => {
+    	console.log(child.val().jobtitle);
+  		});
+  	});
+  }
