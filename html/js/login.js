@@ -45,8 +45,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorMessage = error.message;
   });
 
-function Signup()
-{
+function Signup(){
 
 	var email = document.getElementById('email').value;
 	var password = document.getElementById('password').value;
@@ -61,7 +60,7 @@ function Signup()
 	});
 	}else{
   window.alert("两次密码输入不一致，请再次确认");
-}
+  }
 }
 
 function Login(){
@@ -92,23 +91,25 @@ function Logout(){
 
 function Update(){
 	var user = firebase.auth().currentUser
-	var jobtitle = document.getElementById('general-information-job-title').value;
-	var email = document.getElementById('general-information-email').value;
-	var jobtypeindex = document.getElementById('general-information-job-type');
-	var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
-	var location=document.getElementById('general-information-location').value;
-	var salary = document.getElementById('general-information-salary').value;
-	var jobcategoryindex = document.getElementById('general-information-job-category');
-	var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].text;
-	var requirement = document.getElementById('general-information-description').value;
-	var companyname = document.getElementById('company-details-name').value;
-	var companytag = document.getElementById('company-details-tagline').value;
-	var companyweb = document.getElementById('company-details-website').value;
-	writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb);
+  if(!user){
+    window.alert("Please login first!")
+  }
+  else{
+  var jobtitle = document.getElementById('general-information-job-title').value;
+  var email = document.getElementById('general-information-email').value;
+  var jobtypeindex = document.getElementById('general-information-job-type');
+  var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
+  var location=document.getElementById('general-information-location').value;
+  var salary = document.getElementById('general-information-salary').value;
+  var jobcategoryindex = document.getElementById('general-information-job-category');
+  var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].text;
+  var requirement = document.getElementById('general-information-description').value;
+  var companyname = document.getElementById('company-details-name').value;
+  var companytag = document.getElementById('company-details-tagline').value;
+  var companyweb = document.getElementById('company-details-website').value;
+  writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb);
+  }
 }
-
-
-
 
 function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb) {
     var postData = {
@@ -129,42 +130,6 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,j
     updates['/user-posts/' + userId + '/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
   }
-
-
-var a = firebase.database().ref('/posts');
-
-  	a.on('value',function(snapshot){
-  		snapshot.forEach((child) => {
-    	console.log(child.val().jobtitle);
-      var x = child.val().jobtitle;
-      document.getElementById('position').innerHTML = child.val().jobtitle;
-  		});
-  	});
-
-    a.on('value',function(snapshot){
-  		snapshot.forEach((child) => {
-    	console.log(child.val().companyname);
-      var x = child.val().companyname;
-      document.getElementById('cname').innerHTML = child.val().companyname;
-  		});
-  	});
-
-    a.on('value',function(snapshot){
-  		snapshot.forEach((child) => {
-    	console.log(child.val().location);
-      var x = child.val().location;
-      document.getElementById('location').innerHTML = child.val().location;
-  		});
-  	});
-
-    a.on('value',function(snapshot){
-  		snapshot.forEach((child) => {
-    	console.log(child.val().jobtype);
-      var x = child.val().jobtype;
-      document.getElementById('type').innerHTML = child.val().jobtype;
-  		});
-  	});
-
        
  function updateQuery(){
   	var a = firebase.database().ref('/posts');
@@ -174,3 +139,86 @@ var a = firebase.database().ref('/posts');
   		});
   	});
   }
+
+function writeJoblist(){
+  var a = firebase.database().ref('/posts');
+
+    a.on('value',function(snapshot){
+      snapshot.forEach((child) => {
+      console.log(child.val());
+      var table = document.getElementsByTagName("tbody")[0];
+      console.log(table);
+      var jobtitle = child.val().jobtitle;
+      var companyname = child.val().companyname;
+      var location = child.val().location;
+      var jobtype = child.val().jobtype;
+
+      var mystr1 = '<tr>'
+      var mystr2 = '<td class="table-job-listing-main" >'
+      var mystr3 = '<!-- Company Minimal-->'
+      var mystr4 = '<article class="company-minimal">'
+      var mystr5 = '<figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/></figure>'
+      var mystr6 = '<div class="company-minimal-main">'
+      var mystr7 = '<h5 class="company-minimal-title"><a href="job-details.html"><span>${jobtitle}</span></a></h5>'
+      var mystr8 = '<p><span >${companyname}</span>, <span>${location}</span></p>'
+      var mystr9 = '</div>'
+      var mystr10 = '</article>'
+      var mystr11 = '</td>'
+      var mystr12 = '<td class="table-job-listing-date"><span>1 day ago</span></td>'
+      var mystr13 = '<td class="table-job-listing-badge"><span class="badge">${jobtype}</span></td>'
+      var mystr14 = '</tr>'
+
+      document.write(mystr1)
+      document.write(mystr2)
+      document.write(mystr3)
+      document.write(mystr4)
+      document.write(mystr5)
+      document.write(mystr6)
+      document.write(mystr7)
+      document.write(mystr8)
+      document.write(mystr9)
+      document.write(mystr10)
+      document.write(mystr11)
+      document.write(mystr12)
+      document.write(mystr13)
+      document.write(mystr14)
+      
+      // document.getElementById('position').innerHTML = jobtitle;
+      // document.getElementById('cname').innerHTML = companyname;
+      // document.getElementById('location').innerHTML = location;
+      // document.getElementById('type').innerHTML = child.val().jobtype;
+      });
+    });
+
+  	// a.on('value',function(snapshot){
+  	// 	snapshot.forEach((child) => {
+   //  	console.log(child.val().jobtitle);
+   //    var jobtitle = child.val().jobtitle;
+   //    document.getElementById('position').innerHTML = child.val().jobtitle;
+  	// 	});
+  	// });
+
+   //  a.on('value',function(snapshot){
+  	// 	snapshot.forEach((child) => {
+   //  	console.log(child.val().companyname);
+   //    var x = child.val().companyname;
+   //    document.getElementById('cname').innerHTML = child.val().companyname;
+  	// 	});
+  	// });
+
+   //  a.on('value',function(snapshot){
+  	// 	snapshot.forEach((child) => {
+   //  	console.log(child.val().location);
+   //    var x = child.val().location;
+   //    document.getElementById('location').innerHTML = child.val().location;
+  	// 	});
+  	// });
+
+   //  a.on('value',function(snapshot){
+  	// 	snapshot.forEach((child) => {
+   //  	console.log(child.val().jobtype);
+   //    var x = child.val().jobtype;
+   //    document.getElementById('type').innerHTML = child.val().jobtype;
+  	// 	});
+  	// });
+}

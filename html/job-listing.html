@@ -10,7 +10,30 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+        authDomain: "html-6f08b.firebaseapp.com",
+        databaseURL: "https://html-6f08b.firebaseio.com",
+        projectId: "html-6f08b",
+        storageBucket: "html-6f08b.appspot.com",
+        messagingSenderId: "747984964911"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="js/login.js"></script>
+
   </head>
+
   <body>
     <div class="ie-panel"> <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <div class="preloader">
@@ -288,10 +311,40 @@
             </div>
             <div class="col-lg-8 col-xl-9">
               <table class="table-job-listing table-responsive">
-                
-                <tr id="joblist">
+                <script type="text/javascript">
+                  var a = firebase.database().ref('/posts');
+                  var fragment = document.createDocumentFragment();
+                  a.on('value',function(snapshot){
+                    snapshot.forEach((child) => {
+                    console.log(child.val());
+                    var jobtitle = child.val().jobtitle;
+                    var companyname = child.val().companyname;
+                    var location = child.val().location;
+                    var jobtype = child.val().jobtype;
+
+                    var tr = document.createElement('tr');
+                    //var mystr1 = '<tr>'
+                    var mystr2 = '<td class="table-job-listing-main" >';
+                    var mystr3 = '<!-- Company Minimal-->';
+                    var mystr4 = '<article class="company-minimal">';
+                    var mystr5 = '<figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/></figure>';
+                    var mystr6 = '<div class="company-minimal-main">'
+                    var mystr7 = `<h5 class="company-minimal-title"><a href="job-details.html"><span>${jobtitle}</span></a></h5>`;
+                    var mystr8 = `<p><span >${companyname}</span>, <span>${location}</span></p>`;
+                    var mystr9 = '</div>';
+                    var mystr10 = '</article>';
+                    var mystr11 = '</td>';
+                    var mystr12 = '<td class="table-job-listing-date"><span>1 day ago</span></td>';
+                    var mystr13 = `<td class="table-job-listing-badge"><span class="badge">${jobtype}</span></td>`;
+
+                    var temp=mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+mystr9+mystr10+mystr11+mystr12+mystr13;
+                    tr.innerHTML =temp;
+                    document.body.appendChild(tr);
+                      });
+                    });
+                </script>
+                <!-- <tr id="joblist">
                   <td class="table-job-listing-main" >
-                    <!-- Company Minimal-->
                     <article class="company-minimal">
                       <figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/>
                       </figure>
@@ -307,7 +360,6 @@
 
                 <tr>
                   <td class="table-job-listing-main">
-                    <!-- Company Minimal-->
                     <article class="company-minimal">
                       <figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-5-48x44.png" alt=""/>
                       </figure>
@@ -319,7 +371,7 @@
                   </td>
                   <td class="table-job-listing-date"><span>9 days ago</span></td>
                   <td class="table-job-listing-badge"><span class="badge badge-blue-11">Internship</span></td>
-                </tr>
+                </tr> -->
               </table>
               <!-- Bootstrap Pagination-->
               <nav class="pagination-outer text-center" aria-label="Page navigation">
@@ -405,28 +457,6 @@
         </div>
       </footer>
     </div>
-
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
-
-    <!-- Add additional services that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
-        authDomain: "html-6f08b.firebaseapp.com",
-        databaseURL: "https://html-6f08b.firebaseio.com",
-        projectId: "html-6f08b",
-        storageBucket: "html-6f08b.appspot.com",
-        messagingSenderId: "747984964911"
-      };
-      firebase.initializeApp(config);
-    </script>
-    <script src="js/login.js"></script>
 
   </body>
 </html>
