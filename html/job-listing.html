@@ -80,17 +80,25 @@
                               </ul>
                             </li>
 
+                            <li class="rd-nav-item" id="navbarforuser"><a id="username" class="rd-nav-link" href="#">Hello user</a>
+                              <!-- RD Navbar Dropdown-->
+                              <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">个人信息</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">工作信息</a></li>
+
+                                <li class="rd-dropdown-item"><button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button></li>
+                              </ul>
+                            </li>
                               <!-- RD Navbar Megamenu-->
-
-
                           </ul>
                         </div>
                       </div>
 
                       <div class="rd-navbar-aside" id="rd-navbar-aside">
-                        <div class="rd-navbar-aside-item">
+                        <!-- <div class="rd-navbar-aside-item">
                           <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="logout-button" style="display: none" ><span class="icon mdi mdi-account" onclick="javascript:Logout()"></span>退出登陆</button>
-                        </div>
+                        </div> -->
                         <div class="rd-navbar-aside-item">
                           <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</button>
                           <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
@@ -320,12 +328,18 @@
                     var companyname = child.val().companyname;
                     var location = child.val().location;
                     var jobtype = child.val().jobtype;
+<<<<<<< HEAD
                     var jobvalue = child.val().jobcategoryvalue;
                     var jobtypevalue = child.val().jobvalue;
 
+=======
+>>>>>>> 2810e67866345f7114dc34aec6a76b53db344ad0
                     var timestamp = child.val().timestamp;
                     diff = currentime - timestamp;
-                    if(diff>60){
+                    if(diff < 60){
+                      var actualtime = Math.floor(diff) + " seconds ago";
+                    }
+                    else if(diff>60){
                       var actualtime = Math.floor(diff/60) + " minutes ago";
                     }
                     else if(diff > 3600){
@@ -337,10 +351,14 @@
                     else{
                       var actualtime = "Months ago";
                     }
+<<<<<<< HEAD
                     var mystr1 = '<tr>'
 
                     var mystr1 = '<tr>';
 
+=======
+                    var mystr1 = '<tr>';
+>>>>>>> 2810e67866345f7114dc34aec6a76b53db344ad0
                     var mystr2 = '<td class="table-job-listing-main" >';
                     var mystr4 = '<article class="company-minimal">';
                     if(jobvalue == 1){
