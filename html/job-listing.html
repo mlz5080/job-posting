@@ -330,7 +330,10 @@
                     var jobtype = child.val().jobtype;
                     var timestamp = child.val().timestamp;
                     diff = currentime - timestamp;
-                    if(diff>60){
+                    if(diff < 60){
+                      var actualtime = Math.floor(diff) + " seconds ago";
+                    }
+                    else if(diff>60){
                       var actualtime = Math.floor(diff/60) + " minutes ago";
                     }
                     else if(diff > 3600){
