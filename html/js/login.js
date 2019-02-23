@@ -4,31 +4,23 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('rd-navbar-login').style.display = "none";
     document.getElementById('register-button').style.display = "none";
     document.getElementById('login-button').style.display = "none";
-    document.getElementById('logout-button').style.display = "block";
+    document.getElementById('navbarforuser').style.display="";
+    document.getElementById('logout-button').style.display = "";
+    console.log("Still login!")
     //document.getElementById('login-alert').style.display = "none";
-    //document.getElementById('navbarforcan').style.display = "display";
-    //document.getElementById('navbarforemp').style.display = "display";
   }
   else{
+    document.getElementById('rd-navbar-register').style.display = "";
+    document.getElementById('rd-navbar-login').style.display = "";
+    document.getElementById('register-button').style.display = "";
+    document.getElementById('login-button').style.display = "";
+    document.getElementById('navbarforuser').style.display="none";
+    document.getElementById('logout-button').style.display = "none";
+    //document.getElementById('login-alert').style.display = "block";
   	console.log("Not login!")
   }
 });
 
-firebase.auth().onAuthStateChanged(function(user) {
-  if (!user) {
-    document.getElementById('rd-navbar-register').style.display = "block";
-    document.getElementById('rd-navbar-login').style.display = "block";
-    document.getElementById('register-button').style.display = "block";
-    document.getElementById('login-button').style.display = "block";
-    document.getElementById('logout-button').style.display = "none";
-    //document.getElementById('login-alert').style.display = "block";
-        //document.getElementById('navbarforcan').style.display = "none";
-      //  document.getElementById('navbarforemp').style.display = "none";
-  }
-  else{
-  	console.log("Still login!")
-  }
-});
 
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(function() {
@@ -67,7 +59,6 @@ function Login(){
 
 	var email = document.getElementById('rd-navbar-login-email').value;
 	var password = document.getElementById('rd-navbar-login-password').value;
-
 	firebase.auth().signInWithEmailAndPassword(email, password).then(function (){
 		window.alert("Sign-in successfully!");
 	}).catch(function(error) {
@@ -116,7 +107,12 @@ function Update(){
 
 function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,
   jobcategory,requirement,companyname,companytag,companyweb) {
-    var postData = {
+    var a = firebase.database().ref('postnumber');
+    a.once('value').then(function(snapshot){
+      var postid = snapshot.val();
+      var postData = {
+        timestamp: Math.floor(Date.now() / 1000),
+        postid: ++postid,
         jobtitle: jobtitle,
         contactemail: contactemail,
         jobtype: jobtype,
@@ -132,8 +128,18 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,
     var updates={};
     updates['/posts/' + newPostKey] = postData;
     updates['/user-posts/' + userId + '/' + newPostKey] = postData;
+    updates['/postnumber'] = postid;
     return firebase.database().ref().update(updates);
+    });
   }
+   
+function clearPosts(){
+  var updates={};
+  updates['/posts'] = null;
+  updates['/user-posts'] = null;
+  updates['/postnumber'] = 0;
+  return firebase.database().ref().update(updates);
+}
 
  function updateQuery(){
   	var a = firebase.database().ref('/posts');
