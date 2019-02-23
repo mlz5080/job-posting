@@ -310,13 +310,28 @@
                 <script type="text/javascript">
                   var a = firebase.database().ref('/posts');
                   //console.log(a.val())
-                  a.on('value',function(snapshot){
+                  a.once('value').then(function(snapshot){
                     snapshot.forEach((child) => {
+                    var currentime = Math.floor(Date.now() / 1000);
                     console.log(child.val());
                     var jobtitle = child.val().jobtitle;
                     var companyname = child.val().companyname;
                     var location = child.val().location;
                     var jobtype = child.val().jobtype;
+                    var timestamp = child.val().timestamp;
+                    diff = currentime - timestamp;
+                    if(diff>60){
+                      var actualtime = Math.floor(diff/60) + " minutes ago";
+                    }
+                    else if(diff > 3600){
+                      var actualtime = Math.floor(diff/3600) + " hours ago";
+                    }
+                    else if(diff > 86400){
+                      var actualtime = Math.floor(diff/86400) + " days ago";
+                    }
+                    else{
+                      var actualtime = "Months ago";
+                    }
                     var mystr1 = '<tr>'
                     var mystr2 = '<td class="table-job-listing-main" >';
                     var mystr4 = '<article class="company-minimal">';
@@ -327,7 +342,7 @@
                     var mystr9 = '</div>';
                     var mystr10 = '</article>';
                     var mystr11 = '</td>';
-                    var mystr12 = '<td class="table-job-listing-date"><span>1 day ago</span></td>';
+                    var mystr12 = `<td class="table-job-listing-date"><span>${actualtime}</span></td>`;
                     var mystr13 = `<td class="table-job-listing-badge"><span class="badge">${jobtype}</span></td>`;
                     var mystr14 = '</tr>'
                     var temp=mystr1+mystr2+mystr4+mystr5+mystr6+mystr7+mystr8+mystr9+mystr10+mystr11+mystr12+mystr13+mystr14;
