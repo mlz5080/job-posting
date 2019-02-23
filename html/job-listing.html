@@ -80,17 +80,25 @@
                               </ul>
                             </li>
 
+                            <li class="rd-nav-item" id="navbarforuser"><a id="username" class="rd-nav-link" href="#">Hello user</a>
+                              <!-- RD Navbar Dropdown-->
+                              <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">个人信息</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">工作信息</a></li>
+
+                                <li class="rd-dropdown-item"><button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button></li>
+                              </ul>
+                            </li>
                               <!-- RD Navbar Megamenu-->
-
-
                           </ul>
                         </div>
                       </div>
 
                       <div class="rd-navbar-aside" id="rd-navbar-aside">
-                        <div class="rd-navbar-aside-item">
+                        <!-- <div class="rd-navbar-aside-item">
                           <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="logout-button" style="display: none" ><span class="icon mdi mdi-account" onclick="javascript:Logout()"></span>退出登陆</button>
-                        </div>
+                        </div> -->
                         <div class="rd-navbar-aside-item">
                           <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</button>
                           <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
