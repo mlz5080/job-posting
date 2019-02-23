@@ -81,7 +81,7 @@ function Logout(){
 }
 
 function Update(){
-  
+
 	var user = firebase.auth().currentUser
   if(!user){
     window.alert("Please login first!");
@@ -91,22 +91,24 @@ function Update(){
   var email = document.getElementById('general-information-email').value;
   var jobtypeindex = document.getElementById('general-information-job-type');
   var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
+  var jobvalue = document.getElementById('general-information-job-type').value;
   var location=document.getElementById('general-information-location').value;
   var salary = document.getElementById('general-information-salary').value;
   var jobcategoryindex = document.getElementById('general-information-job-category');
   var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].text;
+  var jobcategoryvalue = document.getElementById('general-information-job-category').value;
   var requirement = document.getElementById('general-information-description').value;
   var companyname = document.getElementById('company-details-name').value;
   var companytag = document.getElementById('company-details-tagline').value;
   var companyweb = document.getElementById('company-details-website').value;
-  writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,
+  writeUserData(user.uid,jobtitle,email,jobtype,jobvalue,location,salary,jobcategory,jobcategoryvalue,
     requirement,companyname,companytag,companyweb)
   window.alert("Succesful!!");
   }
 }
 
-function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,
-  jobcategory,requirement,companyname,companytag,companyweb) {
+function writeUserData(userId, jobtitle, contactemail, jobtype,jobvalue,location,salary,
+  jobcategory,jobcategoryvalue,requirement,companyname,companytag,companyweb) {
     var a = firebase.database().ref('postnumber');
     a.once('value').then(function(snapshot){
       var postid = snapshot.val();
@@ -116,6 +118,8 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,
         jobtitle: jobtitle,
         contactemail: contactemail,
         jobtype: jobtype,
+        jobvalue:jobvalue,
+        jobcategoryvalue:jobcategoryvalue,
         location: location,
         salary: salary,
         jobcategory: jobcategory,
@@ -132,7 +136,7 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,
     return firebase.database().ref().update(updates);
     });
   }
-   
+
 function clearPosts(){
   var updates={};
   updates['/posts'] = null;
