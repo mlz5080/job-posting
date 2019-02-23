@@ -90,9 +90,10 @@ function Logout(){
 }
 
 function Update(){
+  
 	var user = firebase.auth().currentUser
   if(!user){
-    window.alert("Please login first!")
+    window.alert("Please login first!");
   }
   else{
   var jobtitle = document.getElementById('general-information-job-title').value;
@@ -107,11 +108,14 @@ function Update(){
   var companyname = document.getElementById('company-details-name').value;
   var companytag = document.getElementById('company-details-tagline').value;
   var companyweb = document.getElementById('company-details-website').value;
-  writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb);
+  writeUserData(user.uid,jobtitle,email,jobtype,location,salary,jobcategory,
+    requirement,companyname,companytag,companyweb)
+  window.alert("Succesful!!");
   }
 }
 
-function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,jobcategory,requirement,companyname,companytag,companyweb) {
+function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,
+  jobcategory,requirement,companyname,companytag,companyweb) {
     var postData = {
         jobtitle: jobtitle,
         contactemail: contactemail,
@@ -130,7 +134,7 @@ function writeUserData(userId, jobtitle, contactemail, jobtype,location,salary,j
     updates['/user-posts/' + userId + '/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
   }
-       
+
  function updateQuery(){
   	var a = firebase.database().ref('/posts');
   	a.on('value',function(snapshot){
@@ -153,36 +157,36 @@ function writeJoblist(){
       var location = child.val().location;
       var jobtype = child.val().jobtype;
 
-      var mystr1 = '<tr>'
-      var mystr2 = '<td class="table-job-listing-main" >'
-      var mystr3 = '<!-- Company Minimal-->'
-      var mystr4 = '<article class="company-minimal">'
-      var mystr5 = '<figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/></figure>'
-      var mystr6 = '<div class="company-minimal-main">'
-      var mystr7 = '<h5 class="company-minimal-title"><a href="job-details.html"><span>${jobtitle}</span></a></h5>'
-      var mystr8 = '<p><span >${companyname}</span>, <span>${location}</span></p>'
-      var mystr9 = '</div>'
-      var mystr10 = '</article>'
-      var mystr11 = '</td>'
-      var mystr12 = '<td class="table-job-listing-date"><span>1 day ago</span></td>'
-      var mystr13 = '<td class="table-job-listing-badge"><span class="badge">${jobtype}</span></td>'
-      var mystr14 = '</tr>'
+      var mystr1 = '<tr>';
+      var mystr2 = '<td class="table-job-listing-main" >';
+      var mystr3 = '<!-- Company Minimal-->';
+      var mystr4 = '<article class="company-minimal">';
+      var mystr5 = '<figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/></figure>';
+      var mystr6 = '<div class="company-minimal-main">';
+      var mystr7 = '<h5 class="company-minimal-title"><a href="job-details.html"><span>${jobtitle}</span></a></h5>';
+      var mystr8 = '<p><span >${companyname}</span>, <span>${location}</span></p>';
+      var mystr9 = '</div>';
+      var mystr10 = '</article>';
+      var mystr11 = '</td>';
+      var mystr12 = '<td class="table-job-listing-date"><span>1 day ago</span></td>';
+      var mystr13 = '<td class="table-job-listing-badge"><span class="badge">${jobtype}</span></td>';
+      var mystr14 = '</tr>';
 
-      document.write(mystr1)
-      document.write(mystr2)
-      document.write(mystr3)
-      document.write(mystr4)
-      document.write(mystr5)
-      document.write(mystr6)
-      document.write(mystr7)
-      document.write(mystr8)
-      document.write(mystr9)
-      document.write(mystr10)
-      document.write(mystr11)
-      document.write(mystr12)
-      document.write(mystr13)
-      document.write(mystr14)
-      
+      document.write(mystr1);
+      document.write(mystr2);
+      document.write(mystr3);
+      document.write(mystr4);
+      document.write(mystr5);
+      document.write(mystr6);
+      document.write(mystr7);
+      document.write(mystr8);
+      document.write(mystr9);
+      document.write(mystr10);
+      document.write(mystr11);
+      document.write(mystr12);
+      document.write(mystr13);
+      document.write(mystr14);
+
       // document.getElementById('position').innerHTML = jobtitle;
       // document.getElementById('cname').innerHTML = companyname;
       // document.getElementById('location').innerHTML = location;
