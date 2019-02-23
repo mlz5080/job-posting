@@ -96,8 +96,12 @@ function updateResume(){
 var user = firebase.auth().currentUser
 if (!user){
   window.alert("Please Login First! 请先登录!");
-}else{
+}
+else{
 var name = document.getElementById('name').value;
+var sexindex = document.getElementById('sex')
+var sex = sexindex.options[sexindex.selectedIndex].text;
+var sexvalue = document.getElementById('sex').value;
 var reemail = document.getElementById('reemail').value;
 var profession = document.getElementById('profession').value;
 var location = document.getElementById('location').value;
@@ -112,9 +116,12 @@ var employer = document.getElementById('employer').value;
 var exjobtitle = document.getElementById('ex-job-title').value;
 var experiod = document.getElementById('ex-period').value;
 var exnote = document.getElementById('ex-notes').value;
-writeUserData(user.uid,name,email,profession,location,rate,skills
+var jobtypeindex = document.getElementById('jobtype')
+var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
+var jobtypevalue = document.getElementById('jobtype').value;
+writeUserData(user.uid,name,sex,sexvalue,email,profession,location,rate,jobtype,skills
 ,content,schoolname,qualification,period,notes,employer,exjobtitle
-,experiod,exnote)
+,experiod,exnote,jobtypevalue)
 
 
 window.alert("Succesful!!");
@@ -122,15 +129,18 @@ window.alert("Succesful!!");
 }
 }
 
-function writeUserData(userId, name, reemail, profession,location,rate,
+function writeUserData(userId, name,sex,sexvalue, reemail, profession,location,rate,jobtype,
   skills,content,schoolname,qualification,period,notes,employer,exjobtitle
-,experiod,exnotes) {
+,experiod,exnotes,jobtypevalue) {
     var postData = {
         name: name,
+        sex:sex,
+        sexvalue:sexvalue,
         reemail: reemail,
         profession: profession,
         location: location,
         rate: rate,
+        jobtype:jobtype,
         skills: skills,
         content: content,
         schoolname: schoolname,
@@ -141,6 +151,7 @@ function writeUserData(userId, name, reemail, profession,location,rate,
         exjobtitle:exjobtitle ,
         experiod: experiod,
         exnotes: exnotes,
+        jobtypevalue:jobtypevalue,
     };
     var newPostKey = firebase.database().ref().child('users-resume').push().key;
     var updates={};

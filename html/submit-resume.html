@@ -56,6 +56,8 @@
                               <!-- RD Navbar Dropdown-->
                               <ul class="rd-menu rd-navbar-dropdown">
                                 <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post-a-job.html">发布工作</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates.html">招聘人员</a></li>
+
                               </ul>
                             </li>
 
@@ -170,7 +172,22 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col-md-6">
+                  <div class="form-wrap">
+                    <label class="form-label-outside" for="general-information-job-type">性别</label>
+                    <div class="form-wrap-inner">
+                      <!-- Select 2-->
+                      <select class="form-input select" id="sex" form="post-a-job-form" data-placeholder="Select Job Type" name="job-type" data-minimum-results-for-search="Infinity" data-constraints="@Selected">
+                        <option label="Select Sexe"></option>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-email">邮箱</label>
                     <div class="form-wrap-inner">
@@ -179,19 +196,42 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+              <!--  <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-profession">专业</label>
                     <div class="form-wrap-inner">
                       <input class="form-input" id="profession" form="submit-resume-form" type="text" name="profession" data-constraints="@Required" placeholder="Profession">
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-location">地区</label>
                     <div class="form-wrap-inner">
                       <input class="form-input" id="location" form="submit-resume-form" type="text" name="location" data-constraints="@Required" placeholder="Location">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <label class="form-label-outside" for="general-information-skills">想找一份什么样的工作？</label>
+                    <div class="form-wrap-inner">
+                      <input class="form-input" id="skills" form="submit-resume-form" type="text" name="skills" placeholder="Job Title" data-constraints="@Required">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <label class="form-label-outside" for="general-information-job-type">工作类型</label>
+                    <div class="form-wrap-inner">
+                      <!-- Select 2-->
+                      <select class="form-input select" id="jobtype" form="post-a-job-form" data-placeholder="Select Job Type" name="job-type" data-minimum-results-for-search="Infinity" data-constraints="@Selected">
+                        <option label="Select Job Type"></option>
+                        <option value="1">全职工作</option>
+                        <option value="2">兼职</option>
+                        <option value="3">实习生</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -204,30 +244,22 @@
                   </div>
                 </div>
 
-                <div class="col-md-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="general-information-skills">特长 (optional)</label>
-                    <div class="form-wrap-inner">
-                      <input class="form-input" id="skills" form="submit-resume-form" type="text" name="skills" placeholder="Skills">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12">
+                <!--<div class="col-12">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-resume-content">简单介绍</label>
                     <div class="form-wrap-inner">
                       <textarea class="form-input" id="content" form="submit-resume-form" name="resume-content"  placeholder="Description about your self"></textarea>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
+          <!--
           <div class="block-form">
             <h4>学历</h4>
             <hr>
-            <!-- RD Mailform-->
+
             <div class="rd-form rd-mailform form-lg form-corporate">
               <div class="form-wrap">
                 <label class="form-label-outside" for="education-school-name">学校名称</label>
@@ -258,7 +290,7 @@
           <div class="block-form">
             <h4>工作经验</h4>
             <hr>
-            <!-- RD Mailform-->
+
             <div class="rd-form rd-mailform form-lg form-corporate">
               <div class="form-wrap">
                 <label class="form-label-outside" for="experience-employer">雇主</label>
@@ -285,19 +317,18 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
           <div class="block-form">
-            <h4>Add Files</h4>
+            <!--<h4>Add Files</h4>
             <hr>
             <div class="group">
               <label class="button button-sm button-primary-outline button-icon button-icon-left">
                 <input type="file" name="photo" form="submit-resume-form"><span class="icon mdi mdi-account-box"></span>添加照片
               </label>
 
-            </div>
+            </div> -->
             </form>
             <hr>
-            <button class="button button-lg button-secondary" type="submit" form="submit-resume-form">Preview</button>
             <button class="button button-block button-primary" onclick="javascript:updateResume()">发布</button>
 
           </div>
