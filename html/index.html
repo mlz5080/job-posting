@@ -101,56 +101,16 @@
                     <button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button>
                   </div> -->
                   <div class="rd-navbar-aside-item">
-                    <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</button>
-                    <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
-                      <h5 class="rd-navbar-popup-title">注册</h5>
-                      <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                    <a href="signup.html" class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</a>
+                    <div class="bg-gray-100" id="rd-navbar-register">
 
-                        <div class="form-wrap">
-                          <input class="form-input" type="email" id="email" placeholder="邮箱"><br/>
-                        </div>
 
-                        <div class="form-wrap">
-                          <input class="form-input" type="password" id="password" placeholder="密码"/><br/>
-                        </div>
-
-                        <div class="form-wrap">
-                          <input class="form-input" type="password" id="passwordc" placeholder="确认密码"/>
-                        </div>
-
-                        <div class="form-wrap">
-                          <button class="button button-block button-primary" onclick="javascript:Signup()" name="button" id="signup">注册账号</button>
-                        </div>
-                        <div class="form-wrap form-wrap-ally">
-                          <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">其它方式登录</span></div>
-                        </div>
-
-                        <div class="form-wrap form-wrap-ally">
-                          <div class="button-group">
-                            <a class="button button-facebook button-icon button-icon-only button-winona" href="#" aria-label="Facebook"><span class="icon mdi mdi mdi-facebook"></span></a>
-                            <a class="button button-twitter button-icon button-icon-only button-winona" href="#" aria-label="Twitter"><span class="icon mdi mdi-twitter"></span></a>
-                            <a class="button button-google button-icon button-icon-only button-winona" href="#" aria-label="Google+"><span class="icon mdi mdi-google"></span></a></div>
-                        </div>
-                      </form>
                     </div>
                   </div>
                   <div class="rd-navbar-aside-item">
-                    <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</button>
-                    <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
-                      <h5 class="rd-navbar-popup-title">登录</h5>
-                      <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                        <div class="form-wrap">
-                          <input class="form-input" id="rd-navbar-login-email" type="email" name="email" data-constraints="@Email @Required"/>
-                          <label class="form-label" for="rd-navbar-login-email">邮箱</label>
-                        </div>
-                        <div class="form-wrap">
-                          <input class="form-input" id="rd-navbar-login-password" type="password" name="password" data-constraints="@Required"/>
-                          <label class="form-label" for="rd-navbar-login-password">密码</label>
-                        </div>
-                        <div class="form-wrap">
-                          <button class="button button-block button-primary" onclick="javascript:Login()">登录</button>
-                        </div>
-                      </form>
+                    <a href="login.html" class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</a>
+                    <div class="bg-gray-100" id="rd-navbar-login">
+
                     </div>
                   </div>
                 </div>
@@ -273,32 +233,54 @@
 
                   <script type="text/javascript">
                     var a = firebase.database().ref('/posts').limitToLast(5);
+                    var local=[]
                     //console.log(a.val())
                     a.once('value').then(function(snapshot){
                       snapshot.forEach((child) => {
+                        local.push(child.val())
+                        });
+                    console.log(local);
+                    local = local.reverse();
+                    for(i = 0;i<local.length;i++){
                       var currentime = Math.floor(Date.now() / 1000);
-                      console.log(child.val());
-                      var jobtitle = child.val().jobtitle;
-                      var companyname = child.val().companyname;
-                      var location = child.val().location;
-                      var jobtype = child.val().jobtype;
-                      var jobvalue = child.val().jobcategoryvalue;
-                      var jobtypevalue = child.val().jobvalue;
-                      var salary = child.val().salary;
-
-                      var timestamp = child.val().timestamp;
+                      var jobtitle = local[i].jobtitle;
+                      var companyname = local[i].companyname;
+                      var location = local[i].location;
+                      var jobtype = local[i].jobtype;
+                      var jobvalue = local[i].jobcategoryvalue;
+                      var jobtypevalue = local[i].jobvalue;
+                      var salary = local[i].salary;
+                      var timestamp = local[i].timestamp;
                       diff = currentime - timestamp;
                       if(diff < 60){
                         var actualtime = Math.floor(diff) + " seconds ago";
                       }
                       else if(diff>60 && diff<3600){
-                        var actualtime = Math.floor(diff/60) + " minutes ago";
+                        var temp = Math.floor(diff/60);
+                        if(temp > 1){
+                          var actualtime = temp + " minutes ago";
+                        }
+                        else{
+                          var actualtime = temp + " minute ago";
+                        }
                       }
                       else if(diff > 3600 && diff<86400){
-                        var actualtime = Math.floor(diff/3600) + " hours ago";
+                        var temp = Math.floor(diff/3600);
+                        if(temp>1){
+                          var actualtime = temp + " hours ago";
+                        }
+                        else{
+                          var actualtime = temp + " hour ago";
+                        }
                       }
                       else if(diff > 86400){
-                        var actualtime = Math.floor(diff/86400) + " days ago";
+                        var temp = Math.floor(diff/86400);
+                        if(temp>1){
+                          var actualtime = temp + " days ago";
+                        }
+                        else{
+                          var actualtime = "Yesterday";
+                        }
                       }
                       else{
                         var actualtime = "Months ago";
@@ -342,14 +324,12 @@
                       var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-blue-11">${jobtype}</span></td>`;
                     }
                       var mystr20 ='</tr>';
-
-
                       var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
                       mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
                       +mystr19+mystr20;
                       document.getElementById("indexTable").innerHTML += temp;
-                        });
-                      });
+                    }
+                    });
                   </script>
                 </table>
               </div>
