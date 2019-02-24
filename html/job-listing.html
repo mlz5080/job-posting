@@ -335,10 +335,10 @@
                     if(diff < 60){
                       var actualtime = Math.floor(diff) + " seconds ago";
                     }
-                    else if(diff>60){
+                    else if(diff>60 && diff<3600){
                       var actualtime = Math.floor(diff/60) + " minutes ago";
                     }
-                    else if(diff > 3600){
+                    else if(diff > 3600 && diff<86400){
                       var actualtime = Math.floor(diff/3600) + " hours ago";
                     }
                     else if(diff > 86400){
