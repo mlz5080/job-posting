@@ -2,6 +2,46 @@
 /*
 * Trunk version 2.0.1
 */
+
+#logout-button{
+	color: white;
+    background-color: #1087eb;
+    border-color: #1087eb;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    line-height: 1.3;
+    font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    text-align: center;
+    cursor: pointer;
+}
+
+#logout-button:hover{
+	color: #1087eb;
+    background-color: #F3D480;
+    border-color: #F3D480;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    line-height: 1.3;
+    font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    text-align: center;
+    cursor: pointer;
+}
 a:focus,
 button:focus {
 	outline: none !important;
