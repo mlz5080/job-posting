@@ -10,7 +10,24 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
 
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+        authDomain: "html-6f08b.firebaseapp.com",
+        databaseURL: "https://html-6f08b.firebaseio.com",
+        projectId: "html-6f08b",
+        storageBucket: "html-6f08b.appspot.com",
+        messagingSenderId: "747984964911"
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
@@ -251,113 +268,89 @@
               <h3>最近更新</h3>
             </div>
             <div class="col-12">
-              <div class="table-job-offers-outer">
-                <table class="table-job-offers table-responsive">
-                  <tr>
-                    <td class="table-job-offers-date"><span>1 hour ago</span></td>
-                    <td class="table-job-offers-main">
-                      <!-- Company Light-->
-                      <article class="company-light">
-                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-1-45x45.png" alt=""/>
-                        </figure>
-                        <div class="company-light-main">
-                          <h5 class="company-light-title"><a href="job-details.html">Senior UX Designer</a></h5>
-                          <p class="text-color-default">StarArt</p>
-                        </div>
-                      </article>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$25–$35 \ hour</span></div>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>New York, NY, USA</span></div>
-                    </td>
-                    <td class="table-job-offers-badge"><span class="badge">Full Time</span></td>
-                  </tr>
-                  <tr>
-                    <td class="table-job-offers-date"><span>1 day ago</span></td>
-                    <td class="table-job-offers-main">
-                      <!-- Company Light-->
-                      <article class="company-light">
-                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-2-38x49.png" alt=""/>
-                        </figure>
-                        <div class="company-light-main">
-                          <h5 class="company-light-title"><a href="job-details.html">Marketing Director</a></h5>
-                          <p class="text-color-default">UpBook</p>
-                        </div>
-                      </article>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$45–$53 \ hour</span></div>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Saint-Etienne, France</span></div>
-                    </td>
-                    <td class="table-job-offers-badge"><span class="badge badge-secondary">Part Time</span></td>
-                  </tr>
-                  <tr>
-                    <td class="table-job-offers-date"><span>1 day ago</span></td>
-                    <td class="table-job-offers-main">
-                      <!-- Company Light-->
-                      <article class="company-light">
-                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-3-46x52.png" alt=""/>
-                        </figure>
-                        <div class="company-light-main">
-                          <h5 class="company-light-title"><a href="job-details.html">Front End Developer</a></h5>
-                          <p class="text-color-default">MediaLab</p>
-                        </div>
-                      </article>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$25–$43 \ hour</span></div>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Derry, United Kingdom</span></div>
-                    </td>
-                    <td class="table-job-offers-badge"><span class="badge badge-tertiary">Freelance</span></td>
-                  </tr>
-                  <tr>
-                    <td class="table-job-offers-date"><span>1 day ago</span></td>
-                    <td class="table-job-offers-main">
-                      <!-- Company Light-->
-                      <article class="company-light">
-                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-4-50x49.png" alt=""/>
-                        </figure>
-                        <div class="company-light-main">
-                          <h5 class="company-light-title"><a href="job-details.html">Social Media Executive</a></h5>
-                          <p class="text-color-default">Creator</p>
-                        </div>
-                      </article>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$15–$43 \ hour</span></div>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Los Angeles, CA, USA</span></div>
-                    </td>
-                    <td class="table-job-offers-badge"><span class="badge">Full Time</span></td>
-                  </tr>
-                  <tr>
-                    <td class="table-job-offers-date"><span>1 day ago</span></td>
-                    <td class="table-job-offers-main">
-                      <!-- Company Light-->
-                      <article class="company-light">
-                        <figure class="company-light-figure"><img class="company-light-image" src="images/company-5-48x44.png" alt=""/>
-                        </figure>
-                        <div class="company-light-main">
-                          <h5 class="company-light-title"><a href="job-details.html">Restaurant Dishwasher</a></h5>
-                          <p class="text-color-default">Camping</p>
-                        </div>
-                      </article>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>$10–$20 \ hour</span></div>
-                    </td>
-                    <td class="table-job-offers-meta">
-                      <div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>Stockholm, Sweden</span></div>
-                    </td>
-                    <td class="table-job-offers-badge"><span class="badge badge-secondary">Part Time</span></td>
-                  </tr>
+              <div class="table-job-offers-outer" >
+                <table class="table-job-offers table-responsive" id="indexTable" >
+
+                  <script type="text/javascript">
+                    var a = firebase.database().ref('/posts');
+                    //console.log(a.val())
+                    a.once('value').then(function(snapshot){
+                      snapshot.forEach((child) => {
+                      var currentime = Math.floor(Date.now() / 1000);
+                      console.log(child.val());
+                      var jobtitle = child.val().jobtitle;
+                      var companyname = child.val().companyname;
+                      var location = child.val().location;
+                      var jobtype = child.val().jobtype;
+                      var jobvalue = child.val().jobcategoryvalue;
+                      var jobtypevalue = child.val().jobvalue;
+                      var salary = child.val().salary;
+
+                      var timestamp = child.val().timestamp;
+                      diff = currentime - timestamp;
+                      if(diff < 60){
+                        var actualtime = Math.floor(diff) + " seconds ago";
+                      }
+                      else if(diff>60){
+                        var actualtime = Math.floor(diff/60) + " minutes ago";
+                      }
+                      else if(diff > 3600){
+                        var actualtime = Math.floor(diff/3600) + " hours ago";
+                      }
+                      else if(diff > 86400){
+                        var actualtime = Math.floor(diff/86400) + " days ago";
+                      }
+                      else{
+                        var actualtime = "Months ago";
+                      }
+
+                      var mystr1 = '<tr>';
+                      var mystr2 = `<td class="table-job-offers-date"><span>${actualtime}</span></td>`;
+                      var mystr3 = '<td class="table-job-offers-main">';
+                      var mystr4 = '<article class="company-light">';
+                      if (jobvalue == 1){
+                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/canyin.png" width="80" alt=""/>';
+                    }else if (jobvalue == 2){
+                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/yule.png" width="80" alt=""/>';
+                    }else if (jobvalue == 3){
+                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/gongchang.png" width="80" alt=""/>';
+                    }else if (jobvalue == 4){
+                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/it.png" width="80" alt=""/>';
+                    }else if (jobvalue == 5){
+                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/market.png" width="80" alt=""/>';
+                    }else if (jobvalue == 6){
+                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/accounting.png" width="80" alt=""/>';
+                    }
+                      var mystr6 = '</figure>';
+                      var mystr7 = '<div class="company-light-main">';
+                      var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
+                      var mystr9 = `<p class="text-color-default">${companyname}</p>`;
+                      var mystr10 = '</div>';
+                      var mystr11 = '</article>';
+                      var mystr12 = '</td>';
+                      var mystr13 = '<td class="table-job-offers-meta">';
+                      var mystr14 =`<div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>${salary}</span></div>`;
+                      var mystr15 ='</td>';
+                      var mystr16 ='<td class="table-job-offers-meta">';
+                      var mystr17 =`<div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>${location}</span></div>`;
+                      var mystr18 ='</td>';
+                      if (jobtypevalue == 1){
+                      var mystr19 =`<td class="table-job-offers-badge"><span class="badge">${jobtype}</span></td>`;
+                    }else if (jobtypevalue == 2){
+                      var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-secondary">${jobtype}</span></td>`;
+                    }else{
+                      var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-blue-11">${jobtype}</span></td>`;
+                    }
+                      var mystr20 ='</tr>';
+
+
+                      var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
+                      mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
+                      +mystr19+mystr20;
+                      document.getElementById("indexTable").innerHTML += temp;
+                        });
+                      });
+                  </script>
                 </table>
               </div>
             </div>
@@ -488,24 +481,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
 
-<!-- Add additional services that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
-        authDomain: "html-6f08b.firebaseapp.com",
-        databaseURL: "https://html-6f08b.firebaseio.com",
-        projectId: "html-6f08b",
-        storageBucket: "html-6f08b.appspot.com",
-        messagingSenderId: "747984964911"
-      };
-      firebase.initializeApp(config);
-    </script>
     <script src="js/login.js"></script>
   </body>
 </html>
