@@ -49,7 +49,7 @@
 
                                 <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">商家列表</a></li>
 
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">简历</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">发布求职</a></li>
                               </ul>
                             </li>
 
@@ -61,6 +61,7 @@
 
                               </ul>
                             </li>
+                            <li class="rd-nav-item" id="navbarforcan"><a class="rd-nav-link" href="contact-us.html">关于我们</a></li>
 
                             <li class="rd-nav-item" id="navbarforuser"><a id="username" class="rd-nav-link" href="#">Hello user</a>
                               <!-- RD Navbar Dropdown-->
@@ -79,56 +80,19 @@
                       </div>
                       <div class="rd-navbar-aside" id="rd-navbar-aside">
                         <!-- <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" onclick="javascript:Logout()" data-rd-navbar-toggle="#rd-navbar-register" id="logout-button" style="display: none" ><span class="icon mdi mdi-account" ></span>退出登陆</button>
+                          <button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button>
                         </div> -->
                         <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</button>
-                          <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
-                            <h5 class="rd-navbar-popup-title">注册</h5>
-                            <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                          <a href="signup.html" class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</a>
+                          <div class="bg-gray-100" id="rd-navbar-register">
 
-                              <div class="form-wrap">
-                                <input class="form-input" type="email" id="email" placeholder="邮箱"><br/>
-                              </div>
 
-                              <div class="form-wrap">
-                                <input class="form-input" type="password" id="password" placeholder="密码"/><br/>
-                              </div>
-
-                              <div class="form-wrap">
-                                <input class="form-input" type="password" id="passwordc" placeholder="确认密码"/>
-                              </div>
-
-                              <div class="form-wrap">
-                                <button class="button button-block button-primary" onclick="javascript:Signup()" name="button" id="signup">注册账号</button>
-                              </div>
-                              <div class="form-wrap form-wrap-ally">
-                                <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">其它方式登录</span></div>
-                              </div>
-
-                              <div class="form-wrap form-wrap-ally">
-                                <div class="button-group"><a class="button button-facebook button-icon button-icon-only button-winona" href="#" aria-label="Facebook"><span class="icon mdi mdi mdi-facebook"></span></a><a class="button button-twitter button-icon button-icon-only button-winona" href="#" aria-label="Twitter"><span class="icon mdi mdi-twitter"></span></a><a class="button button-google button-icon button-icon-only button-winona" href="#" aria-label="Google+"><span class="icon mdi mdi-google"></span></a></div>
-                              </div>
-                            </form>
                           </div>
                         </div>
                         <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</button>
-                          <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
-                            <h5 class="rd-navbar-popup-title">登录</h5>
-                            <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-login-email" type="email" name="email" data-constraints="@Email @Required"/>
-                                <label class="form-label" for="rd-navbar-login-email">邮箱</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-login-password" type="password" name="password" data-constraints="@Required"/>
-                                <label class="form-label" for="rd-navbar-login-password">密码</label>
-                              </div>
-                              <div class="form-wrap">
-                                <button class="button button-block button-primary" onclick="javascript:Login()">登录</button>
-                              </div>
-                            </form>
+                          <a href="login.html" class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</a>
+                          <div class="bg-gray-100" id="rd-navbar-login">
+
                           </div>
                         </div>
                       </div>
