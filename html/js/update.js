@@ -47,10 +47,10 @@ function writeUserData(userId,about,schoolname,profession,period,employer,
         experiod:experiod,
         exnote:exnote,
     };
-    var newPostKey = firebase.database().ref().child('users-info').push().key;
     var updates={};
-    updates['/user-info/' + newPostKey] = postData;
-
+    updates['/user-info/' ] = postData;
+    updates['/user-info/' + userId ] = postData;
+    updates['/usernumber'] = postid;
     return firebase.database().ref().update(updates);
     });
   }
