@@ -36,12 +36,8 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorCode = error.code;
     var errorMessage = error.message;
   });
-<<<<<<< HEAD
   
 function Signup(){
-=======
-
->>>>>>> 8f5b98b68178193b0edf9629f444c3b2e642da93
 
 
 function Login(){
