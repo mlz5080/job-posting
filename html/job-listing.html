@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
-
     <!-- Add additional services that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
@@ -28,6 +27,9 @@
       };
       firebase.initializeApp(config);
     </script>
+    <script src="js/login.js"></script>
+    
+
   </head>
 
   <body>
@@ -316,10 +318,10 @@
               </div>
             </div>
             <div class="col-lg-8 col-xl-9" id="outputdiv">
-              <table class="table-job-listing table-responsive" id="mytable">
+              <!-- <table class="table-job-listing table-responsive" id="mytable">
                 <script type="text/javascript">
-                    var a = firebase.database().ref('/posts').limitToLast(5);
-                    var local=[]
+                    var a = firebase.database().ref('/posts');
+                    var local=[];
                     //console.log(a.val())
                     a.once('value').then(function(snapshot){
                       snapshot.forEach((child) => {
@@ -337,6 +339,7 @@
                       var jobtypevalue = local[i].jobvalue;
                       var salary = local[i].salary;
                       var timestamp = local[i].timestamp;
+                      var postid = local[i].postid;
                       diff = currentime - timestamp;
                       if(diff < 60){
                         var actualtime = Math.floor(diff) + " seconds ago";
@@ -416,48 +419,230 @@
                       document.getElementById("mytable").innerHTML += temp;
                     }
                     });
-                  </script>
-                <!-- <tr id="joblist">
-                  <td class="table-job-listing-main" >
-                    <article class="company-minimal">
-                      <figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/>
-                      </figure>
-                      <div class="company-minimal-main">
-                        <h5 class="company-minimal-title"><a href="job-details.html"><span  id="position">职位名称</span></a></h5>
-                        <p><span id="cname">商家名字</span>, <span id="location" >地区</span></p>
-                      </div>
-                    </article>
-                  </td>
-                  <td class="table-job-listing-date"><span>1 day ago</span></td>
-                  <td class="table-job-listing-badge"><span class="badge" id="type">Full Time</span></td>
-                </tr>
-
-                <tr>
-                  <td class="table-job-listing-main">
-                    <article class="company-minimal">
-                      <figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-5-48x44.png" alt=""/>
-                      </figure>
-                      <div class="company-minimal-main">
-                        <h5 class="company-minimal-title"><a href="job-details.html">Guard</a></h5>
-                        <p>Camping, Stockholm, Sweden</p>
-                      </div>
-                    </article>
-                  </td>
-                  <td class="table-job-listing-date"><span>9 days ago</span></td>
-                  <td class="table-job-listing-badge"><span class="badge badge-blue-11">Internship</span></td>
-                </tr> -->
+                </script>
               </table>
-              <!-- Bootstrap Pagination-->
+
               <nav class="pagination-outer text-center" aria-label="Page navigation">
                 <div class="pagination">
                   <div class="page-item page-item-control"><a class="page-link" href="#" aria-label="Previous">Prev</a></div>
-                  <div class="page-item"><a class="page-link" href="#">1</a></div>
+                  <div class="page-item active"><span class="page-link">1</span></div>
                   <div class="page-item"><a class="page-link" href="#">2</a></div>
-                  <div class="page-item active"><span class="page-link">3</span></div>
+                  <div class="page-item"><a class="page-link" href="#">3</a></div>
                   <div class="page-item"><a class="page-link" href="#">4</a></div>
                   <div class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next">Next</a></div>
                 </div>
-              </nav>
+              </nav> -->
+            <div class="container">
+             <div class="jumbotron page" id="page1">
+                <table class="table-job-listing table-responsive" id="mytable1">
+                   <script type="text/javascript">
+                      var a = firebase.database().ref('/posts');
+                      var local=[];
+                      a.once('value').then(function(snapshot){
+                        snapshot.forEach((child) => {
+                          local.push(child.val())
+                          });
+                      console.log(local);
+                      local = local.reverse();
+                      for(i = 0;i<5;i++){
+                        var currentime = Math.floor(Date.now() / 1000);
+                        var jobtitle = local[i].jobtitle;
+                        var companyname = local[i].companyname;
+                        var location = local[i].location;
+                        var jobtype = local[i].jobtype;
+                        var jobvalue = local[i].jobcategoryvalue;
+                        var jobtypevalue = local[i].jobvalue;
+                        var salary = local[i].salary;
+                        var timestamp = local[i].timestamp;
+                        var postid = local[i].postid;
+                        diff = currentime - timestamp;
+                        if(diff < 60){
+                          var actualtime = Math.floor(diff) + " seconds ago";
+                        }
+                        else if(diff>60 && diff<3600){
+                          var temp = Math.floor(diff/60);
+                          if(temp > 1){
+                            var actualtime = temp + " minutes ago";
+                          }
+                          else{
+                            var actualtime = temp + " minute ago";
+                          }
+                        }
+                        else if(diff > 3600 && diff<86400){
+                          var temp = Math.floor(diff/3600);
+                          if(temp>1){
+                            var actualtime = temp + " hours ago";
+                          }
+                          else{
+                            var actualtime = temp + " hour ago";
+                          }
+                        }
+                        else if(diff > 86400){
+                          var temp = Math.floor(diff/86400);
+                          if(temp>1){
+                            var actualtime = temp + " days ago";
+                          }
+                          else{
+                            var actualtime = "Yesterday";
+                          }
+                        }
+                        else{
+                          var actualtime = "Months ago";
+                        }
+
+                        var mystr1 = '<tr>';
+                        var mystr2 = `<td class="table-job-offers-date"><span>${actualtime}</span></td>`;
+                        var mystr3 = '<td class="table-job-offers-main">';
+                        var mystr4 = '<article class="company-light">';
+                        if (jobvalue == 1){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/canyin.png" width="80" alt=""/>';
+                      }else if (jobvalue == 2){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/yule.png" width="80" alt=""/>';
+                      }else if (jobvalue == 3){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/gongchang.png" width="80" alt=""/>';
+                      }else if (jobvalue == 4){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/it.png" width="80" alt=""/>';
+                      }else if (jobvalue == 5){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/market.png" width="80" alt=""/>';
+                      }else if (jobvalue == 6){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/accounting.png" width="80" alt=""/>';
+                      }
+                        var mystr6 = '</figure>';
+                        var mystr7 = '<div class="company-light-main">';
+                        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
+                        var mystr9 = `<p class="text-color-default">${companyname}</p>`;
+                        var mystr10 = '</div>';
+                        var mystr11 = '</article>';
+                        var mystr12 = '</td>';
+                        var mystr13 = '<td class="table-job-offers-meta">';
+                        var mystr14 =`<div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>${salary}</span></div>`;
+                        var mystr15 ='</td>';
+                        var mystr16 ='<td class="table-job-offers-meta">';
+                        var mystr17 =`<div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>${location}</span></div>`;
+                        var mystr18 ='</td>';
+                        if (jobtypevalue == 1){
+                        var mystr19 =`<td class="table-job-offers-badge"><span class="badge">${jobtype}</span></td>`;
+                      }else if (jobtypevalue == 2){
+                        var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-secondary">${jobtype}</span></td>`;
+                      }else{
+                        var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-blue-11">${jobtype}</span></td>`;
+                      }
+                        var mystr20 ='</tr>';
+                        var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
+                        mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
+                        +mystr19+mystr20;
+                        document.getElementById("mytable1").innerHTML += temp;
+                      }
+                      });
+                   </script>
+                </table>
+             </div>
+             <div class="jumbotron page" id="page2">
+                <table class="table-job-listing table-responsive" id="mytable2">
+                   <script type="text/javascript">
+                      var a = firebase.database().ref('/posts');
+                      var local=[];
+                      a.once('value').then(function(snapshot){
+                        snapshot.forEach((child) => {
+                          local.push(child.val())
+                      });
+                      console.log(local);
+                      local = local.reverse();
+                      for(i = 5;i<local.length;i++){
+                        var currentime = Math.floor(Date.now() / 1000);
+                        var jobtitle = local[i].jobtitle;
+                        var companyname = local[i].companyname;
+                        var location = local[i].location;
+                        var jobtype = local[i].jobtype;
+                        var jobvalue = local[i].jobcategoryvalue;
+                        var jobtypevalue = local[i].jobvalue;
+                        var salary = local[i].salary;
+                        var timestamp = local[i].timestamp;
+                        var postid = local[i].postid;
+                        diff = currentime - timestamp;
+                        if(diff < 60){
+                          var actualtime = Math.floor(diff) + " seconds ago";
+                        }
+                        else if(diff>60 && diff<3600){
+                          var temp = Math.floor(diff/60);
+                          if(temp > 1){
+                            var actualtime = temp + " minutes ago";
+                          }
+                          else{
+                            var actualtime = temp + " minute ago";
+                          }
+                        }
+                        else if(diff > 3600 && diff<86400){
+                          var temp = Math.floor(diff/3600);
+                          if(temp>1){
+                            var actualtime = temp + " hours ago";
+                          }
+                          else{
+                            var actualtime = temp + " hour ago";
+                          }
+                        }
+                        else if(diff > 86400){
+                          var temp = Math.floor(diff/86400);
+                          if(temp>1){
+                            var actualtime = temp + " days ago";
+                          }
+                          else{
+                            var actualtime = "Yesterday";
+                          }
+                        }
+                        else{
+                          var actualtime = "Months ago";
+                        }
+
+                        var mystr1 = '<tr>';
+                        var mystr2 = `<td class="table-job-offers-date"><span>${actualtime}</span></td>`;
+                        var mystr3 = '<td class="table-job-offers-main">';
+                        var mystr4 = '<article class="company-light">';
+                        if (jobvalue == 1){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/canyin.png" width="80" alt=""/>';
+                      }else if (jobvalue == 2){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/yule.png" width="80" alt=""/>';
+                      }else if (jobvalue == 3){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/gongchang.png" width="80" alt=""/>';
+                      }else if (jobvalue == 4){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/it.png" width="80" alt=""/>';
+                      }else if (jobvalue == 5){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/market.png" width="80" alt=""/>';
+                      }else if (jobvalue == 6){
+                        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/accounting.png" width="80" alt=""/>';
+                      }
+                        var mystr6 = '</figure>';
+                        var mystr7 = '<div class="company-light-main">';
+                        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
+                        var mystr9 = `<p class="text-color-default">${companyname}</p>`;
+                        var mystr10 = '</div>';
+                        var mystr11 = '</article>';
+                        var mystr12 = '</td>';
+                        var mystr13 = '<td class="table-job-offers-meta">';
+                        var mystr14 =`<div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>${salary}</span></div>`;
+                        var mystr15 ='</td>';
+                        var mystr16 ='<td class="table-job-offers-meta">';
+                        var mystr17 =`<div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>${location}</span></div>`;
+                        var mystr18 ='</td>';
+                        if (jobtypevalue == 1){
+                        var mystr19 =`<td class="table-job-offers-badge"><span class="badge">${jobtype}</span></td>`;
+                      }else if (jobtypevalue == 2){
+                        var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-secondary">${jobtype}</span></td>`;
+                      }else{
+                        var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-blue-11">${jobtype}</span></td>`;
+                      }
+                        var mystr20 ='</tr>';
+                        var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
+                        mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
+                        +mystr19+mystr20;
+                        document.getElementById("mytable2").innerHTML += temp;
+                      }
+                      });
+                   </script>
+                </table>
+             </div>
+                <ul id="pagination-demo" class="pagination-lg pull-right"></ul>
+              </div>
             </div>
           </div>
         </div>
@@ -472,9 +657,45 @@
         </div>
       </footer>
     </div>
-
-    <script src="js/login.js"></script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script type="text/javascript" src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $('#pagination-demo').twbsPagination({
+         totalPages: 5,
+         // the current page that show on start
+         startPage: 1,
+         // maximum visible pages
+         visiblePages: 5,
+         initiateStartPageClick: true,
+         // template for pagination links
+         href: false,
+         // variable name in href template for page number
+         hrefVariable: '{{number}}',
+         // Text labels
+         first: 'First',
+         prev: 'Previous',
+         next: 'Next',
+         last: 'Last',
+         // carousel-style pagination
+         loop: false,
+         // callback function
+         onPageClick: function (event, page) {
+            $('.page-active').removeClass('page-active');
+           $('#page'+page).addClass('page-active');
+         },
+         // pagination Classes
+         paginationClass: 'pagination',
+         nextClass: 'next',
+         prevClass: 'prev',
+         lastClass: 'last',
+         firstClass: 'first',
+         pageClass: 'pagebottom',
+         activeClass: 'active',
+         disabledClass: 'disabled'
+         });
+         });
+    </script>
   </body>
 </html>

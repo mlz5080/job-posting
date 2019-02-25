@@ -36,7 +36,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorCode = error.code;
     var errorMessage = error.message;
   });
-
+  
 function Signup(){
 
 	var email = document.getElementById('email').value;
@@ -154,85 +154,106 @@ function clearPosts(){
   	});
   }
 
-function writeJoblist(){
-  var a = firebase.database().ref('/posts');
 
-    a.on('value',function(snapshot){
-      snapshot.forEach((child) => {
-      console.log(child.val());
-      var table = document.getElementsByTagName("tbody")[0];
-      console.log(table);
-      var jobtitle = child.val().jobtitle;
-      var companyname = child.val().companyname;
-      var location = child.val().location;
-      var jobtype = child.val().jobtype;
 
-      var mystr1 = '<tr>';
-      var mystr2 = '<td class="table-job-listing-main" >';
-      var mystr3 = '<!-- Company Minimal-->';
-      var mystr4 = '<article class="company-minimal">';
-      var mystr5 = '<figure class="company-minimal-figure"><img class="company-minimal-image" src="images/company-1-45x45.png" alt=""/></figure>';
-      var mystr6 = '<div class="company-minimal-main">';
-      var mystr7 = '<h5 class="company-minimal-title"><a href="job-details.html"><span>${jobtitle}</span></a></h5>';
-      var mystr8 = '<p><span >${companyname}</span>, <span>${location}</span></p>';
-      var mystr9 = '</div>';
-      var mystr10 = '</article>';
-      var mystr11 = '</td>';
-      var mystr12 = '<td class="table-job-listing-date"><span>1 day ago</span></td>';
-      var mystr13 = '<td class="table-job-listing-badge"><span class="badge">${jobtype}</span></td>';
-      var mystr14 = '</tr>';
+  function writeJoblist(start,end){
+    var a = firebase.database().ref('/posts');
+      var local=[];
+      //console.log(a.val())
+      a.once('value').then(function(snapshot){
+        snapshot.forEach((child) => {
+          local.push(child.val())
+          });
+      console.log(local);
+      local = local.reverse();
+      for(i = start;i<end;i++){
+        var currentime = Math.floor(Date.now() / 1000);
+        var jobtitle = local[i].jobtitle;
+        var companyname = local[i].companyname;
+        var location = local[i].location;
+        var jobtype = local[i].jobtype;
+        var jobvalue = local[i].jobcategoryvalue;
+        var jobtypevalue = local[i].jobvalue;
+        var salary = local[i].salary;
+        var timestamp = local[i].timestamp;
+        var postid = local[i].postid;
+        diff = currentime - timestamp;
+        if(diff < 60){
+          var actualtime = Math.floor(diff) + " seconds ago";
+        }
+        else if(diff>60 && diff<3600){
+          var temp = Math.floor(diff/60);
+          if(temp > 1){
+            var actualtime = temp + " minutes ago";
+          }
+          else{
+            var actualtime = temp + " minute ago";
+          }
+        }
+        else if(diff > 3600 && diff<86400){
+          var temp = Math.floor(diff/3600);
+          if(temp>1){
+            var actualtime = temp + " hours ago";
+          }
+          else{
+            var actualtime = temp + " hour ago";
+          }
+        }
+        else if(diff > 86400){
+          var temp = Math.floor(diff/86400);
+          if(temp>1){
+            var actualtime = temp + " days ago";
+          }
+          else{
+            var actualtime = "Yesterday";
+          }
+        }
+        else{
+          var actualtime = "Months ago";
+        }
 
-      document.write(mystr1);
-      document.write(mystr2);
-      document.write(mystr3);
-      document.write(mystr4);
-      document.write(mystr5);
-      document.write(mystr6);
-      document.write(mystr7);
-      document.write(mystr8);
-      document.write(mystr9);
-      document.write(mystr10);
-      document.write(mystr11);
-      document.write(mystr12);
-      document.write(mystr13);
-      document.write(mystr14);
-
-      // document.getElementById('position').innerHTML = jobtitle;
-      // document.getElementById('cname').innerHTML = companyname;
-      // document.getElementById('location').innerHTML = location;
-      // document.getElementById('type').innerHTML = child.val().jobtype;
+        var mystr1 = '<tr>';
+        var mystr2 = `<td class="table-job-offers-date"><span>${actualtime}</span></td>`;
+        var mystr3 = '<td class="table-job-offers-main">';
+        var mystr4 = '<article class="company-light">';
+        if (jobvalue == 1){
+        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/canyin.png" width="80" alt=""/>';
+      }else if (jobvalue == 2){
+        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/yule.png" width="80" alt=""/>';
+      }else if (jobvalue == 3){
+        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/gongchang.png" width="80" alt=""/>';
+      }else if (jobvalue == 4){
+        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/it.png" width="80" alt=""/>';
+      }else if (jobvalue == 5){
+        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/market.png" width="80" alt=""/>';
+      }else if (jobvalue == 6){
+        var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/accounting.png" width="80" alt=""/>';
+      }
+        var mystr6 = '</figure>';
+        var mystr7 = '<div class="company-light-main">';
+        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
+        var mystr9 = `<p class="text-color-default">${companyname}</p>`;
+        var mystr10 = '</div>';
+        var mystr11 = '</article>';
+        var mystr12 = '</td>';
+        var mystr13 = '<td class="table-job-offers-meta">';
+        var mystr14 =`<div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>${salary}</span></div>`;
+        var mystr15 ='</td>';
+        var mystr16 ='<td class="table-job-offers-meta">';
+        var mystr17 =`<div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>${location}</span></div>`;
+        var mystr18 ='</td>';
+        if (jobtypevalue == 1){
+        var mystr19 =`<td class="table-job-offers-badge"><span class="badge">${jobtype}</span></td>`;
+      }else if (jobtypevalue == 2){
+        var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-secondary">${jobtype}</span></td>`;
+      }else{
+        var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-blue-11">${jobtype}</span></td>`;
+      }
+        var mystr20 ='</tr>';
+        var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
+        mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
+        +mystr19+mystr20;
+        document.getElementById("mytable").innerHTML += temp;
+      }
       });
-    });
-
-  	// a.on('value',function(snapshot){
-  	// 	snapshot.forEach((child) => {
-   //  	console.log(child.val().jobtitle);
-   //    var jobtitle = child.val().jobtitle;
-   //    document.getElementById('position').innerHTML = child.val().jobtitle;
-  	// 	});
-  	// });
-
-   //  a.on('value',function(snapshot){
-  	// 	snapshot.forEach((child) => {
-   //  	console.log(child.val().companyname);
-   //    var x = child.val().companyname;
-   //    document.getElementById('cname').innerHTML = child.val().companyname;
-  	// 	});
-  	// });
-
-   //  a.on('value',function(snapshot){
-  	// 	snapshot.forEach((child) => {
-   //  	console.log(child.val().location);
-   //    var x = child.val().location;
-   //    document.getElementById('location').innerHTML = child.val().location;
-  	// 	});
-  	// });
-
-   //  a.on('value',function(snapshot){
-  	// 	snapshot.forEach((child) => {
-   //  	console.log(child.val().jobtype);
-   //    var x = child.val().jobtype;
-   //    document.getElementById('type').innerHTML = child.val().jobtype;
-  	// 	});
-  	// });
-}
+  }

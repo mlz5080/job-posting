@@ -5079,6 +5079,17 @@ html:not(.tablet):not(.mobile) .thumbnail-classic:hover .thumbnail-classic-capti
 *
 * Pagination custom
 */
+.jumbotron{
+	display: none;
+}
+.pagebottom {
+  display: none;
+  margin-top: 20px;
+}
+.page-active {
+  display: block;
+}
+
 .pagination {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -7742,7 +7753,7 @@ p.profile-minimal-position {
 	position: relative;
 	overflow: hidden;
 	min-height: 100vh;
-	opacity: 0;
+	opacity: 100;
 }
 
 .page.fadeIn {
@@ -7761,7 +7772,9 @@ p.profile-minimal-position {
 	position: relative;
 	z-index: 1030;
 }
+.pagebottom{
 
+}
 /*
 *
 * Text styling
