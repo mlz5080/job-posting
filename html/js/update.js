@@ -13,17 +13,8 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorMessage = error.message;
   });
 
-
-
-
-
-
 function Update(){
-
 	var user = firebase.auth().currentUser;
-
-
-
   var about = document.getElementById('about').value;
   var schoolname = document.getElementById('school-name').value;
   var profession = document.getElementById('profession').value;
