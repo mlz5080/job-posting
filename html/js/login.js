@@ -54,9 +54,8 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   	var errorCode = error.code;
   	var errorMessage = error.message;
   	window.alert("Error: " + errorMessage);
-  });
-  window.location.href="education.html";
-  }else{
+    });
+    }else{
     window.alert("两次密码输入不一致，请再次确认");
     }
 
