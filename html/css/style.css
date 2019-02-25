@@ -5083,6 +5083,7 @@ html:not(.tablet):not(.mobile) .thumbnail-classic:hover .thumbnail-classic-capti
 	display: none;
 }
 .pagebottom {
+	
   display: none;
   margin-top: 20px;
 }

@@ -21,7 +21,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(function() {
     // Existing and future Auth states are now persisted in the current
@@ -36,9 +35,9 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorCode = error.code;
     var errorMessage = error.message;
   });
-  
-function Signup(){
 
+function Signup(){
+}
 
 function Login(){
 
@@ -68,7 +67,7 @@ function Logout(){
 
 function Update(){
 
-	var user = firebase.auth().currentUser
+	var user = firebase.auth().currentUser;
   if(!user){
     window.alert("Please login first!");
   }
