@@ -1,5 +1,4 @@
 
-  firebase.auth().onAuthStateChanged(function(user) {
 
 firebase.auth().onAuthStateChanged(function(user) {
 
