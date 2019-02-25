@@ -11048,6 +11048,7 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .jumbotron-creative .rd-navbar-static.rd-navbar-classic:not(.rd-navbar--is-stuck) .rd-navbar-aside-item > .button-primary-outline, .jumbotron-creative .rd-navbar-static.rd-navbar-classic:not(.rd-navbar--is-stuck) .rd-navbar-aside-item > .button-primary-outline:focus {
+font-size: 15px;
 	color: #ffffff;
 	background-color: transparent;
 	border-color: rgba(255, 255, 255, 0.2);
@@ -11060,6 +11061,7 @@ html.rd-navbar-fixed-linked .page {
 }
 
 .jumbotron-creative .rd-navbar-static.rd-navbar-classic:not(.rd-navbar--is-stuck) .rd-navbar-aside-item > .button-primary, .jumbotron-creative .rd-navbar-static.rd-navbar-classic:not(.rd-navbar--is-stuck) .rd-navbar-aside-item > .button-primary:focus {
+font-size: 15px;
 	color: #ffffff;
 	background-color: #1670bf;
 	border-color: #1670bf;

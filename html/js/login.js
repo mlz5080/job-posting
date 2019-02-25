@@ -36,31 +36,21 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorCode = error.code;
     var errorMessage = error.message;
   });
+<<<<<<< HEAD
   
 function Signup(){
+=======
 
-	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
-  	var passwordc = document.getElementById('passwordc').value;
+>>>>>>> 8f5b98b68178193b0edf9629f444c3b2e642da93
 
-  if (password == passwordc){
-	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-	// Handle Errors here.
-	var errorCode = error.code;
-	var errorMessage = error.message;
-	window.alert("Error: " + errorMessage);
-	});
-	}else{
-  window.alert("两次密码输入不一致，请再次确认");
-  }
-}
 
 function Login(){
 
-	var email = document.getElementById('rd-navbar-login-email').value;
-	var password = document.getElementById('rd-navbar-login-password').value;
+	var email = document.getElementById('email').value;
+	var password = document.getElementById('password').value;
 	firebase.auth().signInWithEmailAndPassword(email, password).then(function (){
-		window.alert("Sign-in successfully!");
+		
+    window.location.href='index.html';
 	}).catch(function(error) {
 	// Handle Errors here.
 	var errorCode = error.code;

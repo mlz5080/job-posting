@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="fontst/linearicons/style.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="csss/lgstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+      authDomain: "html-6f08b.firebaseapp.com",
+      databaseURL: "https://html-6f08b.firebaseio.com",
+      projectId: "html-6f08b",
+      storageBucket: "html-6f08b.appspot.com",
+      messagingSenderId: "747984964911"
+    };
+    firebase.initializeApp(config);
+  </script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<img src="imagesI/nansheng.png" alt="" class="image-1">
+				<div class="form" method="post" action="bat/rd-mailform.php">
+					<h3>登录</h3>
+
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						<input type="text" class="form-control" id="email" placeholder="Email">
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" id="password" placeholder="密码">
+					</div>
+
+					<button onclick="javascript:Login()">登录</button>
+					<a href="signup.html">注册</a>
+          <br>
+
+          <center><p>其他方式登录</p></center><br>
+          
+				</div>
+
+				<img src="imagesI/huahua.png" alt="" class="image-2">
+			</div>
+
+		</div>
+
+		<script src="jss/jquery-3.3.1.min.js"></script>
+		<script src="jss/main.js"></script>
+    <script src="js/login.js"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
