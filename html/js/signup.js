@@ -1,5 +1,6 @@
 
 firebase.auth().onAuthStateChanged(function(user) {
+
   if (user) {
     console.log("Still login!")
     window.location.href="education.html";

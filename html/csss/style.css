@@ -74,8 +74,7 @@ a {
 .image-2 {
   position: absolute;
   bottom: 0;
-  width:50%;
-  right: -150px; }
+  right: -440px; }
 
 .form {
   width: 100%;
@@ -240,6 +239,6 @@ button {
 
   .wrapper {
     background: none; } }
-    
+
 
 /*# sourceMappingURL=style.css.map */
