@@ -11,9 +11,6 @@
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="csss/estyle.css">
     <link rel="stylesheet" href="css/style.css">
-		<script src="js/update.js"></script>
-		
-
 		<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
 
 		<!-- Add additional services that you want to use -->
@@ -32,6 +29,7 @@
 			};
 			firebase.initializeApp(config);
 		</script>
+    
 	</head>
 
 	<body>
@@ -114,9 +112,18 @@
               </div>
 
 
-
 					<button onclick="javascript:Update()" name="button">确认</button>
-
+          <script type="text/javascript">
+            var a = firebase.database().ref('usernumber');
+            var counter = 1;
+            var changed = 0;
+              a.on('value', function(snapshot) {
+                changed++;
+                if(changed !== counter){
+                  window.location.href="index.html";
+                }
+              });
+          </script>
 
 
 				</div>
@@ -127,6 +134,6 @@
 
 		<script src="jss/jquery-3.3.1.min.js"></script>
 		<script src="jss/main.js"></script>
-
+    <script src="js/update.js"></script>
 	</body>
 </html>

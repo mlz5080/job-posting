@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-  firebase.auth().onAuthStateChanged(function(user) {
-=======
+
 firebase.auth().onAuthStateChanged(function(user) {
->>>>>>> 64bca24bdae6106a2f7bd5f0541082200ec9c5fd
   if (user) {
     console.log("Still login!")
     window.location.href="education.html";
@@ -27,7 +24,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     var errorMessage = error.message;
   });
 
-<<<<<<< HEAD
   function Signup(){
 
   	var email = document.getElementById('email').value;
@@ -50,7 +46,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     window.alert("两次密码输入不一致，请再次确认");
     }
   }
-=======
+
 function Signup(){
 
 	var email = document.getElementById('email').value;
@@ -89,4 +85,3 @@ function Login(){
 
   });
 }
->>>>>>> 64bca24bdae6106a2f7bd5f0541082200ec9c5fd

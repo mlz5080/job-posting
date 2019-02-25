@@ -58,8 +58,6 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     }else{
     window.alert("两次密码输入不一致，请再次确认");
     }
-
-
   }
 
 function Login(){

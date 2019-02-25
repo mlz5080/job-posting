@@ -23,17 +23,16 @@ function Update(){
   var exjobtitle = document.getElementById('ex-job-title').value;
   var experiod = document.getElementById('ex-period').value;
   var exnotes = document.getElementById('ex-notes').value;
-
   writeUserData(user.uid,about,schoolname,profession,period,employer,
     exjobtitle,experiod,exnotes)
   window.alert("Succesful!!");
-  window.location.href="index.html";
-
+  //window.location.href="index.html";
 }
 
 function writeUserData(userId,about,schoolname,profession,period,employer,
-  exjobtitle,experiod,exnotes) {
-    var a = firebase.database().ref('users-info');
+  exjobtitle,experiod,exnotes) 
+{
+    var a = firebase.database().ref('usernumber');
     a.once('value').then(function(snapshot){
       var postid = snapshot.val();
       var postData = {
@@ -45,12 +44,11 @@ function writeUserData(userId,about,schoolname,profession,period,employer,
         employer:employer,
         exjobtitle:exjobtitle,
         experiod:experiod,
-        exnote:exnote,
+        exnotes:exnotes,
     };
     var updates={};
-    updates['/user-info/' ] = postData;
     updates['/user-info/' + userId ] = postData;
     updates['/usernumber'] = postid;
     return firebase.database().ref().update(updates);
     });
-  }
+}
