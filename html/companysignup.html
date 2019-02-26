@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="fontst/linearicons/style.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="csss/style.css">
+
+
+		    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+		    <!-- Add additional services that you want to use -->
+		    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+		    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+		    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+		    <script>
+		      // Initialize Firebase
+		      var config = {
+		        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+		        authDomain: "html-6f08b.firebaseapp.com",
+		        databaseURL: "https://html-6f08b.firebaseio.com",
+		        projectId: "html-6f08b",
+		        storageBucket: "html-6f08b.appspot.com",
+		        messagingSenderId: "747984964911"
+		      };
+		      firebase.initializeApp(config);
+		    </script>
+		    <script src="js/companysignup.js"></script>
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<img src="imagesI/nvsheng.png" alt="" class="image-1">
+				<div class="form" method="post">
+					<h3>商家注册</h3>
+
+
+					<div class="form-holder">
+						<span class="lnr lnr-envelope"></span>
+						<input type="text" class="form-control" placeholder="Email" id="email" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" placeholder="密码" id="password" required>
+					</div>
+					<div class="form-holder">
+						<span class="lnr lnr-lock"></span>
+						<input type="password" class="form-control" placeholder="确认密码" id="passwordc" required>
+					</div>
+
+
+					<button onclick="javascript:Signup()" name="button" id="signup">注册</button>
+
+					<a href="login.html">登陆</a>
+					<br>
+					<center><h4>第三方登录</h4></center>
+
+
+				</div>
+				<img src="imagesI/11.png" alt="" class="image-2">
+
+
+		</div>
+	</div>
+
+		<script src="jss/jquery-3.3.1.min.js"></script>
+		<script src="jss/main.js"></script>
+
+	</body>
+</html>

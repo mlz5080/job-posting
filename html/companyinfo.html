@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商家信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LINEARICONS -->
+		<link rel="stylesheet" href="fontst/linearicons/style.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="csss/estyle.css">
+    <link rel="stylesheet" href="css/style.css">
+		<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+		<!-- Add additional services that you want to use -->
+		<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+				authDomain: "html-6f08b.firebaseapp.com",
+				databaseURL: "https://html-6f08b.firebaseio.com",
+				projectId: "html-6f08b",
+				storageBucket: "html-6f08b.appspot.com",
+				messagingSenderId: "747984964911"
+			};
+			firebase.initializeApp(config);
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<img src="imagesI/xuexi.png" alt="" class="image-1">
+				<div class="form" method="post" >
+					<h3><strong>商家信息</strong></h3><br>
+          <center><a href="index.html" class="skipedu">跳过>></a></center>
+
+          <p>完善商家信息能有效的帮助求职者更了解您的商家</p>
+
+          <br>
+
+
+
+					<div class="form-wrap">
+						<label class="form-label-outside" for="experience-employer">商家名称</label>
+						<div class="form-wrap-inner">
+							<input class="form-input" id="cname" form="submit-resume-form" type="text" name="employer" placeholder="Company Name">
+						</div>
+					</div>
+					<div class="form-wrap">
+						<label class="form-label-outside" for="experience-employer">类别</label>
+						<div class="form-wrap-inner">
+							<input class="form-input" id="category" form="submit-resume-form" type="text" name="employer" placeholder="Category: e.g. (餐馆，甜品店，工厂) ">
+						</div>
+					</div>
+					<div class="form-wrap">
+						<label class="form-label-outside" for="experience-employer">网址</label>
+						<div class="form-wrap-inner">
+							<input class="form-input" id="website" form="submit-resume-form" type="text" name="employer" placeholder="HTTP://">
+						</div>
+					</div>
+
+
+            <div class="form-wrap">
+              <label class="form-label-outside" for="experience-notes">商家简介</label>
+              <div class="form-wrap-inner">
+                <textarea class="form-input" id="description" form="submit-resume-form" name="notes" placeholder="简单的介绍一下您的店面"></textarea>
+              </div>
+
+
+					<button onclick="javascript:Update()" name="button">确认</button>
+					
+          <script type="text/javascript">
+            var a = firebase.database().ref('companynumber');
+            var counter = 1;
+            var changed = 0;
+              a.on('value', function(snapshot) {
+                changed++;
+                if(changed !== counter){
+                  window.location.href="index.html";
+                }
+              });
+          </script>
+
+
+				</div>
+				<img src="imagesI/huabi.png" alt="" class="image-2">
+			</div>
+		</div>
+		</div>
+
+		<script src="jss/jquery-3.3.1.min.js"></script>
+		<script src="jss/main.js"></script>
+    <script src="js/companyupdate.js"></script>
+	</body>
+</html>
