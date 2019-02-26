@@ -35,7 +35,7 @@ function writeUserData(userId,cname,category,website,description)
         cname:cname,
         category:category,
         website:website,
-        description:,description,
+        description:description,
     };
     var updates={};
     updates['/company-info/' + userId ] = postData;
