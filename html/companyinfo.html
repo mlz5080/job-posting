@@ -54,11 +54,29 @@
 						</div>
 					</div>
 					<div class="form-wrap">
-						<label class="form-label-outside" for="experience-employer">类别</label>
+						<label class="form-label-outside" for="experience-employer">地区</label>
 						<div class="form-wrap-inner">
-							<input class="form-input" id="category" form="submit-resume-form" type="text" name="employer" placeholder="Category: e.g. (餐馆，甜品店，工厂) ">
+							<input class="form-input" id="cname" form="submit-resume-form" type="text" name="employer" placeholder="location">
 						</div>
 					</div>
+					<div class="col-md-6">
+						<div class="form-wrap">
+							<label class="form-label-outside" for="general-information-job-category">工作类别</label>
+							<div class="form-wrap-inner">
+								<!-- Select 2-->
+								<select class="form-input select" id="general-information-job-category" form="post-a-job-form" data-placeholder="Choose a Category" name="job-category" data-minimum-results-for-search="Infinity" data-constraints="@Selected">
+									<option label="Choose a Category"></option>
+									<option value="1">餐饮</option>
+									<option value="2">娱乐</option>
+									<option value="3">工厂</option>
+									<option value="4">IT & 技术</option>
+									<option value="5">市场 & 销售</option>
+									<option value="6">会计 & 理财</option>
+								</select>
+							</div>
+						</div>
+					</div>
+<br>
 					<div class="form-wrap">
 						<label class="form-label-outside" for="experience-employer">网址</label>
 						<div class="form-wrap-inner">
@@ -75,7 +93,7 @@
 
 
 					<button onclick="javascript:Update()" name="button">确认</button>
-					
+
           <script type="text/javascript">
             var a = firebase.database().ref('companynumber');
             var counter = 1;
