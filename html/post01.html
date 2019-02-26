@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
-    <title>Blog post</title>
+    <title>关于求职 | 求职攻略</title>
     <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -9,7 +9,29 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <link rel="javascript" href="https://code.jquery.com/jquery-3.3.1.js">
+    <link rel="javascript" href="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+        authDomain: "html-6f08b.firebaseapp.com",
+        databaseURL: "https://html-6f08b.firebaseio.com",
+        projectId: "html-6f08b",
+        storageBucket: "html-6f08b.appspot.com",
+        messagingSenderId: "747984964911"
+      };
+      firebase.initializeApp(config);
+    </script>
+
   </head>
   <body>
     <div class="ie-panel"> <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -38,131 +60,72 @@
                         <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-143x26.png" alt="" srcset="images/logo-default-286x52.png 2x"/><img class="brand-logo-light" src="images/logo-inverse-143x26.png" alt="" srcset="images/logo-inverse-286x52.png 2x"/></a>
                         </div>
                       </div>
-                      <div class="rd-navbar-main-element">
+                      <div class="rd-navbar-main-element" >
                         <div class="rd-navbar-nav-wrap">
                           <!-- RD Navbar Nav-->
                           <ul class="rd-navbar-nav">
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="#">For Candidates</a>
+                            <li class="rd-nav-item" id="navbarforcan"><a class="rd-nav-link" href="#">我想求职</a>
                               <!-- RD Navbar Dropdown-->
                               <ul class="rd-menu rd-navbar-dropdown">
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">Job Listing</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing-full.html">Job Listing Full</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">Companies</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies-page.html">Companies Page</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-details.html">Job Details</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">Submit Resume</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">工作列表</a></li>
+
+                            <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">商家列表</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">发布求职</a></li>
                               </ul>
                             </li>
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="#">For Employers</a>
+
+                            <li class="rd-nav-item" id="navbarforemp"><a class="rd-nav-link" href="#">我要招聘</a>
                               <!-- RD Navbar Dropdown-->
                               <ul class="rd-menu rd-navbar-dropdown">
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post-a-job.html">Post a Job</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates.html">Candidates</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates-grid.html">Candidates Grid</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="resume-page.html">Resume Page</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post-a-job.html">发布工作</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates.html">招聘人员</a></li>
                               </ul>
                             </li>
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
+                            <li class="rd-nav-item" ><a class="rd-nav-link" href="#">求职攻略</a>
+                              <!-- RD Navbar Dropdown-->
+                              <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post01.html">关于求职</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post02.html">面试经验</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post03.html">职在异地</a></li>
+
+                              </ul>
+                            </li>
+                            <li class="rd-nav-item" id="navbarforcan"><a class="rd-nav-link" href="contact-us.html">关于我们</a></li>
+
+                             <li class="rd-nav-item" id="navbarforuser"><a id="username" class="rd-nav-link" href="#">Hello user</a>
+                              <!-- RD Navbar Dropdown-->
+                              <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">个人信息</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">工作信息</a></li>
+
+                                <li class="rd-dropdown-item"><button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button></li>
+                              </ul>
+                            </li>
                               <!-- RD Navbar Megamenu-->
-                              <ul class="rd-menu rd-navbar-megamenu">
-                                <li class="rd-megamenu-item">
-                                  <h6 class="rd-megamenu-title">Pages 1</h6>
-                                  <ul class="rd-megamenu-list">
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="about-us.html">About Us</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contact-us.html">Contact Us</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="faq.html">FAQ</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="pricing-tables.html">Pricing Tables</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="testimonials.html">Testimonials</a></li>
-                                  </ul>
-                                </li>
-                                <li class="rd-megamenu-item">
-                                  <h6 class="rd-megamenu-title">Pages 2</h6>
-                                  <ul class="rd-megamenu-list">
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming Soon</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="maintenance.html">Maintenance</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 Page</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="503-page.html">503 Page</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">Search results</a></li>
-                                  </ul>
-                                </li>
-                                <li class="rd-megamenu-item">
-                                  <h6 class="rd-megamenu-title">Elements</h6>
-                                  <ul class="rd-megamenu-list">
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">Typography</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="forms.html">Forms</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="buttons.html">Buttons</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="progress-bars.html">Progress Bars</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tabs-and-accordions.html">Tabs and Accordions</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tables.html">Tables</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="grid-system.html">Grid system</a></li>
-                                  </ul>
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="rd-nav-item active"><a class="rd-nav-link" href="blog.html">Blog</a>
-                              <!-- RD Navbar Dropdown-->
-                              <ul class="rd-menu rd-navbar-dropdown">
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">Blog post</a></li>
-                              </ul>
-                            </li>
                           </ul>
                         </div>
                       </div>
-                      <div class="rd-navbar-aside">
+                      <div class="rd-navbar-aside" id="rd-navbar-aside">
+                        <!-- <div class="rd-navbar-aside-item">
+                          <button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button>
+                        </div> -->
                         <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register"><span class="icon mdi mdi-account"></span>Sign Up</button>
-                          <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
-                            <h5 class="rd-navbar-popup-title">Sign Up</h5>
-                            <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-name" type="text" name="username" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-register-name">Username</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-email" type="email" name="email" data-constraints="@Email @Required">
-                                <label class="form-label" for="rd-navbar-register-email">E-mail</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-password" type="password" name="password" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-register-password">Password</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-password-confirm" type="password" name="password-confirm" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-register-password-confirm">Confirm Password </label>
-                              </div>
-                              <div class="form-wrap">
-                                <button class="button button-block button-primary" type="submit">Create an Account</button>
-                              </div>
-                              <div class="form-wrap form-wrap-ally">
-                                <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">or enter with</span></div>
-                              </div>
-                              <div class="form-wrap form-wrap-ally">
-                                <div class="button-group"><a class="button button-facebook button-icon button-icon-only button-winona" href="#" aria-label="Facebook"><span class="icon mdi mdi mdi-facebook"></span></a><a class="button button-twitter button-icon button-icon-only button-winona" href="#" aria-label="Twitter"><span class="icon mdi mdi-twitter"></span></a><a class="button button-google button-icon button-icon-only button-winona" href="#" aria-label="Google+"><span class="icon mdi mdi-google"></span></a></div>
-                              </div>
-                            </form>
+                          <a href="signup.html" class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</a>
+                          <div class="bg-gray-100" id="rd-navbar-register">
+
+
                           </div>
                         </div>
                         <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login"><span class="icon mdi mdi-import"></span>Login</button>
-                          <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
-                            <h5 class="rd-navbar-popup-title">Login</h5>
-                            <form class="rd-form form-compact">
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-login-email" type="email" name="email" data-constraints="@Email @Required">
-                                <label class="form-label" for="rd-navbar-login-email">E-mail</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-login-password" type="password" name="password" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-login-password">Password</label>
-                              </div>
-                              <div class="form-wrap">
-                                <button class="button button-block button-primary" type="submit">Login</button>
-                              </div>
-                            </form>
+                          <a href="login.html" class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</a>
+                          <div class="bg-gray-100" id="rd-navbar-login">
+
                           </div>
                         </div>
                       </div>
+
                     </div>
                   </div>
                 </nav>
@@ -171,15 +134,15 @@
       <section class="section breadcrumbs-custom">
         <div class="breadcrumbs-custom-main bg-image bg-primary">
           <div class="container">
-            <h3 class="breadcrumbs-custom-title">8 Surprising Predictions About the Future of Work</h3>
+            <h3 class="breadcrumbs-custom-title">求职攻略</h3>
           </div>
         </div>
         <div class="breadcrumbs-custom-aside">
           <div class="container">
             <ul class="breadcrumbs-custom-path">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li class="active">Blog post</li>
+              <li><a href="index.html">主页</a></li>
+              <li><a href="blog.html">求职攻略</a></li>
+              <li class="active">文章</li>
             </ul>
           </div>
         </div>
@@ -191,24 +154,29 @@
               <article class="post-creative"><img class="post-creative-image" src="images/blog-post-1-768x475.jpg" alt=""/>
                 <div class="post-creative-meta">
                   <div class="post-creative-meta-inner">
-                    <div class="post-creative-author"><img class="post-creative-author-image" src="images/user-1-36x36.jpg" alt=""/>
+                    <div class="post-creative-author"><img class="post-creative-author-image" src="images/nan.png" alt=""/>
                       <p>
-                         by&nbsp;<a href="#">Barry Burns</a></p>
+                         by&nbsp;<a href="https://www.jianshu.com/p/550b2ade1f12">肃寻</a></p>
                     </div>
                     <div>
                       <ul class="post-creative-meta-list">
                         <li> <span class="icon mdi mdi-clock"> </span>
-                          <time datetime="2018">March 15, 2018</time>
+                          <time datetime="2018">2017.04.04</time>
                         </li>
                         <li><span class="icon fl-justicons-visible6"></span><span>3678 </span></li>
-                        <li><span class="icon mdi mdi-message-outline"></span><span>3</span></li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <h5>8 Surprising Predictions About the Future of Work</h5>
-                <p>There’s no denying that the landscape of work is changing. More and more companies are adopting flexible work policies, recognizing the dramatic (and positive) impact that it has both for business and employees. But do you ever wonder what the future holds for the world of work? Let’s try to figure it out.</p>
-                <p>It’s predicted that boomers and gen Xers will have second careers as they approach 50. These “encore” careers might be for philanthropic or financial reasons, but the even bigger assumption is that present employers will prepare these workers for their next careers by enriching their work with experiences and education. It is also anticipated that older Americans will take advantage of flexible work and look for part-time jobs, not full-time positions. They will represent the biggest segment of workers who take on contract jobs, freelance gigs, and alternate work assignments.</p>
+                <h5>求职攻略之经验分享</h5>
+                <p>一、初步想法这一步是在“想找工作”这个念头诞生就开始要有的，在准备行动时就要大概清楚的。就是：我想加入什么行业，这个或这几个行业的前景大概是怎样，我准备加入其中从事什么岗位，工作环境和薪资待遇大概怎样，等等。</p>
+                <p>  二、了解市场了解想加入的行业的大体发展状况及大行业下细分行业的状况。当然，最好是自己一直关注并有兴趣的行业，这样我们的认识才会更深入并有一定的全局观。比如，我对科技互联网感兴趣，也一直关注，认可这个行业的发展前景，也喜欢这个行业普遍年轻化、开放和轻松的工作氛围，所以想加入这一行。我们还应了解这个行业的需求是怎样的。行业的需求可以去看一些新闻报道的数据，了解行业及岗位的需求量是怎样，了解需求分布的城市等。这有助于我们决定要不要从事这一行、这一岗，应去哪个城市等。对行业、岗位和城市相对宏观的因素做了一定的了解和分析后，再细化下来，去查看一些公司的介绍、发布的岗位职责和要求、薪资待遇。完成这些，我们会对整个招聘市场有较为明确的认识。</p>
+                </p><p>  三、分析自己坦诚面对自己，了解我们自己的期望和能力：我想做什么，我能做什么。对自己做一个总结分析，了解我们自己是个怎样的人：性格怎么样？兴趣爱好是什么？有什么特长？有什么经验技能？为人品格怎么样？优缺点是什么？等等。对职业做一定的设想：我想成为公司中怎样的一个角色？我希望加入公司后是怎么样的一个状态？等等。这一步对我来说，我觉得很简单也是很有意思的。认识自己、重新发现自己总是有趣且深刻的。如果你也常常反思定位自己，这些都不是事。如果不是，那正好借这个机会来个大总结，坦诚面对自己。最简单的一个方法就是对自己提问，。我的优点是什么？我的缺点是什么？我为人怎么样？……好好思考，把答案写下来，并反复问自己。这里也可以借助一些性格分析网站、职业规划网站来对自己做了解分析，也要参考一路走来周围人对我们的评价看法。不管怎样，我们究竟是怎样的人我们自己一定要清楚。以上三步基本是可以一步走完的，但是，如果细化执行并把每一步执行过程和结果都简略写下来的话，能使自己在第四步的定位更加清晰。
+                </p><p>  四、定位结合招聘市场的需求、自身期望和自身能力，定位出自己的工作岗位、要拿的薪资水平、准备加入的大行业下的细分行业、想要加入的公司的类型。比如我要定位自己是产品经理还是产品助理；我要定位自己加入互联网行业中的电商行业还是游戏行业还是硬件互联网行业等；我要定位自己是加入初创型公司还是中等规模公司还是大公司、国企还是民企等。（我个人不能理解年轻人加入国企，尤其是传统行业国企）
+                </p><p>  五、定制简历有了定位和对招聘需求的了解，写简历就会有更有针对性。把自己经历中能与目标岗位的要求职责相匹配的提取出来，按一定的次序罗列在简历上。一般是按时间顺序吧，我个人是这样的。如果自己没有自信做一个让自己满意的模板，就去网上找一个合适的，尽量排版整齐简洁，阅读起来清爽顺畅。每一段简历尽量要有突出，填写基本信息时不要像以前填各种申请表那样把很多并不重要的信息也堆在简历中，提取出核心的就可以。比如我在头部填写的基本信息是姓名、求职意向、电话、邮箱、学历、学校、毕业时间、专业、所获奖励、特长爱好，完了。其他的如性别有图片就可以了，户籍除非有特殊要求，一般也不用，住址、QQ什么的就更不用了。邮箱是肯定要的，面试通知在经过电话确认后会通过邮件发送（收到后记得回复）。当然，我可能不一定正确，提供一个参考，按需灵活调整。接下来写具体经历时，不管是在校经历还是工作经历，都要体现每个阶段取得的成绩、获得的奖励，而不只是经历和经验。这会让HR看简历时更容易看到这张纸背后的更具体的我们。
+                  </p><p>六、投递简历在投递简历初期，意向的公司可能并不十分明确，所以写好一份简历后可以尝试先投一些要求低的、待遇也相对低的公司，先拿这些对我们来说是相对“次”的公司试试水。这是一个策略。这类公司我们更有把握，可以先通过他们总结面试经验，认识自身能力水平和薪资价位。简历要针对性的投递，并在投递过程多注意岗位要求和职责，不断对简历进行打磨修改以匹配招聘要求。投递后看是否有面试，没有的话要思考自己是否投递的招聘网站/渠道不合适、是否投递的公司匹配度很低、是否简历写得不能体现自己能力和特点等。总结经验，及时调整，再次出发。</p>
+
+
                 <!-- Quote Light-->
                 <div class="quote-light">
                   <div class="quote-light-inner">
@@ -217,7 +185,7 @@
                         <path d="M0,11.9C0,4,3.5,0,10.4,0v4c-2,0-3.4,0.5-4.2,1.5C5.4,6.5,5,8.1,5,10.2V13h5.3v9H1.1C0.4,18.2,0,14.8,0,11.9z		M13.7,11.9C13.7,4,17.1,0,24,0v4c-2,0-3.3,0.5-4.1,1.5c-0.8,1-1.2,2.6-1.2,4.7V13h5.2v9h-9.2C14,18.6,13.7,15.2,13.7,11.9z"></path>
                       </svg>
                     </div>
-                    <p>There is no guarantee that full-time work will be required in the future rather than freelance.</p>
+                    <p>经验可能是错的，掌握的技能和取得的成绩更靠谱</p>
                     <div class="quote-light-mark quote-light-mark-right">
                       <svg version="1.1" x="0px" y="0px" viewbox="0 0 24 22" width="24" height="22">
                         <path d="M0,11.9C0,4,3.5,0,10.4,0v4c-2,0-3.4,0.5-4.2,1.5C5.4,6.5,5,8.1,5,10.2V13h5.3v9H1.1C0.4,18.2,0,14.8,0,11.9z		M13.7,11.9C13.7,4,17.1,0,24,0v4c-2,0-3.3,0.5-4.1,1.5c-0.8,1-1.2,2.6-1.2,4.7V13h5.2v9h-9.2C14,18.6,13.7,15.2,13.7,11.9z"></path>
@@ -225,270 +193,128 @@
                     </div>
                   </div>
                 </div>
-                <p>If you ask us, the future of work is fascinating! Not only the limits will be lifted on how old you can be to work, but also on where you work, how you work, and why you work! But until it happens you can always count on us if you plan to find a well-paid job according to your experience, skills, and knowledge.</p>
                 <div class="post-creative-footer">
                   <div class="post-creative-footer-inner">
-                    <p>Share this post</p>
-                    <div>
-                      <ul class="list-inline list-inline-xs">
-                        <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-facebook" href="#"></a></li>
-                        <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-google-plus" href="#"></a></li>
-                        <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-twitter" href="#"></a></li>
-                        <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-pinterest-p" href="#"></a></li>
-                      </ul>
-                    </div>
+                  <p>原文作者：肃寻 來源：简书 <a href="https://www.jianshu.com/p/550b2ade1f12">原文链接</a></p>
+
                   </div>
                 </div>
               </article>
               <div class="section-sm section-first">
-                <p class="blog-layout-title text-center">Recent Posts</p>
+                <p class="blog-layout-title text-center">相关文章</p>
                 <div class="row row-30">
                   <div class="col-sm-6">
-                    <article class="post-classic"><a class="post-classic-media" href="blog-post.html"><img class="post-classic-image" src="images/blog-2-369x253.jpg" alt=""/></a>
-                      <h4 class="post-classic-title"><a href="blog-post.html">Job Search Success: Finding a Business Development Job</a></h4>
-                      <time class="post-classic-time" datetime="2018">November 23, 2018</time>
+                    <article class="post-classic"><a class="post-classic-media" href="post02.html"><img class="post-classic-image" src="images/blog-2-369x253.jpg" alt=""/></a>
+                      <h4 class="post-classic-title"><a href="post02.html">面试经验</a></h4>
+                      <time class="post-classic-time" datetime="2018">February 25, 2019</time>
                       <div class="post-classic-text">
-                        <p>Business development professionals are at the heart of all sorts of organizations, from startups to</p>
+                        <p>面试要做好打长久战的准备，我认为预算可以是两个月，如果你不是能力突出、目标准确并且有把握的话。我是一个月确定下来的。这里分享一个最近的认识，叫“最优停止”，供参考。它讲的是，如果你预算两个月找工作，那么你应该用37%的时间——也就是约22天——去探索，不做决定。过了这个节点后，你应该选择比你之前可选择的公司更好的第一家公司，不再继续找了。</p>
+                        <br>
                       </div>
-                      <ul class="post-classic-meta">
-                        <li><a href="blog-post.html"> <span class="icon mdi mdi-comment-outline"></span><span>3 Comments</span></a></li>
-                        <li><a href="#"><span class="icon mdi mdi-thumb-up-outline"></span><span>30 Likes</span></a></li>
-                      </ul>
+                      <div class="post-creative-meta-inner">
+                        <div class="post-creative-author"><img class="post-creative-author-image" src="images/nan.png" alt=""/>
+                      <p>
+                         by&nbsp;<a href="https://www.jianshu.com/p/550b2ade1f12">肃寻</a></p>
+                       </div>
+                      <div>
+                        <ul class="post-creative-meta-list">
+                          <li> <span class="icon mdi mdi-clock"> </span>
+                            <time datetime="2018">2017.04.04</time>
+                          </li>
+                          <li><span class="icon fl-justicons-visible6"></span><span>3678 </span></li>
+                        </ul>
+                      </div>
+                    </div>
                     </article>
+
                   </div>
                   <div class="col-sm-6">
-                    <article class="post-classic"><a class="post-classic-media" href="blog-post.html"><img class="post-classic-image" src="images/blog-3-369x253.jpg" alt=""/></a>
-                      <h4 class="post-classic-title"><a href="blog-post.html">How to Impress Your Future Employer</a></h4>
-                      <time class="post-classic-time" datetime="2018">November 23, 2018</time>
+                    <article class="post-classic"><a class="post-classic-media" href="post03.html"><img class="post-classic-image" src="images/blog-3-369x253.jpg" alt=""/></a>
+                      <h4 class="post-classic-title"><a href="post03.html">在加拿大找工作</a></h4>
+                      <time class="post-classic-time" datetime="2018">March 03, 2019</time>
                       <div class="post-classic-text">
-                        <p>You’re committed to your job search, and you use every ounce of your free time you have to comb</p>
+                        <p>加拿大虽然是一个发达国家，但是这里的工作并不好找，在经济不景气的情况下则更难找。很多在中国从事比较高端的工作的人，移民或留学到加拿大后发现很难找到对口的工作。不仅移民找工作不容易，土生土长的加拿大本地年轻人也抱怨工作不好找。</p>
+                      <br></div>
+                      <div class="post-creative-meta-inner">
+                        <div class="post-creative-author"><img class="post-creative-author-image" src="images/nv.png" alt=""/>
+                      <p>
+                         by&nbsp;<a href="https://www.jianshu.com/p/550b2ade1f12">YorkBBS</a></p>
+                       </div>
+                      <div>
+                        <ul class="post-creative-meta-list">
+                          <li> <span class="icon mdi mdi-clock"> </span>
+                            <time datetime="2018">2018.06.30</time>
+                          </li>
+                          <li><span class="icon fl-justicons-visible6"></span><span>3678 </span></li>
+                        </ul>
                       </div>
-                      <ul class="post-classic-meta">
-                        <li><a href="blog-post.html"> <span class="icon mdi mdi-comment-outline"></span><span>3 Comments</span></a></li>
-                        <li><a href="#"><span class="icon mdi mdi-thumb-up-outline"></span><span>30 Likes</span></a></li>
-                      </ul>
+                    </div>
                     </article>
                   </div>
                 </div>
               </div>
-              <div class="section-sm section-bottom-0">
-                <p class="blog-layout-title text-center">3 comments</p>
-                <div class="comment-group">
-                  <!-- Comment-->
-                  <article class="comment">
-                    <div class="comment-aside"><img class="comment-image" src="images/user-2-65x65.jpg" alt=""/>
-                    </div>
-                    <div class="comment-header">
-                      <div class="comment-header-inner">
-                        <p class="comment-title">Edward</p><span class="comment-time">3 day ago</span>
-                      </div>
-                    </div>
-                    <div class="comment-main">
-                      <div class="comment-text">
-                        <p>Thank you for this amazingly informative article! I have always been wondering how a skilled worker will use his/hers knowledge in the future. I think even when we get older as qualified workers, our skills will still be needed. I also hope you will tell us more about this topic in your next posts. In my opinion, it is a very interesting topic, which can be developed, and I hope I am not the only one who thinks so.</p>
-                      </div>
-                      <div class="comment-footer">
-                        <ul class="comment-list">
-                          <li> <a class="comment-link" href="#"><span class="icon mdi mdi-thumb-up-outline"></span><span>32</span></a></li>
-                          <li><a class="comment-link" href="#"><span class="icon mdi mdi-comment-outline"></span><span>Reply</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
-                  <div class="comment-group">
-                    <!-- Comment-->
-                    <article class="comment">
-                      <div class="comment-aside"><img class="comment-image" src="images/user-3-51x51.jpg" alt=""/>
-                      </div>
-                      <div class="comment-header">
-                        <div class="comment-header-inner">
-                          <p class="comment-title">Nina</p><span class="comment-time">1 days ago</span>
-                        </div>
-                      </div>
-                      <div class="comment-main">
-                        <div class="comment-text">
-                          <p>Of course, you are not! As for me, I’ve been looking for accurate predictions about labor-market for quite some time, and this post actually shares some pretty interesting information on the topic.</p>
-                        </div>
-                        <div class="comment-footer">
-                          <ul class="comment-list">
-                            <li> <a class="comment-link" href="#"><span class="icon mdi mdi-thumb-up-outline"></span><span>32</span></a></li>
-                            <li><a class="comment-link" href="#"><span class="icon mdi mdi-comment-outline"></span><span>Reply</span></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-                <div class="comment-group">
-                  <!-- Comment-->
-                  <article class="comment">
-                    <div class="comment-aside"><img class="comment-image" src="images/user-4-65x65.jpg" alt=""/>
-                    </div>
-                    <div class="comment-header">
-                      <div class="comment-header-inner">
-                        <p class="comment-title">John</p><span class="comment-time">2 day ago</span>
-                      </div>
-                    </div>
-                    <div class="comment-main">
-                      <div class="comment-text">
-                        <p>You know, it’s been a while since I read a post on your blog but this article really got my attention. I really wonder what will happen with job search and qualified workers in 10 or 20 years and that’s why I find your article interesting. I’m also looking forward to some information on recent labor law updates in the USA and your digest of the most popular professions of this month. Thank you for what you do, keep posting great and interesting news!</p>
-                      </div>
-                      <div class="comment-footer">
-                        <ul class="comment-list">
-                          <li> <a class="comment-link" href="#"><span class="icon mdi mdi-thumb-up-outline"></span><span>32</span></a></li>
-                          <li><a class="comment-link" href="#"><span class="icon mdi mdi-comment-outline"></span><span>Reply</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <!-- Comment-->
-                <article class="comment comment-box">
-                  <div class="comment-aside"><img class="comment-image" src="images/user-5-65x65.jpg" alt=""/>
-                  </div>
-                  <div class="comment-header">
-                    <p class="comment-title">Miranda</p>
-                  </div>
-                  <div class="comment-main">
-                    <form class="rd-mailform rd-mailform-outline">
-                      <div class="form-wrap">
-                        <label class="form-label" for="comment-message">Your comment</label>
-                        <textarea class="form-input" id="comment-message" name="message" data-constraints="@Required"></textarea>
-                      </div>
-                      <div class="from-wrap">
-                        <button class="button button-primary" type="submit">Submit</button>
-                      </div>
-                    </form>
-                  </div>
-                </article>
-              </div>
+
             </div>
-            <div class="blog-layout-aside">
-              <div class="blog-layout-aside-item">
-                <!-- RD Search-->
-                <form class="rd-form rd-search rd-search-classic form-lg form-filled" action="search-results.html" method="GET">
-                  <div class="form-wrap">
-                    <input class="form-input" id="rd-search-form-input" type="text" name="s" autocomplete="off">
-                    <label class="form-label" for="rd-search-form-input">Search the blog...</label>
-                  </div>
-                  <button class="rd-search-submit" type="submit"></button>
-                </form>
-              </div>
-              <div class="blog-layout-aside-item">
-                <p class="blog-layout-title">Category</p>
-                <ul class="list-categories">
-                  <li class="active"><a href="#"> <span>Jobs</span><span> 12</span></a></li>
-                  <li><a href="#"> <span>Resume</span><span>10</span></a></li>
-                  <li><a href="#"> <span>Education</span><span>11 </span></a></li>
-                  <li><a href="#"> <span>Skills</span><span>14</span></a></li>
-                </ul>
-              </div>
-              <div class="blog-layout-aside-item">
-                <p class="blog-layout-title">Latest Posts</p>
-                <div class="post-light-group">
-                  <!-- Post Light--><a class="post-light" href="blog-post.html">
-                    <div class="post-light-media"><img class="post-light-image" src="images/post-light-1-106x104.jpg" alt=""/>
-                    </div>
-                    <div class="post-light-main">
-                      <p class="post-light-title">Online Teaching: Theory and Basics</p>
-                      <time class="post-light-time" datetime="2018">March 15, 2018</time>
-                    </div></a>
-                  <!-- Post Light--><a class="post-light" href="blog-post.html">
-                    <div class="post-light-media"><img class="post-light-image" src="images/post-light-2-106x104.jpg" alt=""/>
-                    </div>
-                    <div class="post-light-main">
-                      <p class="post-light-title">Finding a Remote Editing Job to Satisfy Your Needs</p>
-                      <time class="post-light-time" datetime="2018">March 15, 2018</time>
-                    </div></a>
-                  <!-- Post Light--><a class="post-light" href="blog-post.html">
-                    <div class="post-light-media"><img class="post-light-image" src="images/post-light-3-106x104.jpg" alt=""/>
-                    </div>
-                    <div class="post-light-main">
-                      <p class="post-light-title">Organize Your Workspace with These Tips</p>
-                      <time class="post-light-time" datetime="2018">March 15, 2018</time>
-                    </div></a>
-                </div>
-              </div>
-              <div class="blog-layout-aside-item">
-                <p class="blog-layout-title">Newsletter</p>
-                <p>Enter your e-mail to get the latest news. </p>
-                <!-- Rd Mailform-->
-                <form class="rd-form rd-mailform form-centered" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                  <div class="form-wrap">
-                    <input class="form-input" id="subscribe-form-email" type="email" name="email" data-constraints="@Email @Required">
-                    <label class="form-label" for="subscribe-form-email">Your e-mail address...</label>
-                  </div>
-                  <div class="form-button">
-                    <button class="button button-block button-primary" type="submit" aria-label="subscribe">Subscribe</button>
-                  </div>
-                </form>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
       <!-- Page Footer-->
       <footer class="section footer-creative context-dark">
-        <div class="footer-creative-main">
-          <div class="container">
-            <div class="row row-50 justify-content-lg-between">
-              <div class="col-lg-5 col-xl-4">
-                <p class="footer-creative-title">Quick Links</p>
-                <div class="footer-creative-divider"></div>
-                <div class="row row-narrow row-15">
-                  <div class="col-6">
-                    <ul class="list-marked-1">
-                      <li><a href="job-listing-full.html">Browse Jobs</a></li>
-                      <li><a href="job-listing.html">Browse Categories</a></li>
-                      <li><a href="submit-resume.html">Submit Resume</a></li>
-                      <li><a href="companies.html">Companies</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-6">
-                    <ul class="list-marked-1">
-                      <li><a href="post-a-job.html">Post a Job</a></li>
-                      <li><a href="candidates-grid.html">Find a Candidate</a></li>
-                      <li><a href="pricing-tables.html">Pricing Table</a></li>
-                      <li><a href="faq.html">FAQ </a></li>
-                    </ul>
+         <div class="footer-creative-main">
+            <div class="container">
+              <div class="row row-50 justify-content-lg-between">
+                <div class="col-lg-5 col-xl-4">
+                  <p class="footer-creative-title">快速连接</p>
+                  <div class="footer-creative-divider"></div>
+                  <div class="row row-narrow row-15">
+                    <div class="col-6">
+                      <ul class="list-marked-1">
+                        <li><a href="job-listing.html">浏览工作</a></li>
+                        <li><a href="job-listing.html">Browse Categories</a></li>
+                        <li><a href="submit-resume.html">提交简历</a></li>
+                        <li><a href="companies.html">商家列表</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <ul class="list-marked-1">
+                        <li><a href="post-a-job.html">发布工作</a></li>
+                        <li><a href="candidates.html">招聘人员</a></li>
+                        <li><a href="hiring.html">加入我们</a></li>
+                        <li><a href="faq.html">FAQ </a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 col-xl-3">
-                <p class="footer-creative-title">Recent News posts</p>
-                <div class="footer-creative-divider"></div>
-                <div class="post-line-group">
-                  <!-- Post Line--><a class="post-line" href="blog-post.html">
-                    <time class="post-line-time" datetime="2018"><span class="post-line-time-day">25</span><span class="post-line-time-month">April</span></time>
-                    <p class="post-line-text">Canada adds 12,500 jobs in modest July rebound</p></a>
-                  <!-- Post Line--><a class="post-line" href="blog-post.html">
-                    <time class="post-line-time" datetime="2018"><span class="post-line-time-day">14</span><span class="post-line-time-month">April</span></time>
-                    <p class="post-line-text">Outsourcing vs. In-House Digital Marketing</p></a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-3">
-                <p class="footer-creative-title">Jobs in Popular cities</p>
-                <div class="footer-creative-divider"></div>
-                <div class="row row-narrow row-15">
-                  <div class="col-6">
-                    <ul class="list list-1 list-icons">
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>San Francisco</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Washington</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Sacramento</span></a></li>
-                    </ul>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                  <p class="footer-creative-title">最新动态</p>
+                  <div class="footer-creative-divider"></div>
+                  <div class="post-line-group">
+                    <!-- Post Line--><a class="post-line" href="blog-post.html">
+                      <time class="post-line-time" datetime="2018"><span class="post-line-time-day">25</span><span class="post-line-time-month">April</span></time>
+                      <p class="post-line-text">Canada adds 12,500 jobs in modest July rebound</p></a>
+                    <!-- Post Line--><a class="post-line" href="blog-post.html">
+                      <time class="post-line-time" datetime="2018"><span class="post-line-time-day">14</span><span class="post-line-time-month">April</span></time>
+                      <p class="post-line-text">Outsourcing vs. In-House Digital Marketing</p></a>
                   </div>
-                  <div class="col-6">
-                    <ul class="list list-1 list-icons">
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>New York</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Ontario</span></a></li>
-                      <li><a href="job-listing-full.html"><span class="icon icon-sm mdi mdi-map-marker"></span><span>Chicago</span></a></li>
-                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                  <p>关于我们</p>
+                  <div class="footer-creative-divider"></div>
+                  <div class="row row-narrow row-15">
+                    <div class="col-6">
+                      <h1>JobFactory</h1>
+
+
+                    </div>
+                    <div class="col-6">
+
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         <div class="footer-creative-aside">
           <div class="container">
             <p class="rights"><span>JobsFactory</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span>UniCornTechs Inc.</span></span></p>
@@ -499,5 +325,7 @@
     <div class="snackbars" id="form-output-global"></div>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
+
   </body>
 </html>
