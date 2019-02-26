@@ -99,29 +99,22 @@ if (!user){
 }
 else{
 var name = document.getElementById('name').value;
+
 var sexindex = document.getElementById('sex')
 var sex = sexindex.options[sexindex.selectedIndex].text;
 var sexvalue = document.getElementById('sex').value;
+
 var reemail = document.getElementById('reemail').value;
-var profession = document.getElementById('profession').value;
 var location = document.getElementById('location').value;
 var rate = document.getElementById('rate').value;
 var skills = document.getElementById('skills').value;
-var content = document.getElementById('content').value;
-var schoolname = document.getElementById('school-name').value;
-var qualification = document.getElementById('qualification').value;
-var period = document.getElementById('period').value;
-var notes = document.getElementById('notes').value;
-var employer = document.getElementById('employer').value;
-var exjobtitle = document.getElementById('ex-job-title').value;
-var experiod = document.getElementById('ex-period').value;
-var exnote = document.getElementById('ex-notes').value;
+
 var jobtypeindex = document.getElementById('jobtype')
 var jobtype = jobtypeindex.options[jobtypeindex.selectedIndex].text;
 var jobtypevalue = document.getElementById('jobtype').value;
-writeUserData(user.uid,name,sex,sexvalue,email,profession,location,rate,jobtype,skills
-,content,schoolname,qualification,period,notes,employer,exjobtitle
-,experiod,exnote,jobtypevalue)
+
+writeUserData(user.uid,name,sex,sexvalue,reemail,location,rate,jobtype,skills
+,jobtypevalue)
 
 
 window.alert("Succesful!!");
@@ -129,33 +122,25 @@ window.alert("Succesful!!");
 }
 }
 
-function writeUserData(userId, name,sex,sexvalue, reemail, profession,location,rate,jobtype,
-  skills,content,schoolname,qualification,period,notes,employer,exjobtitle
-,experiod,exnotes,jobtypevalue) {
+function writeUserData(userId,name,sex,sexvalue,reemail,location,rate, skills,jobtype,jobtypevalue) {
+    var a = firebase.database().ref('userpostnumber');
+    a.once('value').then(function(snapshot){
+    var postid = snapshot.val();
     var postData = {
-        name: name,
+        postid:++postid,
+        name:name,
         sex:sex,
         sexvalue:sexvalue,
-        reemail: reemail,
-        profession: profession,
-        location: location,
-        rate: rate,
+        reemail:reemail,
+        location:location,
+        rate:rate,
+        skills:skills,
         jobtype:jobtype,
-        skills: skills,
-        content: content,
-        schoolname: schoolname,
-        qualification: qualification,
-        period: period,
-        notes: notes ,
-        employer:employer ,
-        exjobtitle:exjobtitle ,
-        experiod: experiod,
-        exnotes: exnotes,
         jobtypevalue:jobtypevalue,
     };
-    var newPostKey = firebase.database().ref().child('users-resume').push().key;
     var updates={};
-    updates['/resume/' + newPostKey] = postData;
-    updates['/user-resume/' + userId + '/' + newPostKey] = postData;
+    updates['/user-posts/' + userId ] = postData;
+    updates['/userpostnumber'] = postid;
     return firebase.database().ref().update(updates);
+    });
   }

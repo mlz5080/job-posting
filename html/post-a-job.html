@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
+        authDomain: "html-6f08b.firebaseapp.com",
+        databaseURL: "https://html-6f08b.firebaseio.com",
+        projectId: "html-6f08b",
+        storageBucket: "html-6f08b.appspot.com",
+        messagingSenderId: "747984964911"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="js/login.js"></script>
+    <script src="js/jobUpdate.js"></script>
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
@@ -156,6 +176,15 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-wrap">
+                    <label class="form-label-outside" for="general-information-location">地区</label>
+                    <div class="form-wrap-inner">
+                      <input class="form-input" id="general-information-location" form="post-a-job-form" type="text" name="Location" data-constraints="@Required">
+                      <label class="form-label" for="general-information-job-title">地区</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-job-title">职位</label>
                     <div class="form-wrap-inner">
                       <input class="form-input" id="general-information-job-title" form="post-a-job-form" type="text" name="job-title" data-constraints="@Required">
@@ -178,7 +207,23 @@
                     </div>
                   </div>
                 </div>
-
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <label class="form-label-outside" for="general-information-job-category">工作类别</label>
+                    <div class="form-wrap-inner">
+                      <!-- Select 2-->
+                      <select class="form-input select" id="general-information-job-category" form="post-a-job-form" data-placeholder="Choose a Category" name="job-category" data-minimum-results-for-search="Infinity" data-constraints="@Selected">
+                        <option label="Choose a Category"></option>
+                        <option value="1">餐饮</option>
+                        <option value="2">娱乐</option>
+                        <option value="3">工厂</option>
+                        <option value="4">IT & 技术</option>
+                        <option value="5">市场 & 销售</option>
+                        <option value="6">会计 & 理财</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
                 <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-salary">薪水</label>
@@ -230,24 +275,6 @@
 
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
 
-<!-- Add additional services that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBiGLEz1iHldRo6RHcSZk8ohaUjojiwIzk",
-        authDomain: "html-6f08b.firebaseapp.com",
-        databaseURL: "https://html-6f08b.firebaseio.com",
-        projectId: "html-6f08b",
-        storageBucket: "html-6f08b.appspot.com",
-        messagingSenderId: "747984964911"
-      };
-      firebase.initializeApp(config);
-    </script>
-    <script src="js/login.js"></script>
   </body>
 </html>
