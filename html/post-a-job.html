@@ -137,13 +137,23 @@
               <div class="alert-aside"><a class="button button-xs button-primary button-icon button-icon-left" href="#"><span class="icon mdi mdi-account-outline"></span>Sign Up</a></div>
             </div>
           </div>  -->
+
           <div class="block-form">
             <form class="rd-mailform" id="post-a-job-form" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-            <h4>General Information</h4>
+            <h4>招聘信息</h4>
             <hr>
             <!-- RD Mailform-->
             <div class="rd-form rd-mailform form-lg">
               <div class="row row-40">
+                <div class="col-md-6">
+                  <div class="form-wrap">
+                    <label class="form-label-outside" for="general-information-email">邮箱</label>
+                    <div class="form-wrap-inner">
+                      <input class="form-input" id="general-information-email" form="post-a-job-form" type="text" name="salary" data-constraints="@Required">
+                      <label class="form-label" for="general-information-salary">Email</label>
+                    </div>
+                  </div>
+                </div>
                 <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-job-title">职位</label>
@@ -153,15 +163,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="general-information-email">邮箱</label>
-                    <div class="form-wrap-inner">
-                      <input class="form-input" id="general-information-email" form="post-a-job-form" type="email" name="email" data-constraints="@Email @Required">
-                      <label class="form-label" for="general-information-email">邮箱</label>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-job-type">工作类型</label>
@@ -176,38 +178,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="general-information-location">地区</label>
-                    <div class="form-wrap-inner">
-                      <input class="form-input" id="general-information-location" form="post-a-job-form" type="text" name="location" data-constraints="@Required">
-                      <label class="form-label" for="general-information-location">e.g. “Mississauga”</label>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="col-md-6">
                   <div class="form-wrap">
                     <label class="form-label-outside" for="general-information-salary">薪水</label>
                     <div class="form-wrap-inner">
                       <input class="form-input" id="general-information-salary" form="post-a-job-form" type="text" name="salary" data-constraints="@Required">
                       <label class="form-label" for="general-information-salary">e.g. $15-18/hour</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="general-information-job-category">工作类别</label>
-                    <div class="form-wrap-inner">
-                      <!-- Select 2-->
-                      <select class="form-input select" id="general-information-job-category" form="post-a-job-form" data-placeholder="Choose a Category" name="job-category" data-minimum-results-for-search="Infinity" data-constraints="@Selected">
-                        <option label="Choose a Category"></option>
-                        <option value="1">餐饮</option>
-                        <option value="2">娱乐</option>
-                        <option value="3">工厂</option>
-                        <option value="4">IT & 技术</option>
-                        <option value="5">市场 & 销售</option>
-                        <option value="6">会计 & 理财</option>
-                      </select>
                     </div>
                   </div>
                 </div>
@@ -225,52 +202,7 @@
               </div>
             </div>
           </div>
-          <div class="block-form">
-            <h4>商家信息</h4>
-            <hr>
-            <!-- RD Mailform-->
-            <div class="rd-form rd-mailform form-lg">
-              <div class="row row-40">
-                <div class="col-md-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="company-details-name">商家名称</label>
-                    <div class="form-wrap-inner">
-                      <input class="form-input" id="company-details-name" form="post-a-job-form" type="text" name="name" data-constraints="@Required">
-                      <label class="form-label" for="company-details-name">商家名称</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="company-details-tagline">类别</label>
-                    <div class="form-wrap-inner">
-                      <input class="form-input" id="company-details-tagline" form="post-a-job-form" type="text" name="tagline" data-constraints="@Required">
-                      <label class="form-label" for="company-details-tagline">e.g. “餐馆”</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="company-details-website">公司网址</label>
-                    <div class="form-wrap-inner">
-                      <input class="form-input" id="company-details-website" form="post-a-job-form" type="text" name="website" >
-                      <label class="form-label" for="company-details-website">http://</label>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="col-12">
-                  <div class="form-wrap">
-                    <label class="form-label-outside" for="company-details-description">商家简介</label>
-                    <div class="form-wrap-inner">
-                      <label class="form-label" for="company-details-description">商家简介</label>
-                      <textarea class="form-input" id="company-details-description" form="post-a-job-form" name="description" data-constraints="@Required"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="block-form">
             <h4>其他文件</h4>
             <hr>
