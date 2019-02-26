@@ -67,8 +67,8 @@ a {
 .image-1 {
   position: absolute;
   bottom: -12px;
-  width: 90%;
-  left: -330px;
+
+  left: -430px;
   z-index: 99; }
 
 .image-2 {

@@ -33,7 +33,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 
       if(email == '' && password == ''){
         window.alert("信息不能为空")
-        window.location.href="signup.html";
+        window.location.href="companysignup.html";
       }
     else if (password == passwordc){
     window.alert("Successful!")
@@ -47,42 +47,3 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     window.alert("两次密码输入不一致，请再次确认");
     }
   }
-
-function Signup(){
-
-	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
-  	var passwordc = document.getElementById('passwordc').value;
-
-    if(email == '' && password == ''){
-      window.alert("信息不能为空")
-      window.location.href="signup.html";
-    }
-  else if (password == passwordc){
-  window.alert("Successful!")
-	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-	// Handle Errors here.
-	var errorCode = error.code;
-	var errorMessage = error.message;
-	window.alert("Error: " + errorMessage);
-  });
-  }else{
-  window.alert("两次密码输入不一致，请再次确认");
-  }
-}
-
-function Login(){
-
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
-  firebase.auth().signInWithEmailAndPassword(email, password).then(function (){
-
-    window.location.href='index.html';
-  }).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  window.alert("Error: " + errorMessage);
-
-  });
-}
