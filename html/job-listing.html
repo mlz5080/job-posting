@@ -170,32 +170,7 @@
           <div class="row row-50 flex-lg-row-reverse">
             <div class="col-lg-4 col-xl-3">
               <div class="row row-30">
-                <div class="col-sm-6 col-lg-12">
-                  <p class="heading-8">Date posted</p>
-                  <hr>
-                  <ul class="list list-xs">
-                    <li>
-                      <label class="checkbox">
-                        <input name="date-posted-checkbox-1" value="checkbox-1" type="checkbox">Last Hour
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox">
-                        <input name="date-posted-checkbox-2" value="checkbox-2" type="checkbox">Last 24 hours
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox">
-                        <input name="date-posted-checkbox-3" value="checkbox-3" type="checkbox">Last 7 days
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox">
-                        <input name="date-posted-checkbox-4" value="checkbox-4" type="checkbox">Last 30 days
-                      </label>
-                    </li>
-                  </ul>
-                </div>
+
                 <div class="col-sm-6 col-lg-12">
                   <p class="heading-8">Vacancy Type</p>
                   <hr>
@@ -207,205 +182,62 @@
                     </li>
                     <li>
                       <label class="checkbox checkbox_info text-primary">
-                        <input name="vacancy-type-checkbox-2" value="checkbox-2" type="checkbox">Full Time<span class="checkbox-meta">25</span>
+                        <input id = "fulltime" name="vacancy-type-checkbox-2" value="checkbox-2" type="checkbox">全职工作<span class="checkbox-meta">25</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox checkbox_info text-secondary">
-                        <input name="vacancy-type-checkbox-3" value="checkbox-3" type="checkbox">Part Time<span class="checkbox-meta">55</span>
+                        <input id = "parttime"name="vacancy-type-checkbox-3" value="checkbox-3" type="checkbox">兼职工作<span class="checkbox-meta">55</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox checkbox_info text-blue-11">
-                        <input name="vacancy-type-checkbox-4" value="checkbox-4" type="checkbox">Internship<span class="checkbox-meta">55</span>
+                        <input id = "internship" name="vacancy-type-checkbox-4" value="checkbox-4" type="checkbox">实习生<span class="checkbox-meta">55</span>
                       </label>
                     </li>
                   </ul>
                 </div>
                 <div class="col-sm-6 col-lg-12">
-                  <p class="heading-8">Speciality</p>
+                  <p class="heading-8">工作类型</p>
                   <hr>
-                  <div class="form-wrap form-wrap-select form-filled">
-                    <!-- Select 2-->
-                    <select class="form-input select" name="speciality" data-minimum-results-for-search="Infinity" data-constraints="@Selected" data-placeholder="Select a speciality" data-dropdown-class="select2-dropdown-filled">
-                      <option label="Select a speciality"></option>
-                      <option value="1">Web Design</option>
-                      <option value="2">Development</option>
-                      <option value="3">Marketing</option>
-                      <option value="4">Illustration</option>
-                    </select>
-                  </div>
+
                   <ul class="list list-xs">
                     <li>
                       <label class="checkbox checkbox_info">
-                        <input name="category-checkbox-1" value="checkbox-1" type="checkbox">Web Design<span class="checkbox-meta">23</span>
+                        <input name="category-checkbox-1" value="checkbox-1" type="checkbox">餐饮<span class="checkbox-meta">23</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox checkbox_info">
-                        <input name="category-checkbox-2" value="checkbox-2" type="checkbox">Illustrator<span class="checkbox-meta">47</span>
+                        <input name="category-checkbox-2" value="checkbox-2" type="checkbox">娱乐<span class="checkbox-meta">47</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox checkbox_info">
-                        <input name="category-checkbox-3" value="checkbox-3" type="checkbox">Art Director<span class="checkbox-meta">67</span>
+                        <input name="category-checkbox-3" value="checkbox-3" type="checkbox">工厂<span class="checkbox-meta">67</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox checkbox_info">
-                        <input name="category-checkbox-4" value="checkbox-4" type="checkbox">UX Design<span class="checkbox-meta">35</span>
+                        <input name="category-checkbox-4" value="checkbox-4" type="checkbox">IT & 计算机<span class="checkbox-meta">35</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="checkbox checkbox_info">
+                        <input name="category-checkbox-4" value="checkbox-4" type="checkbox">市场 & 销售<span class="checkbox-meta">35</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="checkbox checkbox_info">
+                        <input name="category-checkbox-4" value="checkbox-4" type="checkbox">会计 & 金融<span class="checkbox-meta">35</span>
                       </label>
                     </li>
                   </ul>
                 </div>
-                <div class="col-sm-6 col-lg-12">
-                  <p class="heading-8">Filter by Salary</p>
-                  <hr>
-                  <ul class="list list-xs">
-                    <li>
-                      <label class="checkbox checkbox_info">
-                        <input name="salary-checkbox-1" value="checkbox-1" type="checkbox">$0 - $1000<span class="checkbox-meta">100</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox checkbox_info">
-                        <input name="salary-checkbox-2" value="checkbox-2" type="checkbox">$1000 - $5000<span class="checkbox-meta">73</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox checkbox_info">
-                        <input name="salary-checkbox-3" value="checkbox-3" type="checkbox">$5000 - $20000<span class="checkbox-meta">55</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox checkbox_info">
-                        <input name="salary-checkbox-4" value="checkbox-4" type="checkbox">$2000 - $50000<span class="checkbox-meta">35</span>
-                      </label>
-                    </li>
-                    <li>
-                      <label class="checkbox checkbox_info">
-                        <input name="salary-checkbox-5" value="checkbox-5" type="checkbox">$50000+<span class="checkbox-meta">15</span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
+
               </div>
             </div>
             <div class="col-lg-8 col-xl-9" id="outputdiv">
-              <!-- <table class="table-job-listing table-responsive" id="mytable">
-                <script type="text/javascript">
-                    var a = firebase.database().ref('/posts');
-                    var local=[];
-                    //console.log(a.val())
-                    a.once('value').then(function(snapshot){
-                      snapshot.forEach((child) => {
-                        local.push(child.val())
-                        });
-                    console.log(local);
-                    local = local.reverse();
-                    for(i = 0;i<local.length;i++){
-                      var currentime = Math.floor(Date.now() / 1000);
-                      var jobtitle = local[i].jobtitle;
-                      var companyname = local[i].companyname;
-                      var location = local[i].location;
-                      var jobtype = local[i].jobtype;
-                      var jobvalue = local[i].jobcategoryvalue;
-                      var jobtypevalue = local[i].jobvalue;
-                      var salary = local[i].salary;
-                      var timestamp = local[i].timestamp;
-                      var postid = local[i].postid;
-                      diff = currentime - timestamp;
-                      if(diff < 60){
-                        var actualtime = Math.floor(diff) + " seconds ago";
-                      }
-                      else if(diff>60 && diff<3600){
-                        var temp = Math.floor(diff/60);
-                        if(temp > 1){
-                          var actualtime = temp + " minutes ago";
-                        }
-                        else{
-                          var actualtime = temp + " minute ago";
-                        }
-                      }
-                      else if(diff > 3600 && diff<86400){
-                        var temp = Math.floor(diff/3600);
-                        if(temp>1){
-                          var actualtime = temp + " hours ago";
-                        }
-                        else{
-                          var actualtime = temp + " hour ago";
-                        }
-                      }
-                      else if(diff > 86400){
-                        var temp = Math.floor(diff/86400);
-                        if(temp>1){
-                          var actualtime = temp + " days ago";
-                        }
-                        else{
-                          var actualtime = "Yesterday";
-                        }
-                      }
-                      else{
-                        var actualtime = "Months ago";
-                      }
-
-                      var mystr1 = '<tr>';
-                      var mystr2 = `<td class="table-job-offers-date"><span>${actualtime}</span></td>`;
-                      var mystr3 = '<td class="table-job-offers-main">';
-                      var mystr4 = '<article class="company-light">';
-                      if (jobvalue == 1){
-                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/canyin.png" width="80" alt=""/>';
-                    }else if (jobvalue == 2){
-                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/yule.png" width="80" alt=""/>';
-                    }else if (jobvalue == 3){
-                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/gongchang.png" width="80" alt=""/>';
-                    }else if (jobvalue == 4){
-                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/it.png" width="80" alt=""/>';
-                    }else if (jobvalue == 5){
-                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/market.png" width="80" alt=""/>';
-                    }else if (jobvalue == 6){
-                      var mystr5 = '<figure class="company-light-figure"><img class="company-light-image" src="images/accounting.png" width="80" alt=""/>';
-                    }
-                      var mystr6 = '</figure>';
-                      var mystr7 = '<div class="company-light-main">';
-                      var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
-                      var mystr9 = `<p class="text-color-default">${companyname}</p>`;
-                      var mystr10 = '</div>';
-                      var mystr11 = '</article>';
-                      var mystr12 = '</td>';
-                      var mystr13 = '<td class="table-job-offers-meta">';
-                      var mystr14 =`<div class="object-inline"><span class="icon icon-sm text-primary mdi mdi-cash"></span><span>${salary}</span></div>`;
-                      var mystr15 ='</td>';
-                      var mystr16 ='<td class="table-job-offers-meta">';
-                      var mystr17 =`<div class="object-inline"><span class="icon icon-1 text-primary mdi mdi-map-marker"></span><span>${location}</span></div>`;
-                      var mystr18 ='</td>';
-                      if (jobtypevalue == 1){
-                      var mystr19 =`<td class="table-job-offers-badge"><span class="badge">${jobtype}</span></td>`;
-                    }else if (jobtypevalue == 2){
-                      var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-secondary">${jobtype}</span></td>`;
-                    }else{
-                      var mystr19 =`<td class="table-job-offers-badge"><span class="badge badge-blue-11">${jobtype}</span></td>`;
-                    }
-                      var mystr20 ='</tr>';
-                      var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
-                      mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
-                      +mystr19+mystr20;
-                      document.getElementById("mytable").innerHTML += temp;
-                    }
-                    });
-                </script>
-              </table>
-
-              <nav class="pagination-outer text-center" aria-label="Page navigation">
-                <div class="pagination">
-                  <div class="page-item page-item-control"><a class="page-link" href="#" aria-label="Previous">Prev</a></div>
-                  <div class="page-item active"><span class="page-link">1</span></div>
-                  <div class="page-item"><a class="page-link" href="#">2</a></div>
-                  <div class="page-item"><a class="page-link" href="#">3</a></div>
-                  <div class="page-item"><a class="page-link" href="#">4</a></div>
-                  <div class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next">Next</a></div>
-                </div>
-              </nav> -->
             <div class="container">
              <div class="jumbotron page" id="page1">
                 <table class="table-job-listing table-responsive" id="mytable1">
@@ -674,7 +506,92 @@
          });
          });
       });
+    </script>
 
+    <script type="text/javascript">
+      $(function(){
+        $('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+                var a = $(this).attr("id");
+                switch(a){
+                  case "fulltime":
+                    $( ".badge" ).each(function( index ) {
+                      if($(this).text()!=="全职工作" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                          $(this).parent().parent().hide();
+                      }
+                      else if($(this).text()!=="全职工作" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                          $(this).parent().parent().hide();
+                      }
+                      else{
+                        $(this).parent().parent().show();
+                      }
+                    });
+                    break;
+                  case "parttime":
+                    $( ".badge" ).each(function( index ) {
+                      if($(this).text()!=="兼职" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                          $(this).parent().parent().hide();
+                      }
+                      else if($(this).text()!=="兼职" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                          $(this).parent().parent().hide();
+                        }
+                        else{
+                        $(this).parent().parent().show();
+                      }
+                    });
+                    break;
+                  case "internship":
+                    $( ".badge" ).each(function( index ) {
+                      if($(this).text()!=="实习生" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                          $(this).parent().parent().hide();
+                      }
+                      else if($(this).text()!=="实习生" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                          $(this).parent().parent().hide();
+                        }
+                        else{
+                        $(this).parent().parent().show();
+                      }
+                    });
+                    break;
+                }
+            }
+            else if($(this).prop("checked") == false){
+                var a = $(this).attr("id");
+                switch(a){
+                  case "fulltime":
+                    $( ".badge" ).each(function( index ) {
+                      if($(this).text()!=="全职工作" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                          $(this).parent().parent().show();
+                      }
+                      else if($(this).text()!=="全职工作" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                          $(this).parent().parent().show();
+                        }
+                    });
+                    break;
+                  case "parttime":
+                    $( ".badge" ).each(function( index ) {
+                      if($(this).text()!=="兼职" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                          $(this).parent().parent().show();
+                      }
+                      else if($(this).text()!=="兼职" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                          $(this).parent().parent().show();
+                        }
+                    });
+                    break;
+                  case "internship":
+                    $( ".badge" ).each(function( index ) {
+                      if($(this).text()!=="实习生" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                          $(this).parent().parent().show();
+                      }
+                      else if($(this).text()!=="实习生" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                          $(this).parent().parent().show();
+                        }
+                    });
+                    break;
+                }
+            }
+          });
+      });
     </script>
   </body>
 </html>
