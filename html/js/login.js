@@ -7,6 +7,25 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('navbarforuser').style.display="";
     document.getElementById('logout-button').style.display = "";
     console.log("Still login!")
+    var a = firebase.database().ref('company-info');
+    a.once('value').then(function(snapshot){
+      snapshot.forEach((child) => {
+        if(user.uid===child.key){
+          console.log("Hello Company " +child.val().cname);
+          document.getElementById('navbarforcan').style.display="none";
+        }
+    });
+    });
+
+    var b = firebase.database().ref('user-info');
+    b.once('value').then(function(snapshot){
+      snapshot.forEach((child) => {
+        if(user.uid===child.key){
+          console.log("Hello user!");
+          document.getElementById('navbarforemp').style.display="none";
+        }
+    });
+    });
     //document.getElementById('login-alert').style.display = "none";
   }
   else{

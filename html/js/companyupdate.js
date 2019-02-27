@@ -16,16 +16,18 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
 function Update(){
 	var user = firebase.auth().currentUser;
   var cname = document.getElementById('cname').value;
-  var category = document.getElementById('category').value;
+  var location = document.getElementById('location').value;
+  var categoryindex = document.getElementById('general-information-job-category');
+  var companycategory = categoryindex.options[categoryindex.selectedIndex].text;
   var website = document.getElementById('website').value;
   var description = document.getElementById('description').value;
 
-  writeUserData(user.uid,cname,category,website,description)
+  writeUserData(user.uid,cname,location,companycategory,website,description)
   window.alert("Succesful!!");
   //window.location.href="index.html"
 }
 
-function writeUserData(userId,cname,category,website,description)
+function writeUserData(userId,cname,location,category,website,description)
 {
     var a = firebase.database().ref('companynumber');
     a.once('value').then(function(snapshot){
@@ -33,6 +35,7 @@ function writeUserData(userId,cname,category,website,description)
       var postData = {
         postid: ++postid,
         cname:cname,
+        location:location,
         category:category,
         website:website,
         description:description,

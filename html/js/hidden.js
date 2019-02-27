@@ -8,6 +8,23 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById('logout-button').style.display = "";
     document.getElementById('login-alert').style.display="none"
     console.log("Still login!")
+    var a = firebase.database().ref('company-info');
+    a.once('value').then(function(snapshot){
+      snapshot.forEach((child) => {
+        if(user.uid===child.key){
+          console.log("Hello Company " +child.val().cname);
+        }
+    });
+    });
+
+    var b = firebase.database().ref('company-info');
+    b.once('value').then(function(snapshot){
+      snapshot.forEach((child) => {
+        if(user.uid===child.key){
+          console.log("Hello user!");
+        }
+    });
+    });
     //document.getElementById('login-alert').style.display = "none";
   }
   else{
