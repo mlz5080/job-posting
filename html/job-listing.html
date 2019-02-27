@@ -560,30 +560,30 @@
                 switch(a){
                   case "fulltime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="全职工作" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                      if($(this).text()!=="全职工作" && $(this).text()=="兼职" && document.getElementById("parttime").checked===true){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()!=="全职工作" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                      else if($(this).text()!=="全职工作" && $(this).text()=="实习生" && document.getElementById("internship").checked===true){
                           $(this).parent().parent().show();
                         }
                     });
                     break;
                   case "parttime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="兼职" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                      if($(this).text()!=="兼职" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===true){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()!=="兼职" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                      else if($(this).text()!=="兼职" && $(this).text()=="实习生" && document.getElementById("internship").checked===true){
                           $(this).parent().parent().show();
                         }
                     });
                     break;
                   case "internship":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="实习生" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                      if($(this).text()!=="实习生" && $(this).text()=="兼职" && document.getElementById("parttime").checked===true){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()!=="实习生" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                      else if($(this).text()!=="实习生" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===true){
                           $(this).parent().parent().show();
                         }
                     });
