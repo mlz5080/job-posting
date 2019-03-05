@@ -252,7 +252,7 @@
                       local = local.reverse();
                       for(i = 0;i<5;i++){
                         var currentime = Math.floor(Date.now() / 1000);
-                        
+                        var rowid = local[i].postid;
                         var jobtitle = local[i].jobtitle;
                         var companyname = local[i].companyname;
                         var location = local[i].location;
@@ -316,7 +316,7 @@
                       }
                         var mystr6 = '</figure>';
                         var mystr7 = '<div class="company-light-main">';
-                        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
+                        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html?id=${rowid}">${jobtitle}</a></h5>`;
                         var mystr9 = `<p class="text-color-default">${companyname}</p>`;
                         var mystr10 = '</div>';
                         var mystr11 = '</article>';
