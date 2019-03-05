@@ -240,7 +240,7 @@
             <div class="col-lg-8 col-xl-9" id="outputdiv">
             <div class="container">
              <div class="jumbotron page" id="page1">
-                <table class="table-job-listing table-responsive" id="mytable1">
+                <table class="table-job-listing table-responsive-sm" id="mytable1">
                    <script type="text/javascript">
                       var a = firebase.database().ref('/posts');
                       var local=[];
@@ -252,6 +252,7 @@
                       local = local.reverse();
                       for(i = 0;i<5;i++){
                         var currentime = Math.floor(Date.now() / 1000);
+                        
                         var jobtitle = local[i].jobtitle;
                         var companyname = local[i].companyname;
                         var location = local[i].location;
