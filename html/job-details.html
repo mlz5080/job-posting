@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -25,6 +27,8 @@
       };
       firebase.initializeApp(config);
     </script>
+    <script src="js/login.js"></script>
+
   </head>
   <body>
     <div class="ie-panel"> <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -57,127 +61,69 @@
                         <div class="rd-navbar-nav-wrap">
                           <!-- RD Navbar Nav-->
                           <ul class="rd-navbar-nav">
-                            <li class="rd-nav-item active"><a class="rd-nav-link" href="#">For Candidates</a>
+                            <li class="rd-nav-item" id="navbarforcan"><a class="rd-nav-link" href="#">我想求职</a>
                               <!-- RD Navbar Dropdown-->
                               <ul class="rd-menu rd-navbar-dropdown">
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">Job Listing</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing-full.html">Job Listing Full</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">Companies</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies-page.html">Companies Page</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-details.html">Job Details</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">Submit Resume</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">工作列表</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">商家列表</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="submit-resume.html">发布求职</a></li>
                               </ul>
                             </li>
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="#">For Employers</a>
+                            <li class="rd-nav-item" id="navbarforemp"><a class="rd-nav-link" href="#">我要招聘</a>
                               <!-- RD Navbar Dropdown-->
                               <ul class="rd-menu rd-navbar-dropdown">
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post-a-job.html">Post a Job</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates.html">Candidates</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates-grid.html">Candidates Grid</a></li>
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="resume-page.html">Resume Page</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post-a-job.html">发布工作</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="candidates.html">招聘人员</a></li>
+
                               </ul>
                             </li>
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
+                            <li class="rd-nav-item" ><a class="rd-nav-link" href="#">求职攻略</a>
+                              <!-- RD Navbar Dropdown-->
+                              <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post01.html">关于求职</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post02.html">面试经验</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="post03.html">职在异地</a></li>
+
+                              </ul>
+                            </li>
+                            <li class="rd-nav-item" id="navbarforcan"><a class="rd-nav-link" href="contact-us.html">关于我们</a></li>
+
+                            <li class="rd-nav-item" id="navbarforuser"><a id="username" class="rd-nav-link" href="#">Hello user</a>
+                              <!-- RD Navbar Dropdown-->
+                              <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="job-listing.html">个人信息</a></li>
+
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="companies.html">工作信息</a></li>
+
+                                <li class="rd-dropdown-item"><button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button></li>
+                              </ul>
+                            </li>
                               <!-- RD Navbar Megamenu-->
-                              <ul class="rd-menu rd-navbar-megamenu">
-                                <li class="rd-megamenu-item">
-                                  <h6 class="rd-megamenu-title">Pages 1</h6>
-                                  <ul class="rd-megamenu-list">
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="about-us.html">About Us</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contact-us.html">Contact Us</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="faq.html">FAQ</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="pricing-tables.html">Pricing Tables</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="testimonials.html">Testimonials</a></li>
-                                  </ul>
-                                </li>
-                                <li class="rd-megamenu-item">
-                                  <h6 class="rd-megamenu-title">Pages 2</h6>
-                                  <ul class="rd-megamenu-list">
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming Soon</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="maintenance.html">Maintenance</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 Page</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="503-page.html">503 Page</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">Search results</a></li>
-                                  </ul>
-                                </li>
-                                <li class="rd-megamenu-item">
-                                  <h6 class="rd-megamenu-title">Elements</h6>
-                                  <ul class="rd-megamenu-list">
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">Typography</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="forms.html">Forms</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="buttons.html">Buttons</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="progress-bars.html">Progress Bars</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tabs-and-accordions.html">Tabs and Accordions</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tables.html">Tables</a></li>
-                                    <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="grid-system.html">Grid system</a></li>
-                                  </ul>
-                                </li>
-                              </ul>
-                            </li>
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="blog.html">Blog</a>
-                              <!-- RD Navbar Dropdown-->
-                              <ul class="rd-menu rd-navbar-dropdown">
-                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">Blog post</a></li>
-                              </ul>
-                            </li>
                           </ul>
                         </div>
                       </div>
-                      <div class="rd-navbar-aside">
-                        <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register"><span class="icon mdi mdi-account"></span>Sign Up</button>
-                          <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-register">
-                            <h5 class="rd-navbar-popup-title">Sign Up</h5>
-                            <form class="rd-form rd-mailform form-compact" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-name" type="text" name="username" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-register-name">Username</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-email" type="email" name="email" data-constraints="@Email @Required">
-                                <label class="form-label" for="rd-navbar-register-email">E-mail</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-password" type="password" name="password" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-register-password">Password</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-register-password-confirm" type="password" name="password-confirm" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-register-password-confirm">Confirm Password </label>
-                              </div>
-                              <div class="form-wrap">
-                                <button class="button button-block button-primary" type="submit">Create an Account</button>
-                              </div>
-                              <div class="form-wrap form-wrap-ally">
-                                <div class="text-decoration-lines rd-navbar-popup-title"><span class="text-decoration-lines-content">or enter with</span></div>
-                              </div>
-                              <div class="form-wrap form-wrap-ally">
-                                <div class="button-group"><a class="button button-facebook button-icon button-icon-only button-winona" href="#" aria-label="Facebook"><span class="icon mdi mdi mdi-facebook"></span></a><a class="button button-twitter button-icon button-icon-only button-winona" href="#" aria-label="Twitter"><span class="icon mdi mdi-twitter"></span></a><a class="button button-google button-icon button-icon-only button-winona" href="#" aria-label="Google+"><span class="icon mdi mdi-google"></span></a></div>
-                              </div>
-                            </form>
+
+
+                        <div class="rd-navbar-aside" id="rd-navbar-aside">
+                          <!-- <div class="rd-navbar-aside-item">
+                            <button onclick="javascript:Logout()" id="logout-button" style="display: none" ><span class="icon mdi mdi-account"></span>退出登陆</button>
+                          </div> -->
+                          <div class="rd-navbar-aside-item">
+                            <a href="signup.html" class="button button-xs button-primary-outline button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-register" id="register-button"><span class="icon mdi mdi-account"></span>注册</a>
+                            <div class="bg-gray-100" id="rd-navbar-register">
+
+
+                            </div>
+                          </div>
+                          <div class="rd-navbar-aside-item">
+                            <a href="login.html" class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login" id="login-button"><span class="icon mdi mdi-import"></span>登录</a>
+                            <div class="bg-gray-100" id="rd-navbar-login">
+
+                            </div>
                           </div>
                         </div>
-                        <div class="rd-navbar-aside-item">
-                          <button class="button button-xs button-primary button-icon button-icon-left rd-navbar-popup-toggle" data-rd-navbar-toggle="#rd-navbar-login"><span class="icon mdi mdi-import"></span>Login</button>
-                          <div class="rd-navbar-popup bg-gray-100" id="rd-navbar-login">
-                            <h5 class="rd-navbar-popup-title">Login</h5>
-                            <form class="rd-form form-compact">
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-login-email" type="email" name="email" data-constraints="@Email @Required">
-                                <label class="form-label" for="rd-navbar-login-email">E-mail</label>
-                              </div>
-                              <div class="form-wrap">
-                                <input class="form-input" id="rd-navbar-login-password" type="password" name="password" data-constraints="@Required">
-                                <label class="form-label" for="rd-navbar-login-password">Password</label>
-                              </div>
-                              <div class="form-wrap">
-                                <button class="button button-block button-primary" type="submit">Login</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </nav>
@@ -186,7 +132,7 @@
       <section class="section breadcrumbs-custom">
         <div class="breadcrumbs-custom-main bg-image bg-primary">
           <div class="container">
-            <h3 class="breadcrumbs-custom-title">Social Media Specialist</h3>
+            <h3 class="breadcrumbs-custom-title">商家信息</h3>
           </div>
         </div>
         <div class="breadcrumbs-custom-aside">
@@ -205,6 +151,23 @@
             <div class="col-lg-8">
               <div class="layout-details">
                 <article class="company-light company-light_1">
+
+                  <script type="text/javascript">
+
+                  var url = (window.location).href;
+                  var id = url.substring(url.lastIndexOf('=') + 1);
+                    console.log(id);
+
+                  var a = firebase.database().ref('posts');
+
+                    var key = a.orderByChild("postid").equalTo(id).on("value", function(snapshot) {
+                       console.log(snapshot.key);
+                     });
+
+
+                  </script>
+
+
                   <figure class="company-light-logo"><img class="company-light-logo-image" src="images/company-1-45x45.png" alt=""/>
                   </figure>
                   <div class="company-light-main">
@@ -257,19 +220,19 @@
                   </ul>
                 </div>
               </div>
-              <div class="layout-1">
-                <div class="layout-1-inner">
-                  <p>Share this vacancy</p>
-                  <div>
-                    <ul class="list-inline list-inline-xs">
-                      <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-facebook" href="#"></a></li>
-                      <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-google-plus" href="#"></a></li>
-                      <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-twitter" href="#"></a></li>
-                      <li><a class="icon icon-xxs icon-filled icon-filled-brand icon-circle fa fa-pinterest-p" href="#"></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
               <div class="block offset-top-2">
                 <h4>Related Jobs</h4>
                 <table class="table-job-listing table-responsive">
