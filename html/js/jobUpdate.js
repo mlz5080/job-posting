@@ -98,8 +98,9 @@ function writeUserData(userId,companyname, email, location,jobtitle, jobtype,job
         description:description,
         timestamp:Math.floor(Date.now() / 1000);
     };
+    var newPostKey = firebase.database().ref().child('posts').push().key;
     var updates={};
-    updates['/posts/' + userId ] = postData;
+    updates['/posts/' + userId + '/' + newPostKey] = postData;
     updates['/company-posts-number'] = postid;
     return firebase.database().ref().update(updates);
     });
