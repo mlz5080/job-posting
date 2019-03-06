@@ -158,15 +158,15 @@
                   var id = url.substring(url.lastIndexOf('=') + 1);
                     console.log(id);
 
-                  var a = firebase.database().ref('posts');
+                      var a = firebase.database().ref('posts');
                       a.once('value').then(function(snapshot){
                         snapshot.forEach((child) => {
                           console.log(id);
                           if(child.val().postid==id){
                             console.log(child.val());
-                          }
 
-                          var companyname = child.val().campanyname;
+
+                          var companyname = child.val().companyname;
                           var companytag = child.val().companytag;
                           var companyweb = child.val().companyweb;
                           var contactemail = child.val().contactemail;
@@ -199,15 +199,20 @@
                           var mystr20 =`<p class="object-inline object-inline_sm"><span class="icon icon-1 text-primary mdi mdi-cash"></span><span>${salary}</span></p>`
                           var mystr21 ='</li>'
                           var mystr22 ='<li>'
-                          var mystr23 =`<p class="object-inline object-inline_sm"><span class="icon icon-default text-primary mdi mdi-web"></span><span>${companyweb}</span></p>`
+                          var mystr23 =`<p class="object-inline object-inline_sm"><span class="icon icon-default text-primary mdi mdi-web"></span><span><a href ="${companyweb}">${companyweb}</a></span></p>`
                           var mystr24 ='</li>'
                           var mystr25 ='</ul>'
                           var mystr26 = '</div>'
+                          var mystr27 = '</div>'
+                          var mystr28 = '</div>'
+                          var mystr29 = '</div>'
 
                           var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
                           mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
-                          +mystr19+mystr20+mystr21+mystr22+mystr23+mystr24+mystr25+mystr26;
+                          +mystr19+mystr20+mystr21+mystr22+mystr23+mystr24+mystr25+mystr26+mystr27
+                          +mystr28+mystr29;
                           document.getElementById("jobdetail").innerHTML += temp;
+                        }
                       });
                       });
 
@@ -240,10 +245,10 @@
                               <p class="object-inline object-inline_sm"><span class="icon icon-1 text-primary mdi mdi-web"></span><span><a href="#">www.demolink.org</a></span></p>
                             </li>
                           </ul>
-                        </div>-->
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </article>
               </div>
               <p class="text-style-1">We’re looking for a full stack marketer who can master social media, copywriting, photography, video editing, community outreach and more. Are you entrepreneurial by nature and a doer with strong examples of execution? Are you a highly energetic and a self starter? If the answer is “yes”, then we need you!</p>
