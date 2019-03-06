@@ -138,9 +138,9 @@
         <div class="breadcrumbs-custom-aside">
           <div class="container">
             <ul class="breadcrumbs-custom-path">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="#">For Candidates</a></li>
-              <li class="active">Job Details</li>
+              <li><a href="index.html">主页</a></li>
+              <li><a href="#">我要求职</a></li>
+              <li class="active">工作信息</li>
             </ul>
           </div>
         </div>
@@ -149,8 +149,8 @@
         <div class="container">
           <div class="row row-50">
             <div class="col-lg-8">
-              <div class="layout-details">
-                <article class="company-light company-light_1" id="jobdetail">
+              <div class="layout-details" id="jobdetail">
+
 
                   <script type="text/javascript">
 
@@ -176,8 +176,28 @@
                           var location = child.val().location;
                           var requirement = child.val().requirement;
                           var salary = child.val().salary;
+                          var jobvalue = child.val().jobcategoryvalue;
+                          var description = child.val().description;
 
-                          var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/company-1-45x45.png" alt=""/>'
+                          var mystr0 ='<article class="company-light company-light_1">'
+                          if(jobvalue == 1){
+                          var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/canyin.png" alt=""/>'
+                        }else if(jobvalue == 2){
+                        var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/yule.png" alt=""/>'
+                      }else if(jobvalue == 3){
+                        var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/gongchang.png" alt=""/>'
+
+                      }else if(jobvalue == 4){
+                        var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/it.png" alt=""/>'
+
+                      }else if(jobvalue== 5){
+                        var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/market.png" alt=""/>'
+
+                      }else{
+                        var mystr1 ='<figure class="company-light-logo"><img class="company-light-logo-image" src="images/accounting.png" alt=""/>'
+
+                      }
+
                           var mystr2 ='</figure>'
                           var mystr3 ='<div class="company-light-main">'
                           var mystr4 =`<h5 class="company-light-title">${jobtitle}</h5>`
@@ -206,11 +226,14 @@
                           var mystr27 = '</div>'
                           var mystr28 = '</div>'
                           var mystr29 = '</div>'
+                          var mystr30 = '</article>'
+                          var mystr31 = '</div>'
+                          var mystr32 = `<p class="text-style-1">${description}</p>`
 
-                          var temp=mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
+                          var temp=mystr0+mystr1+mystr2+mystr3+mystr4+mystr5+mystr6+mystr7+mystr8+
                           mystr9+mystr10+mystr11+mystr12+mystr13+mystr14+mystr15+mystr16+mystr17+mystr18
                           +mystr19+mystr20+mystr21+mystr22+mystr23+mystr24+mystr25+mystr26+mystr27
-                          +mystr28+mystr29;
+                          +mystr28+mystr29+mystr30+mystr31+mystr32;
                           document.getElementById("jobdetail").innerHTML += temp;
                         }
                       });
@@ -248,8 +271,8 @@
                         </div>
                       </div>
                     </div>
-                  </div> -->
-                </article>
+                  </div>
+                </article>-->
               </div>
               <p class="text-style-1">We’re looking for a full stack marketer who can master social media, copywriting, photography, video editing, community outreach and more. Are you entrepreneurial by nature and a doer with strong examples of execution? Are you a highly energetic and a self starter? If the answer is “yes”, then we need you!</p>
               <div class="row row-30">
