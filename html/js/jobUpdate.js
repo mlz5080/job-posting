@@ -96,7 +96,7 @@ function writeUserData(userId,companyname, email, location,jobtitle, jobtype,job
         companyweb:companyweb,
         requirement: requirement,
         description:description,
-
+        timestamp:Math.floor(Date.now() / 1000);
     };
     var updates={};
     updates['/posts/' + userId ] = postData;
