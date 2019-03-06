@@ -160,9 +160,11 @@
 
                   var a = firebase.database().ref('posts');
 
-                    var key = a.orderByChild("postid").equalTo(id).on("value", function(snapshot) {
-                       console.log(snapshot.key);
-                     });
+
+                  ref.orderByChild('postid').equalTo(id).on("value", function(snapshot) {
+                      snapshot.forEach((function(child) {
+                        console.log(snapshot.key) });
+                    )});
 
 
                   </script>
