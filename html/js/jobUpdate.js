@@ -53,6 +53,8 @@ function Update(){
     window.alert("Please login first!");
   }
   else{
+    var companyname = document.getElementById('general-information-companyname').value;
+
   var email = document.getElementById('general-information-email').value;
   var location=document.getElementById('general-information-location').value;
 
@@ -65,21 +67,24 @@ function Update(){
   var jobcategory = jobcategoryindex.options[jobcategoryindex.selectedIndex].text;
   var jobcategoryvalue = document.getElementById('general-information-job-category').value;
   var salary = document.getElementById('general-information-salary').value;
+var companyweb = document.getElementById('website').value;
+  var requirement = document.getElementById('general-information-requirement').value;
+    var description = document.getElementById('general-information-description').value;
 
-  var requirement = document.getElementById('general-information-description').value;
-  writeUserData(user.uid,email,location,jobtitle,jobtype,jobvalue,jobcategory,jobcategoryvalue,
-    salary,requirement)
+  writeUserData(user.uid,companyname,email,location,jobtitle,jobtype,jobvalue,jobcategory,jobcategoryvalue,
+    salary,companyweb,requirement,description)
   window.alert("Succesful!!");
   }
 }
 
-function writeUserData(userId, email, location,jobtitle, jobtype,jobvalue,
-  jobcategory,jobcategoryvalue,salary,requirement) {
+function writeUserData(userId,companyname, email, location,jobtitle, jobtype,jobvalue,
+  jobcategory,jobcategoryvalue,salary,companyweb,requirement,description) {
     var a = firebase.database().ref('company-posts-number');
     a.once('value').then(function(snapshot){
       var postid = snapshot.val();
       var postData = {
         postid: ++postid,
+        companyname:companyname,
         email: email,
         location: location,
         jobtitle: jobtitle,
@@ -88,11 +93,14 @@ function writeUserData(userId, email, location,jobtitle, jobtype,jobvalue,
         jobcategoryvalue:jobcategoryvalue,
         jobcategory: jobcategory,
         salary: salary,
+        companyweb:companyweb,
         requirement: requirement,
-
+        description:description,
+        timestamp:Math.floor(Date.now() / 1000);
     };
+    var newPostKey = firebase.database().ref().child('posts').push().key;
     var updates={};
-    updates['/company-posts/' + userId ] = postData;
+    updates['/posts/' + userId + '/' + newPostKey] = postData;
     updates['/company-posts-number'] = postid;
     return firebase.database().ref().update(updates);
     });

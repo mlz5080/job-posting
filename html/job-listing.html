@@ -240,7 +240,7 @@
             <div class="col-lg-8 col-xl-9" id="outputdiv">
             <div class="container">
              <div class="jumbotron page" id="page1">
-                <table class="table-job-listing table-responsive" id="mytable1">
+                <table class="table-job-listing table-responsive-sm" id="mytable1">
                    <script type="text/javascript">
                       var a = firebase.database().ref('/posts');
                       var local=[];
@@ -252,6 +252,7 @@
                       local = local.reverse();
                       for(i = 0;i<5;i++){
                         var currentime = Math.floor(Date.now() / 1000);
+                        var rowid = local[i].postid;
                         var jobtitle = local[i].jobtitle;
                         var companyname = local[i].companyname;
                         var location = local[i].location;
@@ -260,7 +261,9 @@
                         var jobtypevalue = local[i].jobvalue;
                         var salary = local[i].salary;
                         var timestamp = local[i].timestamp;
+                        console.log(local[i].timestamp);
                         var postid = local[i].postid;
+                        console.log(currentime);
                         diff = currentime - timestamp;
                         if(diff < 60){
                           var actualtime = Math.floor(diff) + " seconds ago";
@@ -283,7 +286,7 @@
                             var actualtime = temp + " hour ago";
                           }
                         }
-                        else if(diff > 86400){
+                        else if(diff > 86400 && diff<2592000){
                           var temp = Math.floor(diff/86400);
                           if(temp>1){
                             var actualtime = temp + " days ago";
@@ -293,6 +296,7 @@
                           }
                         }
                         else{
+                          console.log(diff);
                           var actualtime = "Months ago";
                         }
 
@@ -315,7 +319,7 @@
                       }
                         var mystr6 = '</figure>';
                         var mystr7 = '<div class="company-light-main">';
-                        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html">${jobtitle}</a></h5>`;
+                        var mystr8 = `<h5 class="company-light-title"><a href="job-details.html?id=${rowid}">${jobtitle}</a></h5>`;
                         var mystr9 = `<p class="text-color-default">${companyname}</p>`;
                         var mystr10 = '</div>';
                         var mystr11 = '</article>';
@@ -554,36 +558,37 @@
                     });
                     break;
                 }
+                alert($("#mytable1").html())
             }
             else if($(this).prop("checked") == false){
                 var a = $(this).attr("id");
                 switch(a){
                   case "fulltime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="全职工作" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                      if($(this).text()=="兼职" && (document.getElementById("parttime").checked===true || document.getElementById("internship").checked===false)){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()!=="全职工作" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                      else if($(this).text()=="实习生" && (document.getElementById("internship").checked===true || document.getElementById("parttime").checked===false)){
                           $(this).parent().parent().show();
                         }
                     });
                     break;
                   case "parttime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="兼职" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                      if($(this).text()=="全职工作" && (document.getElementById("fulltime").checked===true || document.getElementById("internship").checked===false)){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()!=="兼职" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                      else if($(this).text()=="实习生" && (document.getElementById("internship").checked===true || document.getElementById("fulltime").checked===false)){
                           $(this).parent().parent().show();
                         }
                     });
                     break;
                   case "internship":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="实习生" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                      if($(this).text()=="兼职" && (document.getElementById("parttime").checked===true || document.getElementById("fulltime").checked===false)){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()!=="实习生" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                      else if($(this).text()=="全职工作" && (document.getElementById("fulltime").checked===true || document.getElementById("parttime").checked===false)){
                           $(this).parent().parent().show();
                         }
                     });
