@@ -182,7 +182,7 @@
                     </li>
                     <li>
                       <label class="checkbox checkbox_info text-primary">
-                        <input id = "fulltime" name="vacancy-type-checkbox-2" value="checkbox-2" type="checkbox">全职工作<span class="checkbox-meta">25</span>
+                        <input id = "fulltime" name="vacancy-type-checkbox-2" value="checkbox-2" type="checkbox">义工活动<span class="checkbox-meta">25</span>
                       </label>
                     </li>
                     <li>
@@ -515,10 +515,10 @@
                 switch(a){
                   case "fulltime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="全职工作" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
+                      if($(this).text()!=="义工活动" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
                           $(this).parent().parent().hide();
                       }
-                      else if($(this).text()!=="全职工作" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
+                      else if($(this).text()!=="义工活动" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
                           $(this).parent().parent().hide();
                       }
                       else{
@@ -528,7 +528,7 @@
                     break;
                   case "parttime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()!=="兼职" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                      if($(this).text()!=="兼职" && $(this).text()=="义工活动" && document.getElementById("fulltime").checked===false){
                           $(this).parent().parent().hide();
                       }
                       else if($(this).text()!=="兼职" && $(this).text()=="实习生" && document.getElementById("internship").checked===false){
@@ -544,7 +544,7 @@
                       if($(this).text()!=="实习生" && $(this).text()=="兼职" && document.getElementById("parttime").checked===false){
                           $(this).parent().parent().hide();
                       }
-                      else if($(this).text()!=="实习生" && $(this).text()=="全职工作" && document.getElementById("fulltime").checked===false){
+                      else if($(this).text()!=="实习生" && $(this).text()=="义工活动" && document.getElementById("fulltime").checked===false){
                           $(this).parent().parent().hide();
                         }
                         else{
@@ -553,7 +553,7 @@
                     });
                     break;
                 }
-                alert($("#mytable1").html())
+                //alert($("#mytable1").html())
             }
             else if($(this).prop("checked") == false){
                 var a = $(this).attr("id");
@@ -570,7 +570,7 @@
                     break;
                   case "parttime":
                     $( ".badge" ).each(function( index ) {
-                      if($(this).text()=="全职工作" && (document.getElementById("fulltime").checked===true || document.getElementById("internship").checked===false)){
+                      if($(this).text()=="义工活动" && (document.getElementById("fulltime").checked===true || document.getElementById("internship").checked===false)){
                           $(this).parent().parent().show();
                       }
                       else if($(this).text()=="实习生" && (document.getElementById("internship").checked===true || document.getElementById("fulltime").checked===false)){
@@ -583,7 +583,7 @@
                       if($(this).text()=="兼职" && (document.getElementById("parttime").checked===true || document.getElementById("fulltime").checked===false)){
                           $(this).parent().parent().show();
                       }
-                      else if($(this).text()=="全职工作" && (document.getElementById("fulltime").checked===true || document.getElementById("parttime").checked===false)){
+                      else if($(this).text()=="义工活动" && (document.getElementById("fulltime").checked===true || document.getElementById("parttime").checked===false)){
                           $(this).parent().parent().show();
                         }
                     });
