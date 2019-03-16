@@ -261,9 +261,7 @@
                         var jobtypevalue = local[i].jobvalue;
                         var salary = local[i].salary;
                         var timestamp = local[i].timestamp;
-                        console.log(local[i].timestamp);
                         var postid = local[i].postid;
-                        console.log(currentime);
                         diff = currentime - timestamp;
                         if(diff < 60){
                           var actualtime = Math.floor(diff) + " seconds ago";
@@ -296,7 +294,6 @@
                           }
                         }
                         else{
-                          console.log(diff);
                           var actualtime = "Months ago";
                         }
 
